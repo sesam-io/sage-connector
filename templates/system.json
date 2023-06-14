@@ -1,0 +1,21 @@
+{
+  "_id": "{{@ system @}}",
+  "oauth2": {
+    "access_token": "$SECRET(oauth_access_token)",
+    "client_id": "$SECRET(oauth_client_id)",
+    "client_secret": "$SECRET(oauth_client_secret)",
+    "refresh_token": "$SECRET(oauth_refresh_token)",
+    "token_url": "{{@ token_url @}}"
+  },
+    "operations": {
+    "contacts-list": {
+      "id_expression": "{{ id }}",
+      "payload_property": "$items",
+      "method": "GET",
+      "url": "contacts"
+    }
+  },
+  "type": "system:rest",
+  "url_pattern": "https://api.accounting.sage.com/v3.1/%s",
+  "verify_ssl": true
+}
