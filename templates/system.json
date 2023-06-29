@@ -22,6 +22,11 @@
     "lookup": {
       "method": "GET",
       "url": "{{ properties.datatype }}/{{ entity.id }}"
+    },
+    "update": {
+      "id_expression": "{{ id }}",
+      "method": "PUT",
+      "url": "{{ properties.datatype }}/{{ entity.id }}"
     }
   },
   "type": "system:rest",
