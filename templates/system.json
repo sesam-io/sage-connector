@@ -14,6 +14,10 @@
       "payload_property": "$items",
       "url": "{{ properties.datatype }}"
     },
+    "delete": {
+      "method": "DELETE",
+      "url": "{{ properties.datatype }}/{{ entity.id }}"
+    },
     "insert": {
       "id_expression": "{{ id }}",
       "method": "POST",
