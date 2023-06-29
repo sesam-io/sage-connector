@@ -103,6 +103,9 @@
       },
       {
         "properties": {
+          "operation_delete_properties": {
+            "datatype": "{{@ datatype @}}"
+          },
           "operation_insert_properties": {
             "datatype": "{{@ datatype @}}"
           },
