@@ -7,12 +7,21 @@
     "refresh_token": "$SECRET(oauth_refresh_token)",
     "token_url": "{{@ token_url @}}"
   },
-    "operations": {
+  "operations": {
     "contacts-list": {
       "id_expression": "{{ id }}",
-      "payload_property": "$items",
       "method": "GET",
+      "payload_property": "$items",
+      "url": "{{ properties.datatype }}"
+    },
+    "insert": {
+      "id_expression": "{{ id }}",
+      "method": "POST",
       "url": "contacts"
+    },
+    "lookup": {
+      "method": "GET",
+      "url": "{{ properties.datatype }}/{{ entity.id }}"
     }
   },
   "type": "system:rest",
