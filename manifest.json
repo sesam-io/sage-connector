@@ -1,12 +1,20 @@
 {
   "additional_parameters": {
-    "account_id": {},
     "token_url": {}
   },
   "auth": "oauth2",
   "datatypes": {
     "contacts": {
-      "template": "templates/contacts.json"
+      "template": "templates/contacts.json",
+      "parameters": {
+        "endpoint": "contacts"
+      }
+    },
+    "payment-methods": {
+      "template": "templates/payment-methods.json",
+      "parameters": {
+        "endpoint": "payment_methods"
+      }
     }
   },
   "oauth2": {
