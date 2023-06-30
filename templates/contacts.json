@@ -5,7 +5,7 @@
     "source": {
       "operation": "{{@ datatype @}}-list",
       "properties": {
-        "datatype": "{{@ datatype @}}",
+        "endpoint": "{{@ endpoint @}}",
         "primary_key": "id"
       },
       "system": "{{@ system @}}",
@@ -29,7 +29,7 @@
         "properties": {
           "operation_lookup": "lookup",
           "operation_lookup_properties": {
-            "datatype": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
@@ -104,16 +104,16 @@
       {
         "properties": {
           "operation_delete_properties": {
-            "datatype": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_insert_properties": {
-            "datatype": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_lookup_properties": {
-            "datatype": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_update_properties": {
-            "datatype": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",

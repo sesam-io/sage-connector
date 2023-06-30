@@ -12,25 +12,25 @@
       "id_expression": "{{ id }}",
       "method": "GET",
       "payload_property": "$items",
-      "url": "{{ properties.datatype }}"
+      "url": "{{ properties.endpoint }}"
     },
     "delete": {
       "method": "DELETE",
-      "url": "{{ properties.datatype }}/{{ entity.id }}"
+      "url": "{{ properties.endpoint }}/{{ entity.id }}"
     },
     "insert": {
       "id_expression": "{{ id }}",
       "method": "POST",
-      "url": "{{ properties.datatype }}"
+      "url": "{{ properties.endpoint }}"
     },
     "lookup": {
       "method": "GET",
-      "url": "{{ properties.datatype }}/{{ entity.id }}"
+      "url": "{{ properties.endpoint }}/{{ entity.id }}"
     },
     "update": {
       "id_expression": "{{ id }}",
       "method": "PUT",
-      "url": "{{ properties.datatype }}/{{ entity.id }}"
+      "url": "{{ properties.endpoint }}/{{ entity.id }}"
     }
   },
   "type": "system:rest",
