@@ -21,7 +21,7 @@
     "insert": {
       "id_expression": "{{ id }}",
       "method": "POST",
-      "url": "contacts"
+      "url": "{{ properties.datatype }}"
     },
     "lookup": {
       "method": "GET",
