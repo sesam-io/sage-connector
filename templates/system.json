@@ -8,12 +8,6 @@
     "token_url": "{{@ token_url @}}"
   },
   "operations": {
-    "contacts-list": {
-      "id_expression": "{{ id }}",
-      "method": "GET",
-      "payload_property": "$items",
-      "url": "{{ properties.endpoint }}"
-    },
     "delete": {
       "method": "DELETE",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
@@ -23,12 +17,17 @@
       "method": "POST",
       "url": "{{ properties.endpoint }}"
     },
+    "list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "payload_property": "$items",
+      "url": "{{ properties.endpoint }}"
+    },
     "lookup": {
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
     },
     "update": {
-      "id_expression": "{{ id }}",
       "method": "PUT",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
     }
