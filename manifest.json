@@ -4,11 +4,12 @@
   },
   "auth": "oauth2",
   "datatypes": {
-    "contact-payments": {
+    "contactpayments": {
       "parameters": {
-        "endpoint": "contact_payments"
+        "endpoint": "contact_payments",
+        "payload_name": "contact_payment"
       },
-      "template": "templates/contact-payments.json"
+      "template": "templates/contactpayments.json"
     },
     "contacts": {
       "parameters": {
@@ -16,11 +17,18 @@
       },
       "template": "templates/contacts.json"
     },
-    "payment-methods": {
+    "paymentmethods": {
       "parameters": {
         "endpoint": "payment_methods"
       },
-      "template": "templates/payment-methods.json"
+      "template": "templates/paymentmethods.json"
+    },
+    "otherpayments": {
+      "parameters": {
+        "endpoint": "contact_payments",
+        "payload_name": "other_payment"
+      },
+      "template": "templates/contactpayments.json"
     }
   },
   "oauth2": {
