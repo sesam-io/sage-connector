@@ -32,6 +32,9 @@
     },
     "products": {
       "template": "templates/products.json"
+    },
+    "services": {
+      "template": "templates/services.json"
     }
   },
   "oauth2": {

@@ -1,0 +1,130 @@
+[
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "list",
+      "properties": {
+        "endpoint": "{{@ datatype @}}",
+        "primary_key": "id"
+      },
+      "system": "{{@ system @}}",
+      "trace": true,
+      "type": "rest"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "operation_lookup": "lookup",
+          "operation_lookup_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-share",
+    "add_namespaces": false,
+    "batch_size": 1,
+    "compaction": {
+      "keep_versions": 100
+    },
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "sink": {
+      "deletion_tracking": false,
+      "set_initial_offset": "onload"
+    },
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "rules": {
+          "create-payload": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "_*",
+                "$*"
+              ]
+            ],
+            [
+              "add",
+              "sales_ledger_account_id",
+              "_S.sales_ledger_account.id"
+            ]
+          ],
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$payload",
+              [
+                "dict",
+                "service",
+                [
+                  "apply",
+                  "create-payload",
+                  "_S."
+                ]
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      },
+      {
+        "properties": {
+          "enable_deletes": true,
+          "operation_delete_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "operation_insert_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "operation_lookup_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "operation_update_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+        },
+        "template": "transform-share-rest",
+        "trace": true,
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  }
+]
