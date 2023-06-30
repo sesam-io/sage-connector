@@ -56,7 +56,7 @@
               "$payload",
               [
                 "dict",
-                "contact_payment",
+                "{{@ payload_name @}}",
                 [
                   "apply",
                   "create-payload",
