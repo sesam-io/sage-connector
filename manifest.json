@@ -17,18 +17,21 @@
       },
       "template": "templates/contacts.json"
     },
-    "paymentmethods": {
-      "parameters": {
-        "endpoint": "payment_methods"
-      },
-      "template": "templates/paymentmethods.json"
-    },
     "otherpayments": {
       "parameters": {
         "endpoint": "contact_payments",
         "payload_name": "other_payment"
       },
       "template": "templates/contactpayments.json"
+    },
+    "paymentmethods": {
+      "parameters": {
+        "endpoint": "payment_methods"
+      },
+      "template": "templates/paymentmethods.json"
+    },
+    "products": {
+      "template": "templates/products.json"
     }
   },
   "oauth2": {
