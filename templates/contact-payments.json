@@ -1,44 +1,16 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "namespaced_identifiers": false,
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "{{@ datatype @}}",
+        "endpoint": "{{@ endpoint @}}",
         "primary_key": "id"
       },
       "system": "{{@ system @}}",
-      "trace": true,
       "type": "rest"
     },
-    "type": "pipe"
-  },
-  {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
-    "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
-    ],
-    "namespaced_identifiers": false,
-    "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
-      "type": "dataset"
-    },
-    "transform": [
-      {
-        "properties": {
-          "operation_lookup": "lookup",
-          "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
-          "primary_key": "id",
-          "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
-        },
-        "template": "transform-collect-rest",
-        "type": "template"
-      }
-    ],
     "type": "pipe"
   },
   {
@@ -72,11 +44,6 @@
                 "_*",
                 "$*"
               ]
-            ],
-            [
-              "add",
-              "contact_type_ids",
-              "_S.contact_types.id"
             ]
           ],
           "default": [
@@ -89,7 +56,7 @@
               "$payload",
               [
                 "dict",
-                "contact",
+                "contact_payment",
                 [
                   "apply",
                   "create-payload",
@@ -104,16 +71,16 @@
       {
         "properties": {
           "operation_delete_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_insert_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "operation_update_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ endpoint @}}"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",

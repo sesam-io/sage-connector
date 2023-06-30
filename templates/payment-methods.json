@@ -3,11 +3,11 @@
   "namespaced_identifiers": false,
   "source": {
     "operation": "list",
-    "system": "{{@ system @}}",
-    "type": "rest",
     "properties": {
       "endpoint": "{{@ endpoint @}}"
-    }
+    },
+    "system": "{{@ system @}}",
+    "type": "rest"
   },
   "type": "pipe"
 }
