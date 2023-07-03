@@ -103,7 +103,6 @@
       },
       {
         "properties": {
-          "enable_deletes": true,
           "operation_delete_properties": {
             "endpoint": "{{@ datatype @}}"
           },
