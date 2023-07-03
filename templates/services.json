@@ -1,16 +1,43 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "{{@ endpoint @}}",
+        "endpoint": "{{@ datatype @}}",
         "primary_key": "id"
       },
       "system": "{{@ system @}}",
       "type": "rest"
     },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-{{@ datatype @}}-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "operation_lookup": "lookup",
+          "operation_lookup_properties": {
+            "endpoint": "{{@ datatype @}}"
+          },
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      }
+    ],
     "type": "pipe"
   },
   {
@@ -44,6 +71,11 @@
                 "_*",
                 "$*"
               ]
+            ],
+            [
+              "add",
+              "sales_ledger_account_id",
+              "_S.sales_ledger_account.id"
             ]
           ],
           "default": [
@@ -71,16 +103,16 @@
       {
         "properties": {
           "operation_delete_properties": {
-            "endpoint": "{{@ endpoint @}}"
+            "endpoint": "{{@ datatype @}}"
           },
           "operation_insert_properties": {
-            "endpoint": "{{@ endpoint @}}"
+            "endpoint": "{{@ datatype @}}"
           },
           "operation_lookup_properties": {
-            "endpoint": "{{@ endpoint @}}"
+            "endpoint": "{{@ datatype @}}"
           },
           "operation_update_properties": {
-            "endpoint": "{{@ endpoint @}}"
+            "endpoint": "{{@ datatype @}}"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
