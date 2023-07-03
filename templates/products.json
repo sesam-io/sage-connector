@@ -94,7 +94,7 @@
               "$payload",
               [
                 "dict",
-                "product",
+                "{{@ payload_name @}}",
                 [
                   "apply",
                   "create-payload",

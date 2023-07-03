@@ -89,7 +89,7 @@
               "$payload",
               [
                 "dict",
-                "service",
+                "{{@ payload_name @}}",
                 [
                   "apply",
                   "create-payload",

@@ -31,9 +31,15 @@
       "template": "templates/paymentmethods.json"
     },
     "products": {
+      "parameters": {
+        "payload_name": "product"
+      },
       "template": "templates/products.json"
     },
     "services": {
+      "parameters": {
+        "payload_name": "service"
+      },
       "template": "templates/services.json"
     }
   },
