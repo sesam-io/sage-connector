@@ -87,7 +87,6 @@
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
-        "trace": true,
         "type": "template"
       }
     ],

@@ -9,7 +9,6 @@
         "primary_key": "id"
       },
       "system": "{{@ system @}}",
-      "trace": true,
       "type": "rest"
     },
     "type": "pipe"
@@ -125,7 +124,6 @@
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
-        "trace": true,
         "type": "template"
       }
     ],
