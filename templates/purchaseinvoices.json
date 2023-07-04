@@ -69,13 +69,23 @@
               [
                 "list",
                 "_*",
-                "$*"
+                "$*",
+                "invoice_lines"
               ]
             ],
             [
               "add",
-              "$invoice_lines.testt",
-              123
+              "contact_id",
+              "_S.contact.id"
+            ],
+            [
+              "add",
+              "invoice_lines",
+              [
+                "apply",
+                "invoice-lines-rule",
+                "_S.invoice_lines"
+              ]
             ]
           ],
           "default": [
@@ -95,6 +105,21 @@
                   "_S."
                 ]
               ]
+            ]
+          ],
+          "invoice-lines-rule": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "ledger_account"
+              ]
+            ],
+            [
+              "add",
+              "ledger_account_id",
+              "_S.ledger_account.id"
             ]
           ]
         },
@@ -119,6 +144,7 @@
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
+        "trace": true,
         "type": "template"
       }
     ],
