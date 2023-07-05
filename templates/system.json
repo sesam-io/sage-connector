@@ -30,7 +30,7 @@
     "release": {
       "id_expression": "{{ id }}",
       "method": "POST",
-      "url": "{{ properties.endpoint }}/{{ entity.id}}/release"
+      "url": "{{ properties.endpoint }}/{{ entity.id }}/release"
     },
     "update": {
       "method": "PUT",
