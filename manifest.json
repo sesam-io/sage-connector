@@ -39,6 +39,9 @@
     "purchaseinvoices": {
       "template": "templates/purchaseinvoices.json"
     },
+    "purchaseinvoices-release": {
+      "template": "templates/purchaseinvoices-release.json"
+    },
     "services": {
       "parameters": {
         "payload_name": "service"
