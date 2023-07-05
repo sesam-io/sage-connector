@@ -39,8 +39,8 @@
     "purchaseinvoices": {
       "template": "templates/purchaseinvoices.json"
     },
-    "purchaseinvoices-release": {
-      "template": "templates/purchaseinvoices-release.json"
+    "purchaseinvoicesrelease": {
+      "template": "templates/purchaseinvoicesrelease.json"
     },
     "services": {
       "parameters": {
