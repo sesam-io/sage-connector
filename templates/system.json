@@ -27,6 +27,11 @@
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
     },
+    "release": {
+      "id_expression": "{{ id }}",
+      "method": "POST",
+      "url": "{{ properties.endpoint }}/{{ entity.id}}/release"
+    },
     "update": {
       "method": "PUT",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
