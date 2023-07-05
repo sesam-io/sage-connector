@@ -15,7 +15,7 @@
     "insert": {
       "id_expression": "{{ id }}",
       "method": "POST",
-      "url": "{{ properties.endpoint }}{% if entity['$source']['$payload']['purchase_invoice']['id'] is defined and entity['$source']['$payload']['purchase_invoice']['id'] is not none %}/{{ entity.id }}/release{% endif %}"
+      "url": "{{ properties.endpoint }}"
     },
     "list": {
       "id_expression": "{{ id }}",
