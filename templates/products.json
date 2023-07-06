@@ -5,8 +5,7 @@
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "{{@ datatype @}}",
-        "primary_key": "id"
+        "endpoint": "{{@ datatype @}}"
       },
       "system": "{{@ system @}}",
       "type": "rest"
