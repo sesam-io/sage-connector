@@ -106,6 +106,7 @@
       },
       {
         "properties": {
+          "client_side_patching": true,
           "operation_delete_properties": {
             "endpoint": "{{@ datatype @}}"
           },
