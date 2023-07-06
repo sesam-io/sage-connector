@@ -44,6 +44,31 @@
         "payload_name": "service"
       },
       "template": "templates/services.json"
+    },
+    "salescreditnotes": {
+      "parameters": {
+        "endpoint": "sales_credit_notes",
+        "payload_name": "sales_credit_note"
+      },
+      "template": "templates/contactpayments.json"
+    },"salesestimates": {
+      "parameters": {
+        "endpoint": "sales_estimates",
+        "payload_name": "sales_estimate"
+      },
+      "template": "templates/contactpayments.json"
+    },"salesinvoices": {
+      "parameters": {
+        "endpoint": "sales_invoices",
+        "payload_name": "sales_invoice"
+      },
+      "template": "templates/contactpayments.json"
+    },"salesquotes": {
+      "parameters": {
+        "endpoint": "sales_quotes",
+        "payload_name": "sales_quote"
+      },
+      "template": "templates/contactpayments.json"
     }
   },
   "oauth2": {
