@@ -5,8 +5,7 @@
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "purchase_invoices",
-        "primary_key": "id"
+        "endpoint": "purchase_invoices"
       },
       "system": "{{@ system @}}",
       "type": "rest"
@@ -113,13 +112,25 @@
               "*",
               [
                 "list",
-                "ledger_account"
+                "ledger_account",
+                "product",
+                "tax_rate"
               ]
             ],
             [
               "add",
               "ledger_account_id",
               "_S.ledger_account.id"
+            ],
+            [
+              "add",
+              "product_id",
+              "_S.product.id"
+            ],
+            [
+              "add",
+              "tax_rate_id",
+              "_S.tax_rate.id"
             ]
           ]
         },
@@ -144,7 +155,6 @@
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
-        "trace": true,
         "type": "template"
       }
     ],
