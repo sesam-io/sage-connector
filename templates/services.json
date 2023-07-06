@@ -5,8 +5,7 @@
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "{{@ datatype @}}",
-        "primary_key": "id"
+        "endpoint": "{{@ datatype @}}"
       },
       "system": "{{@ system @}}",
       "type": "rest"
@@ -102,6 +101,7 @@
       },
       {
         "properties": {
+          "client_side_patching": true,
           "operation_delete_properties": {
             "endpoint": "{{@ datatype @}}"
           },

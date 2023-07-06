@@ -36,6 +36,9 @@
       },
       "template": "templates/products.json"
     },
+    "purchaseinvoices": {
+      "template": "templates/purchaseinvoices.json"
+    },
     "services": {
       "parameters": {
         "payload_name": "service"
