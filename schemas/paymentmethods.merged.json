@@ -1,0 +1,21 @@
+{
+  "$id": "/api/pipes/xxxxxx-paymentmethods-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$path": {
+      "description": "The API path for the resource",
+      "type": "string"
+    },
+    "displayed_as": {
+      "description": "The name of the resource",
+      "type": "string"
+    },
+    "id": {
+      "description": "The unique identifier for the item",
+      "type": "string"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-paymentmethods-collect",
+  "type": "object"
+}
