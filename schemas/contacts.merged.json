@@ -157,6 +157,7 @@
           "type": "string"
         },
         "balanceDetails": {
+          "additionalProperties": true,
           "description": "The ledger account balance details for the date range provided",
           "properties": {
             "balance": {
@@ -381,38 +382,35 @@
           "type": "string"
         },
         "balanceDetails": {
+          "additionalProperties": true,
           "description": "The ledger account balance details for the date range provided",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "balance": {
-                "description": "The account balance",
-                "type": "number"
-              },
-              "creditOrDebit": {
-                "description": "Is the balance a debit or credit",
-                "type": "string"
-              },
-              "credits": {
-                "description": "The credit balance",
-                "type": "number"
-              },
-              "debits": {
-                "description": "The debit balance",
-                "type": "number"
-              },
-              "fromDate": {
-                "description": "The from date filter",
-                "type": "string"
-              },
-              "toDate": {
-                "description": "The to date filter",
-                "type": "string"
-              }
+          "properties": {
+            "balance": {
+              "description": "The account balance",
+              "type": "number"
             },
-            "type": "object"
+            "creditOrDebit": {
+              "description": "Is the balance a debit or credit",
+              "type": "string"
+            },
+            "credits": {
+              "description": "The credit balance",
+              "type": "number"
+            },
+            "debits": {
+              "description": "The debit balance",
+              "type": "number"
+            },
+            "fromDate": {
+              "description": "The from date filter",
+              "type": "string"
+            },
+            "toDate": {
+              "description": "The to date filter",
+              "type": "string"
+            }
           },
-          "type": "array"
+          "type": "object"
         },
         "cisLabour": {
           "description": "Indicates whether the ledger account is flagged for CIS Labour",
