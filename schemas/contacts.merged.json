@@ -617,7 +617,7 @@
           "type": "string"
         }
       },
-      "type": "array"
+      "type": "object"
     },
     "deletable": {
       "description": "Indicates whether the contact can be deleted successfully",
