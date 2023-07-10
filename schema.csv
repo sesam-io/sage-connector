@@ -1,0 +1,276 @@
+"System","Type","Name","SubName","Datatype","Description"
+"unknown","contactpayments","displayed_as","","string",""
+"unknown","contactpayments","id","","string",""
+"unknown","contacts","aux_reference","","string","Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+"unknown","contacts","auxiliary_account","","string","Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+"unknown","contacts","balance","","number","The contact balance"
+"unknown","contacts","bank_account_details.account_name","","string","The account name"
+"unknown","contacts","bank_account_details.account_number","","string","The account number"
+"unknown","contacts","bank_account_details.bic","","string","The bic"
+"unknown","contacts","bank_account_details.iban","","string","The iban"
+"unknown","contacts","bank_account_details.sort_code","","string","The sort code"
+"unknown","contacts","cis_registered","","boolean","Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>"
+"unknown","contacts","cis_settings","deduction_rate","object","The CIS Deduction rate for the contact"
+"unknown","contacts","cis_settings","registered_cis_name","string","the CIS name for the Contact"
+"unknown","contacts","cis_settings","subcontractor_verification_number","string","The CIS Verification number for the contact"
+"unknown","contacts","contact_types","$path","string","The API path for the resource"
+"unknown","contacts","contact_types","displayed_as","string","The name of the resource"
+"unknown","contacts","contact_types","id","string","The unique identifier for the item"
+"unknown","contacts","created_at","","string","The datetime when the item was created"
+"unknown","contacts","credit_days","","number","Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+"unknown","contacts","credit_limit","","number","Custom credit limit amount for the contact <br><i>not applicable to Start</i>"
+"unknown","contacts","credit_terms","","string","Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+"unknown","contacts","credit_terms_and_conditions","","string","Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+"unknown","contacts","currency.$path","","string","The API path for the resource"
+"unknown","contacts","currency.displayed_as","","string","The name of the resource"
+"unknown","contacts","currency.id","","string","The unique identifier for the item"
+"unknown","contacts","default_purchase_ledger_account.$path","","string","The API path for the resource"
+"unknown","contacts","default_purchase_ledger_account.balance_details","","object","The ledger account balance details for the date range provided"
+"unknown","contacts","default_purchase_ledger_account.cis_labour","","boolean","Indicates whether the ledger account is flagged for CIS Labour"
+"unknown","contacts","default_purchase_ledger_account.cis_materials","","boolean","Indicates whether the ledger account is flagged for CIS Materials"
+"unknown","contacts","default_purchase_ledger_account.control_name","","string","The control name for the ledger account.
+
+This is used internally by Accounting to identify the correct ledger account for booking taxes etc.
+You cannot add ledger accounts with control name and you cannot modify the control name of existing
+ledger accounts.
+"
+"unknown","contacts","default_purchase_ledger_account.created_at","","string","The datetime when the item was created"
+"unknown","contacts","default_purchase_ledger_account.display_formatted","","string","The display name formatted based on coa_list_order in settings"
+"unknown","contacts","default_purchase_ledger_account.display_name","","string","The display name for the ledger account"
+"unknown","contacts","default_purchase_ledger_account.displayed_as","","string","The name of the resource"
+"unknown","contacts","default_purchase_ledger_account.fixed_tax_rate","","boolean","Indicates whether the default tax rate is fixed or may be changed per transaction"
+"unknown","contacts","default_purchase_ledger_account.gifi_code","","integer","The GIFI code of the ledger account.
+
+GIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.
+Information from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.
+GIFI is needed when filing a T2 income tax return.
+
+_Canada only_
+"
+"unknown","contacts","default_purchase_ledger_account.id","","string","The unique identifier for the item"
+"unknown","contacts","default_purchase_ledger_account.included_in_chart","","boolean","Indicates whether the ledger account is included in the chart of accounts"
+"unknown","contacts","default_purchase_ledger_account.is_control_account","","boolean","Indicates whether the ledger account is a control account.
+
+Control accounts cannot be removed. See also `control_name`.
+"
+"unknown","contacts","default_purchase_ledger_account.ledger_account_classification","","None","The ledger account classification for the ledger account"
+"unknown","contacts","default_purchase_ledger_account.ledger_account_group","","None","The ledger account group for the account"
+"unknown","contacts","default_purchase_ledger_account.ledger_account_type","","None","The ledger account type for the ledger account"
+"unknown","contacts","default_purchase_ledger_account.name","","string","The name for the ledger account.
+
+Changes to this field do not propagate to other resources, namely not to the name of the associated
+bank_account (unlike the behaviour of the UI).
+"
+"unknown","contacts","default_purchase_ledger_account.nominal_code","","integer","The nominal code of the ledger account"
+"unknown","contacts","default_purchase_ledger_account.non_recoverable_ledger_account","","None","The non-recoverable ledger account (Canada Only)"
+"unknown","contacts","default_purchase_ledger_account.recoverable_percentage","","number","The partial recoverable tax rate (Canada only)"
+"unknown","contacts","default_purchase_ledger_account.tax_instalment","","boolean","Indicates whether the ledger account is flagged for Tax Intalment (Canada only)"
+"unknown","contacts","default_purchase_ledger_account.tax_rate","","None","The default tax rate for the ledger account"
+"unknown","contacts","default_purchase_ledger_account.tax_recoverable","","boolean","Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
+"
+"unknown","contacts","default_purchase_ledger_account.updated_at","","string","The datetime when the item was last updated"
+"unknown","contacts","default_purchase_ledger_account.visible_in_banking","","boolean","Indicates whether the ledger account is displayed in the banking area of the application"
+"unknown","contacts","default_purchase_ledger_account.visible_in_expenses","","boolean","Indicates whether the ledger account is displayed in the purchases area of the application"
+"unknown","contacts","default_purchase_ledger_account.visible_in_journals","","boolean","Indicates whether the ledger account is displayed in the journals area of the application"
+"unknown","contacts","default_purchase_ledger_account.visible_in_other_payments","","boolean","Indicates whether the ledger account is displayed in the other payments area of the application
+"
+"unknown","contacts","default_purchase_ledger_account.visible_in_other_receipts","","boolean","Indicates whether the ledger account is displayed in the other receipts area of the application
+"
+"unknown","contacts","default_purchase_ledger_account.visible_in_reporting","","boolean","Indicates whether the ledger account is displayed in the reporting area of the application"
+"unknown","contacts","default_purchase_ledger_account.visible_in_sales","","boolean","Indicates whether the ledger account is displayed in the sales area of the application"
+"unknown","contacts","default_purchase_ledger_account.visible_scopes","","array","The visible scopes for the ledger account.
+
+This indicates in which of the UI's areas the ledger account is displayed and available for user
+selection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,
+`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`
+and `purchasing_hrc`.
+"
+"unknown","contacts","default_sales_ledger_account.$path","","string","The API path for the resource"
+"unknown","contacts","default_sales_ledger_account.balance_details","","None","The ledger account balance details for the date range provided"
+"unknown","contacts","default_sales_ledger_account.cis_labour","","boolean","Indicates whether the ledger account is flagged for CIS Labour"
+"unknown","contacts","default_sales_ledger_account.cis_materials","","boolean","Indicates whether the ledger account is flagged for CIS Materials"
+"unknown","contacts","default_sales_ledger_account.control_name","","string","The control name for the ledger account.
+
+This is used internally by Accounting to identify the correct ledger account for booking taxes etc.
+You cannot add ledger accounts with control name and you cannot modify the control name of existing
+ledger accounts.
+"
+"unknown","contacts","default_sales_ledger_account.created_at","","string","The datetime when the item was created"
+"unknown","contacts","default_sales_ledger_account.display_formatted","","string","The display name formatted based on coa_list_order in settings"
+"unknown","contacts","default_sales_ledger_account.display_name","","string","The display name for the ledger account"
+"unknown","contacts","default_sales_ledger_account.displayed_as","","string","The name of the resource"
+"unknown","contacts","default_sales_ledger_account.fixed_tax_rate","","boolean","Indicates whether the default tax rate is fixed or may be changed per transaction"
+"unknown","contacts","default_sales_ledger_account.gifi_code","","integer","The GIFI code of the ledger account.
+
+GIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.
+Information from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.
+GIFI is needed when filing a T2 income tax return.
+
+_Canada only_
+"
+"unknown","contacts","default_sales_ledger_account.id","","string","The unique identifier for the item"
+"unknown","contacts","default_sales_ledger_account.included_in_chart","","boolean","Indicates whether the ledger account is included in the chart of accounts"
+"unknown","contacts","default_sales_ledger_account.is_control_account","","boolean","Indicates whether the ledger account is a control account.
+
+Control accounts cannot be removed. See also `control_name`.
+"
+"unknown","contacts","default_sales_ledger_account.ledger_account_classification","","None","The ledger account classification for the ledger account"
+"unknown","contacts","default_sales_ledger_account.ledger_account_group","","None","The ledger account group for the account"
+"unknown","contacts","default_sales_ledger_account.ledger_account_type","","None","The ledger account type for the ledger account"
+"unknown","contacts","default_sales_ledger_account.name","","string","The name for the ledger account.
+
+Changes to this field do not propagate to other resources, namely not to the name of the associated
+bank_account (unlike the behaviour of the UI).
+"
+"unknown","contacts","default_sales_ledger_account.nominal_code","","integer","The nominal code of the ledger account"
+"unknown","contacts","default_sales_ledger_account.non_recoverable_ledger_account","","None","The non-recoverable ledger account (Canada Only)"
+"unknown","contacts","default_sales_ledger_account.recoverable_percentage","","number","The partial recoverable tax rate (Canada only)"
+"unknown","contacts","default_sales_ledger_account.tax_instalment","","boolean","Indicates whether the ledger account is flagged for Tax Intalment (Canada only)"
+"unknown","contacts","default_sales_ledger_account.tax_rate","","None","The default tax rate for the ledger account"
+"unknown","contacts","default_sales_ledger_account.tax_recoverable","","boolean","Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
+"
+"unknown","contacts","default_sales_ledger_account.updated_at","","string","The datetime when the item was last updated"
+"unknown","contacts","default_sales_ledger_account.visible_in_banking","","boolean","Indicates whether the ledger account is displayed in the banking area of the application"
+"unknown","contacts","default_sales_ledger_account.visible_in_expenses","","boolean","Indicates whether the ledger account is displayed in the purchases area of the application"
+"unknown","contacts","default_sales_ledger_account.visible_in_journals","","boolean","Indicates whether the ledger account is displayed in the journals area of the application"
+"unknown","contacts","default_sales_ledger_account.visible_in_other_payments","","boolean","Indicates whether the ledger account is displayed in the other payments area of the application
+"
+"unknown","contacts","default_sales_ledger_account.visible_in_other_receipts","","boolean","Indicates whether the ledger account is displayed in the other receipts area of the application
+"
+"unknown","contacts","default_sales_ledger_account.visible_in_reporting","","boolean","Indicates whether the ledger account is displayed in the reporting area of the application"
+"unknown","contacts","default_sales_ledger_account.visible_in_sales","","boolean","Indicates whether the ledger account is displayed in the sales area of the application"
+"unknown","contacts","default_sales_ledger_account.visible_scopes","","array","The visible scopes for the ledger account.
+
+This indicates in which of the UI's areas the ledger account is displayed and available for user
+selection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,
+`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`
+and `purchasing_hrc`.
+"
+"unknown","contacts","default_sales_tax_rate","$path","string","The API path for the resource"
+"unknown","contacts","default_sales_tax_rate","displayed_as","string","The name of the resource"
+"unknown","contacts","default_sales_tax_rate","id","string","The unique identifier for the item"
+"unknown","contacts","deletable","","boolean","Indicates whether the contact can be deleted successfully"
+"unknown","contacts","deleted_at","","string","The datetime when the item was deleted"
+"unknown","contacts","delivery_address","","object","The delivery address <br><i>Customers only</i>"
+"unknown","contacts","destination_vat_blocking","","boolean","Identifies a contact should be blocked due to destination vat"
+"unknown","contacts","displayed_as","","string","The name of the resource"
+"unknown","contacts","email","","string","The email address for the given contact"
+"unknown","contacts","gb_based","","boolean","Identifies a contact as being based in Great Britain."
+"unknown","contacts","gdpr_obfuscated","","boolean","General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+"unknown","contacts","has_unfinished_recurring_invoices","","boolean","Indicates whether the contact is associated with any unfinished recurring invoices"
+"unknown","contacts","id","","string","The unique identifier for the item"
+"unknown","contacts","is_active","","boolean","Identifies a contact as being active"
+"unknown","contacts","links","href","string","The link path"
+"unknown","contacts","links","rel","string","The relationship of the link to the resource"
+"unknown","contacts","links","type","string","The content-type of the link"
+"unknown","contacts","locale","","string","The locale for the contact"
+"unknown","contacts","main_address.$path","","string","The API path for the resource"
+"unknown","contacts","main_address.address_line_1","","string","The first line of the address"
+"unknown","contacts","main_address.address_line_2","","string","The second line of the address"
+"unknown","contacts","main_address.address_type","","None","Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to 'Sales' for Customers and 'Purchasing' for Vendors"
+"unknown","contacts","main_address.bank_account","","None","The related bank account of the address, if the address belongs to a bank account."
+"unknown","contacts","main_address.city","","string","The address town/city"
+"unknown","contacts","main_address.contact","","None","The related contact of the address, if the address belongs to a contact."
+"unknown","contacts","main_address.country","","None","The address country"
+"unknown","contacts","main_address.country_group","","None","Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC."
+"unknown","contacts","main_address.created_at","","string","The datetime when the item was created"
+"unknown","contacts","main_address.deleted_at","","string","The datetime when the item was deleted"
+"unknown","contacts","main_address.displayed_as","","string","The name of the resource"
+"unknown","contacts","main_address.id","","string","The unique identifier for the item"
+"unknown","contacts","main_address.is_main_address","","boolean","Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI"
+"unknown","contacts","main_address.name","","string","The custom name of the address"
+"unknown","contacts","main_address.postal_code","","string","The address postal code/zipcode"
+"unknown","contacts","main_address.region","","string","The address state/province/region"
+"unknown","contacts","main_address.updated_at","","string","The datetime when the item was last updated"
+"unknown","contacts","main_contact_person.$path","","string","The API path for the resource"
+"unknown","contacts","main_contact_person.address","","None","The address of the contact person"
+"unknown","contacts","main_contact_person.contact_person_types","","array","The contact person types for the contact person. Get possible types by retrieving
+<a href='https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes'>
+  all available contact person types
+</a>.
+"
+"unknown","contacts","main_contact_person.created_at","","string","The datetime when the item was created"
+"unknown","contacts","main_contact_person.deleted_at","","string","The datetime when the item was deleted"
+"unknown","contacts","main_contact_person.displayed_as","","string","The name of the resource"
+"unknown","contacts","main_contact_person.email","","string","The email address of the contact person"
+"unknown","contacts","main_contact_person.fax","","string","The fax number of the contact person"
+"unknown","contacts","main_contact_person.id","","string","The unique identifier for the item"
+"unknown","contacts","main_contact_person.is_main_contact","","boolean","Indicates whether this is the main contact person. Per contact, only one main contact can be selected."
+"unknown","contacts","main_contact_person.is_preferred_contact","","boolean","Indicates whether this contact person is a preferred contact"
+"unknown","contacts","main_contact_person.job_title","","string","The job title of the contact person"
+"unknown","contacts","main_contact_person.mobile","","string","The mobile number of the contact person"
+"unknown","contacts","main_contact_person.name","","string","The name of the contact person"
+"unknown","contacts","main_contact_person.telephone","","string","The telephone number of the contact person"
+"unknown","contacts","main_contact_person.updated_at","","string","The datetime when the item was last updated"
+"unknown","contacts","mandate_active","","boolean","Not found in the docs"
+"unknown","contacts","name","","string","The contact's full name or business name"
+"unknown","contacts","ni_based","","boolean","Identifies a contact as being based in Northern Ireland."
+"unknown","contacts","notes","","string","The notes for the contact"
+"unknown","contacts","preferred_address.$path","","string",""
+"unknown","contacts","preferred_address.displayed_as","","string",""
+"unknown","contacts","preferred_address.id","","string",""
+"unknown","contacts","preferred_contact_person.$path","","string",""
+"unknown","contacts","preferred_contact_person.displayed_as","","string",""
+"unknown","contacts","preferred_contact_person.id","","string",""
+"unknown","contacts","product_sales_price_type.$path","","string","The API path for the resource"
+"unknown","contacts","product_sales_price_type.displayed_as","","string","The name of the resource"
+"unknown","contacts","product_sales_price_type.id","","string","The unique identifier for the item"
+"unknown","contacts","reference","","string","Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+"unknown","contacts","registered_number","","string","The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID')."
+"unknown","contacts","send_statements","","boolean","Not found in the docs"
+"unknown","contacts","source_guid","","string","Used when importing contacts from external sources"
+"unknown","contacts","statement_run.id","","string",""
+"unknown","contacts","statement_run.name","","string",""
+"unknown","contacts","system","","boolean","Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds."
+"unknown","contacts","tax_calculation","","string","<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+"unknown","contacts","tax_number","","string","The VAT registration number of the contact. The format will be validated."
+"unknown","contacts","tax_treatment.eu_not_tax_registered","","boolean","Indicates an EU contact without a tax number - home tax rules should be applied"
+"unknown","contacts","tax_treatment.eu_tax_registered","","boolean","Indicates a contact where EC tax rules should be applied"
+"unknown","contacts","tax_treatment.home_tax","","boolean","Indicates a contact where home country tax rules should be applied"
+"unknown","contacts","tax_treatment.is_importer","","None","Indicates a contact where import rules should be appliedOnly used for suppliers and FR, ES, IE and UK businesses"
+"unknown","contacts","tax_treatment.rest_of_world_tax","","boolean","Indicates a contact where rest of world tax rules should be applied"
+"unknown","contacts","updated_at","","string","The datetime when the item was last updated"
+"unknown","otherpayments","displayed_as","","string",""
+"unknown","otherpayments","id","","string",""
+"unknown","paymentmethods","displayed_as","","string",""
+"unknown","paymentmethods","id","","string",""
+"unknown","salescreditnotes","displayed_as","","string",""
+"unknown","salescreditnotes","id","","string",""
+"unknown","salesestimates","displayed_as","","string",""
+"unknown","salesestimates","id","","string",""
+"unknown","salesinvoices","displayed_as","","string",""
+"unknown","salesinvoices","id","","string",""
+"unknown","salesquotes","displayed_as","","string",""
+"unknown","salesquotes","id","","string",""
