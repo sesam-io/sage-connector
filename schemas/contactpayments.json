@@ -48,32 +48,45 @@
             "description": "Links for the resource"
         },
         "transaction": {
-            "id": {
-                "type": "string",
-                "description": "The unique identifier for the item"
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
             },
-            "displayed_as": {
-                "type": "string",
-                "description": "The name of the resource"
-            },
-            "$path": {
-                "type": "string",
-                "description": "The API path for the resource"
-            }
+            "type":"object",
+            "description": "The transaction for the item"
         },
         "transaction_type": {
-            "id": {
-                "type": "string",
-                "description": "The unique identifier for the item"
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
             },
-            "displayed_as": {
-                "type": "string",
-                "description": "The name of the resource"
-            },
-            "$path": {
-                "type": "string",
-                "description": "The API path for the resource"
-            }
+            "type":"object",
+            "description": "The transaction type of the payment"
+
         },
         "deleted_at": {
             "type": "string",
@@ -272,18 +285,24 @@
             "description": "The allocated artefacts"
         },
         "tax_rate": {
-            "id": {
-                "type": "string",
-                "description": "The unique identifier for the item"
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
             },
-            "displayed_as": {
-                "type": "string",
-                "description": "The name of the resource"
-            },
-            "$path": {
-                "type": "string",
-                "description": "The API path for the resource"
-            }
+            "type":"object",
+            "description": "The tax rate for the payment (only used with some cash based tax schemes)"
         },
         "payment_on_account": {
             "additionalProperties": true,

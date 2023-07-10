@@ -262,7 +262,7 @@
               "type": "string"
             }
           },
-          "type": "array"
+          "type": "object"
         },
         "contact_name": {
           "description": "The name of the contact when the payment on account was created",
@@ -369,18 +369,23 @@
       "type": "number"
     },
     "tax_rate": {
-      "$path": {
-        "description": "The API path for the resource",
-        "type": "string"
+      "additionalProperties": true,
+      "description": "The tax rate for the payment (only used with some cash based tax schemes)",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
       },
-      "displayed_as": {
-        "description": "The name of the resource",
-        "type": "string"
-      },
-      "id": {
-        "description": "The unique identifier for the item",
-        "type": "string"
-      }
+      "type": "object"
     },
     "total_amount": {
       "description": "The total amount of the payment",
@@ -388,32 +393,42 @@
       "type": "number"
     },
     "transaction": {
-      "$path": {
-        "description": "The API path for the resource",
-        "type": "string"
+      "additionalProperties": true,
+      "description": "The transaction for the item",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
       },
-      "displayed_as": {
-        "description": "The name of the resource",
-        "type": "string"
-      },
-      "id": {
-        "description": "The unique identifier for the item",
-        "type": "string"
-      }
+      "type": "object"
     },
     "transaction_type": {
-      "$path": {
-        "description": "The API path for the resource",
-        "type": "string"
+      "additionalProperties": true,
+      "description": "The transaction type of the payment",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
       },
-      "displayed_as": {
-        "description": "The name of the resource",
-        "type": "string"
-      },
-      "id": {
-        "description": "The unique identifier for the item",
-        "type": "string"
-      }
+      "type": "object"
     },
     "updated_at": {
       "description": "The datetime when the item was last updated",
