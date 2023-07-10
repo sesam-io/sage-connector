@@ -1,0 +1,409 @@
+System,Type,Name,SubName,Datatype,Description
+Sage,contactpayments,allocated_artefacts,amount,number,The allocated amount
+Sage,contactpayments,allocated_artefacts,artefact,object,The artefact the allocation relates to
+Sage,contactpayments,allocated_artefacts,discount,number,The allocated discount
+Sage,contactpayments,allocated_artefacts,id,string,The unique identifier for the item
+Sage,contactpayments,bank_account.$path,,string,The API path for the resource
+Sage,contactpayments,bank_account.displayed_as,,string,The name of the resource
+Sage,contactpayments,bank_account.id,,string,The unique identifier for the item
+Sage,contactpayments,base_currency_currency_charge,,number,The currency conversion charges in base currency
+Sage,contactpayments,base_currency_net_amount,,number,The net amount of the payment in base currency
+Sage,contactpayments,base_currency_tax_amount,,number,The tax amount of the payment in base currency
+Sage,contactpayments,base_currency_total_amount,,number,The total amount of the payment in base currency
+Sage,contactpayments,contact.$path,,string,The API path for the resource
+Sage,contactpayments,contact.displayed_as,,string,The name of the resource
+Sage,contactpayments,contact.id,,string,The unique identifier for the item
+Sage,contactpayments,created_at,,string,The datetime when the item was created
+Sage,contactpayments,currency.$path,,string,The API path for the resource
+Sage,contactpayments,currency.displayed_as,,string,The name of the resource
+Sage,contactpayments,currency.id,,string,The unique identifier for the item
+Sage,contactpayments,date,,string,The date the payment was made
+Sage,contactpayments,deleted_at,,string,The datetime when the item was deleted
+Sage,contactpayments,displayed_as,,string,The name of the resource
+Sage,contactpayments,exchange_rate,,number,The exchange rate of the payment
+Sage,contactpayments,id,,string,The unique identifier for the item
+Sage,contactpayments,links,href,string,The link path
+Sage,contactpayments,links,rel,string,The relationship of the link to the resource
+Sage,contactpayments,links,type,string,The content-type of the link
+Sage,contactpayments,net_amount,,number,The net amount of the payment
+Sage,contactpayments,payment_method.$path,,string,The API path for the resource
+Sage,contactpayments,payment_method.displayed_as,,string,The name of the resource
+Sage,contactpayments,payment_method.id,,string,The unique identifier for the item
+Sage,contactpayments,payment_on_account.$path,,string,The API path for the resource
+Sage,contactpayments,payment_on_account.base_currency_net_amount,,number,The net amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_outstanding_amount,,number,The outstanding amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_tax_amount,,number,The tax amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_total_amount,,number,The total amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.contact,,object,
+Sage,contactpayments,payment_on_account.contact_name,,string,The name of the contact when the payment on account was created
+Sage,contactpayments,payment_on_account.contact_reference,,string,The reference of the contact when the payment on account was created
+Sage,contactpayments,payment_on_account.created_at,,string,The datetime when the item was created
+Sage,contactpayments,payment_on_account.currency,,object,
+Sage,contactpayments,payment_on_account.date,,string,The date of the payment on account
+Sage,contactpayments,payment_on_account.displayed_as,,string,The name of the resource
+Sage,contactpayments,payment_on_account.exchange_rate,,number,The exchange rate for the payment on account
+Sage,contactpayments,payment_on_account.id,,string,The unique identifier for the item
+Sage,contactpayments,payment_on_account.net_amount,,number,The net amount of the payment on account
+Sage,contactpayments,payment_on_account.outstanding_amount,,number,The outstanding amount of the payment on account
+Sage,contactpayments,payment_on_account.reference,,string,The reference for the payment on account
+Sage,contactpayments,payment_on_account.status,,object,
+Sage,contactpayments,payment_on_account.tax_amount,,number,The tax amount of the payment on account
+Sage,contactpayments,payment_on_account.total_amount,,number,The total amount of the payment on account
+Sage,contactpayments,payment_on_account.updated_at,,string,The datetime when the item was last updated
+Sage,contactpayments,reference,,string,"A reference for the payment
+Note: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
+Sage,contactpayments,tax_amount,,number,The tax amount of the payment
+Sage,contactpayments,tax_rate.$path,,string,The API path for the resource
+Sage,contactpayments,tax_rate.displayed_as,,string,The name of the resource
+Sage,contactpayments,tax_rate.id,,string,The unique identifier for the item
+Sage,contactpayments,total_amount,,number,The total amount of the payment
+Sage,contactpayments,transaction.$path,,string,The API path for the resource
+Sage,contactpayments,transaction.displayed_as,,string,The name of the resource
+Sage,contactpayments,transaction.id,,string,The unique identifier for the item
+Sage,contactpayments,transaction_type.$path,,string,The API path for the resource
+Sage,contactpayments,transaction_type.displayed_as,,string,The name of the resource
+Sage,contactpayments,transaction_type.id,,string,The unique identifier for the item
+Sage,contactpayments,updated_at,,string,The datetime when the item was last updated
+Sage,contacts,auxReference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,contacts,auxiliaryAccount,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,contacts,balance,,number,The contact balance
+Sage,contacts,bankAccountDetails.accountName,,string,The account name
+Sage,contacts,bankAccountDetails.accountNumber,,string,The account number
+Sage,contacts,bankAccountDetails.bic,,string,The bic
+Sage,contacts,bankAccountDetails.iban,,string,The iban
+Sage,contacts,bankAccountDetails.sortCode,,string,The sort code
+Sage,contacts,cisRegistered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,contacts,cisSettings,deduction_rate,object,The CIS Deduction rate for the contact
+Sage,contacts,cisSettings,registered_cis_name,string,the CIS name for the Contact
+Sage,contacts,cisSettings,subcontractor_verification_number,string,The CIS Verification number for the contact
+Sage,contacts,contactTypes,$path,string,The API path for the resource
+Sage,contacts,contactTypes,displayedAs,string,The name of the resource
+Sage,contacts,contactTypes,id,string,The unique identifier for the item
+Sage,contacts,createdAt,,string,The datetime when the item was created
+Sage,contacts,creditDays,,number,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,contacts,creditLimit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,contacts,creditTerms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,contacts,creditTermsAndConditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,contacts,currency.$path,,string,The API path for the resource
+Sage,contacts,currency.displayedAs,,string,The name of the resource
+Sage,contacts,currency.id,,string,The unique identifier for the item
+Sage,contacts,defaultPurchaseLedgerAccount.$path,,string,The API path for the resource
+Sage,contacts,defaultPurchaseLedgerAccount.balanceDetails,,object,The ledger account balance details for the date range provided
+Sage,contacts,defaultPurchaseLedgerAccount.cisLabour,,boolean,Indicates whether the ledger account is flagged for CIS Labour
+Sage,contacts,defaultPurchaseLedgerAccount.cisMaterials,,boolean,Indicates whether the ledger account is flagged for CIS Materials
+Sage,contacts,defaultPurchaseLedgerAccount.controlName,,string,"The control name for the ledger account.
+
+This is used internally by Accounting to identify the correct ledger account for booking taxes etc.
+You cannot add ledger accounts with control name and you cannot modify the control name of existing
+ledger accounts.
+"
+Sage,contacts,defaultPurchaseLedgerAccount.createdAt,,string,The datetime when the item was created
+Sage,contacts,defaultPurchaseLedgerAccount.displayFormatted,,string,The display name formatted based on coa_list_order in settings
+Sage,contacts,defaultPurchaseLedgerAccount.displayName,,string,The display name for the ledger account
+Sage,contacts,defaultPurchaseLedgerAccount.displayedAs,,string,The name of the resource
+Sage,contacts,defaultPurchaseLedgerAccount.fixedTaxRate,,boolean,Indicates whether the default tax rate is fixed or may be changed per transaction
+Sage,contacts,defaultPurchaseLedgerAccount.gifiCode,,integer,"The GIFI code of the ledger account.
+
+GIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.
+Information from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.
+GIFI is needed when filing a T2 income tax return.
+
+_Canada only_
+"
+Sage,contacts,defaultPurchaseLedgerAccount.id,,string,The unique identifier for the item
+Sage,contacts,defaultPurchaseLedgerAccount.includedInChart,,boolean,Indicates whether the ledger account is included in the chart of accounts
+Sage,contacts,defaultPurchaseLedgerAccount.isControlAccount,,boolean,"Indicates whether the ledger account is a control account.
+
+Control accounts cannot be removed. See also `control_name`.
+"
+Sage,contacts,defaultPurchaseLedgerAccount.ledgerAccountClassification,,object,The ledger account classification for the ledger account
+Sage,contacts,defaultPurchaseLedgerAccount.ledgerAccountGroup,,object,The ledger account group for the account
+Sage,contacts,defaultPurchaseLedgerAccount.ledgerAccountType,,object,The ledger account type for the ledger account
+Sage,contacts,defaultPurchaseLedgerAccount.name,,string,"The name for the ledger account.
+
+Changes to this field do not propagate to other resources, namely not to the name of the associated
+bank_account (unlike the behaviour of the UI).
+"
+Sage,contacts,defaultPurchaseLedgerAccount.nominalCode,,integer,The nominal code of the ledger account
+Sage,contacts,defaultPurchaseLedgerAccount.nonRecoverableLedgerAccount,,object,The non-recoverable ledger account (Canada Only). $ref: #/definitions/LedgerAccount
+Sage,contacts,defaultPurchaseLedgerAccount.recoverablePercentage,,number,The partial recoverable tax rate (Canada only)
+Sage,contacts,defaultPurchaseLedgerAccount.taxInstalment,,boolean,Indicates whether the ledger account is flagged for Tax Intalment (Canada only)
+Sage,contacts,defaultPurchaseLedgerAccount.taxRate,,object,The default tax rate for the ledger account
+Sage,contacts,defaultPurchaseLedgerAccount.taxRecoverable,,boolean,"Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
+"
+Sage,contacts,defaultPurchaseLedgerAccount.updatedAt,,string,The datetime when the item was last updated
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInBanking,,boolean,Indicates whether the ledger account is displayed in the banking area of the application
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInExpenses,,boolean,Indicates whether the ledger account is displayed in the purchases area of the application
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInJournals,,boolean,Indicates whether the ledger account is displayed in the journals area of the application
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInOtherPayments,,boolean,"Indicates whether the ledger account is displayed in the other payments area of the application
+"
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInOtherReceipts,,boolean,"Indicates whether the ledger account is displayed in the other receipts area of the application
+"
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInReporting,,boolean,Indicates whether the ledger account is displayed in the reporting area of the application
+Sage,contacts,defaultPurchaseLedgerAccount.visibleInSales,,boolean,Indicates whether the ledger account is displayed in the sales area of the application
+Sage,contacts,defaultPurchaseLedgerAccount.visibleScopes,,array,"The visible scopes for the ledger account.
+
+This indicates in which of the UI's areas the ledger account is displayed and available for user
+selection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,
+`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`
+and `purchasing_hrc`.
+"
+Sage,contacts,defaultSalesLedgerAccount.$path,,string,The API path for the resource
+Sage,contacts,defaultSalesLedgerAccount.balanceDetails,,object,The ledger account balance details for the date range provided
+Sage,contacts,defaultSalesLedgerAccount.cisLabour,,boolean,Indicates whether the ledger account is flagged for CIS Labour
+Sage,contacts,defaultSalesLedgerAccount.cisMaterials,,boolean,Indicates whether the ledger account is flagged for CIS Materials
+Sage,contacts,defaultSalesLedgerAccount.controlName,,string,"The control name for the ledger account.
+
+This is used internally by Accounting to identify the correct ledger account for booking taxes etc.
+You cannot add ledger accounts with control name and you cannot modify the control name of existing
+ledger accounts.
+"
+Sage,contacts,defaultSalesLedgerAccount.createdAt,,string,The datetime when the item was created
+Sage,contacts,defaultSalesLedgerAccount.displayFormatted,,string,The display name formatted based on coa_list_order in settings
+Sage,contacts,defaultSalesLedgerAccount.displayName,,string,The display name for the ledger account
+Sage,contacts,defaultSalesLedgerAccount.displayedAs,,string,The name of the resource
+Sage,contacts,defaultSalesLedgerAccount.fixedTaxRate,,boolean,Indicates whether the default tax rate is fixed or may be changed per transaction
+Sage,contacts,defaultSalesLedgerAccount.gifiCode,,integer,"The GIFI code of the ledger account.
+
+GIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.
+Information from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.
+GIFI is needed when filing a T2 income tax return.
+
+_Canada only_
+"
+Sage,contacts,defaultSalesLedgerAccount.id,,string,The unique identifier for the item
+Sage,contacts,defaultSalesLedgerAccount.includedInChart,,boolean,Indicates whether the ledger account is included in the chart of accounts
+Sage,contacts,defaultSalesLedgerAccount.isControlAccount,,boolean,"Indicates whether the ledger account is a control account.
+
+Control accounts cannot be removed. See also `control_name`.
+"
+Sage,contacts,defaultSalesLedgerAccount.ledgerAccountClassification,,object,The ledger account classification for the ledger account
+Sage,contacts,defaultSalesLedgerAccount.ledgerAccountGroup,,object,The ledger account group for the account
+Sage,contacts,defaultSalesLedgerAccount.ledgerAccountType,,object,The ledger account type for the ledger account
+Sage,contacts,defaultSalesLedgerAccount.name,,string,"The name for the ledger account.
+
+Changes to this field do not propagate to other resources, namely not to the name of the associated
+bank_account (unlike the behaviour of the UI).
+"
+Sage,contacts,defaultSalesLedgerAccount.nominalCode,,integer,The nominal code of the ledger account
+Sage,contacts,defaultSalesLedgerAccount.nonRecoverableLedgerAccount,,None,The non-recoverable ledger account (Canada Only)
+Sage,contacts,defaultSalesLedgerAccount.recoverablePercentage,,number,The partial recoverable tax rate (Canada only)
+Sage,contacts,defaultSalesLedgerAccount.taxInstalment,,boolean,Indicates whether the ledger account is flagged for Tax Intalment (Canada only)
+Sage,contacts,defaultSalesLedgerAccount.taxRate,,object,The default tax rate for the ledger account
+Sage,contacts,defaultSalesLedgerAccount.taxRecoverable,,boolean,"Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
+"
+Sage,contacts,defaultSalesLedgerAccount.updatedAt,,string,The datetime when the item was last updated
+Sage,contacts,defaultSalesLedgerAccount.visibleInBanking,,boolean,Indicates whether the ledger account is displayed in the banking area of the application
+Sage,contacts,defaultSalesLedgerAccount.visibleInExpenses,,boolean,Indicates whether the ledger account is displayed in the purchases area of the application
+Sage,contacts,defaultSalesLedgerAccount.visibleInJournals,,boolean,Indicates whether the ledger account is displayed in the journals area of the application
+Sage,contacts,defaultSalesLedgerAccount.visibleInOtherPayments,,boolean,"Indicates whether the ledger account is displayed in the other payments area of the application
+"
+Sage,contacts,defaultSalesLedgerAccount.visibleInOtherReceipts,,boolean,"Indicates whether the ledger account is displayed in the other receipts area of the application
+"
+Sage,contacts,defaultSalesLedgerAccount.visibleInReporting,,boolean,Indicates whether the ledger account is displayed in the reporting area of the application
+Sage,contacts,defaultSalesLedgerAccount.visibleInSales,,boolean,Indicates whether the ledger account is displayed in the sales area of the application
+Sage,contacts,defaultSalesLedgerAccount.visibleScopes,,array,"The visible scopes for the ledger account.
+
+This indicates in which of the UI's areas the ledger account is displayed and available for user
+selection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,
+`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`
+and `purchasing_hrc`.
+"
+Sage,contacts,defaultSalesTaxRate.$path,,string,The API path for the resource
+Sage,contacts,defaultSalesTaxRate.displayedAs,,string,The name of the resource
+Sage,contacts,defaultSalesTaxRate.id,,string,The unique identifier for the item
+Sage,contacts,deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,contacts,deletedAt,,string,The datetime when the item was deleted
+Sage,contacts,deliveryAddress.$path,,string,The API path for the resource
+Sage,contacts,deliveryAddress.addressLine_1,,string,The first line of the address
+Sage,contacts,deliveryAddress.addressLine_2,,string,The second line of the address
+Sage,contacts,deliveryAddress.addressType,,object,"Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to 'Sales' for Customers and 'Purchasing' for Vendors"
+Sage,contacts,deliveryAddress.bankAccount,,object,"The related bank account of the address, if the address belongs to a bank account."
+Sage,contacts,deliveryAddress.city,,string,The address town/city
+Sage,contacts,deliveryAddress.contact,,object,"The related contact of the address, if the address belongs to a contact."
+Sage,contacts,deliveryAddress.country,,object,The address country
+Sage,contacts,deliveryAddress.countryGroup,,object,Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.
+Sage,contacts,deliveryAddress.createdAt,,string,The datetime when the item was created
+Sage,contacts,deliveryAddress.deletedAt,,string,The datetime when the item was deleted
+Sage,contacts,deliveryAddress.displayedAs,,string,The name of the resource
+Sage,contacts,deliveryAddress.id,,string,The unique identifier for the item
+Sage,contacts,deliveryAddress.isMainAddress,,boolean,Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI
+Sage,contacts,deliveryAddress.name,,string,The custom name of the address
+Sage,contacts,deliveryAddress.postalCode,,string,The address postal code/zipcode
+Sage,contacts,deliveryAddress.region,,string,The address state/province/region
+Sage,contacts,deliveryAddress.updatedAt,,string,The datetime when the item was last updated
+Sage,contacts,destinationVatBlocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,contacts,displayedAs,,string,The name of the resource
+Sage,contacts,email,,string,The email address for the given contact
+Sage,contacts,gbBased,,boolean,Identifies a contact as being based in Great Britain.
+Sage,contacts,gdprObfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,contacts,hasUnfinishedRecurringInvoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,contacts,id,,string,The unique identifier for the item
+Sage,contacts,isActive,,boolean,Identifies a contact as being active
+Sage,contacts,links,href,string,The link path
+Sage,contacts,links,rel,string,The relationship of the link to the resource
+Sage,contacts,links,type,string,The content-type of the link
+Sage,contacts,locale,,string,The locale for the contact
+Sage,contacts,mainAddress.$path,,string,The API path for the resource
+Sage,contacts,mainAddress.addressLine_1,,string,The first line of the address
+Sage,contacts,mainAddress.addressLine_2,,string,The second line of the address
+Sage,contacts,mainAddress.address_type,,object,"Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to 'Sales' for Customers and 'Purchasing' for Vendors"
+Sage,contacts,mainAddress.bankAccount,,object,"The related bank account of the address, if the address belongs to a bank account."
+Sage,contacts,mainAddress.city,,string,The address town/city
+Sage,contacts,mainAddress.contact,,object,"The related contact of the address, if the address belongs to a contact."
+Sage,contacts,mainAddress.country,,object,The address country
+Sage,contacts,mainAddress.country_group,,object,Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.
+Sage,contacts,mainAddress.createdAt,,string,The datetime when the item was created
+Sage,contacts,mainAddress.deletedAt,,string,The datetime when the item was deleted
+Sage,contacts,mainAddress.displayedAs,,string,The name of the resource
+Sage,contacts,mainAddress.id,,string,The unique identifier for the item
+Sage,contacts,mainAddress.isMainAddress,,boolean,Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI
+Sage,contacts,mainAddress.name,,string,The custom name of the address
+Sage,contacts,mainAddress.postalCode,,string,The address postal code/zipcode
+Sage,contacts,mainAddress.region,,string,The address state/province/region
+Sage,contacts,mainAddress.updatedAt,,string,The datetime when the item was last updated
+Sage,contacts,mainContactPerson.$path,,string,The API path for the resource
+Sage,contacts,mainContactPerson.address,,object,The address of the contact person
+Sage,contacts,mainContactPerson.contactPersonTypes,,array,"The contact person types for the contact person. Get possible types by retrieving
+<a href='https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes'>
+  all available contact person types
+</a>.
+"
+Sage,contacts,mainContactPerson.createdAt,,string,The datetime when the item was created
+Sage,contacts,mainContactPerson.deletedAt,,string,The datetime when the item was deleted
+Sage,contacts,mainContactPerson.displayedAs,,string,The name of the resource
+Sage,contacts,mainContactPerson.email,,string,The email address of the contact person
+Sage,contacts,mainContactPerson.fax,,string,The fax number of the contact person
+Sage,contacts,mainContactPerson.id,,string,The unique identifier for the item
+Sage,contacts,mainContactPerson.isMainContact,,boolean,"Indicates whether this is the main contact person. Per contact, only one main contact can be selected."
+Sage,contacts,mainContactPerson.isPreferredContact,,boolean,Indicates whether this contact person is a preferred contact
+Sage,contacts,mainContactPerson.jobTitle,,string,The job title of the contact person
+Sage,contacts,mainContactPerson.mobile,,string,The mobile number of the contact person
+Sage,contacts,mainContactPerson.name,,string,The name of the contact person
+Sage,contacts,mainContactPerson.telephone,,string,The telephone number of the contact person
+Sage,contacts,mainContactPerson.updatedAt,,string,The datetime when the item was last updated
+Sage,contacts,mandateActive,,boolean,Not found in the docs
+Sage,contacts,name,,string,The contact's full name or business name
+Sage,contacts,niBased,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,contacts,notes,,string,The notes for the contact
+Sage,contacts,preferredAddress.$path,,string,
+Sage,contacts,preferredAddress.displayedAs,,string,
+Sage,contacts,preferredAddress.id,,string,
+Sage,contacts,preferredContactPerson.$path,,string,
+Sage,contacts,preferredContactPerson.displayedAs,,string,
+Sage,contacts,preferredContactPerson.id,,string,
+Sage,contacts,productSalesPriceType.$path,,string,The API path for the resource
+Sage,contacts,productSalesPriceType.displayedAs,,string,The name of the resource
+Sage,contacts,productSalesPriceType.id,,string,The unique identifier for the item
+Sage,contacts,reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,contacts,registeredNumber,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,contacts,sendStatements,,boolean,Not found in the docs
+Sage,contacts,sourceGuid,,string,Used when importing contacts from external sources
+Sage,contacts,statementRun.id,,string,
+Sage,contacts,statementRun.name,,string,
+Sage,contacts,system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,contacts,taxCalculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,contacts,taxNumber,,string,The VAT registration number of the contact. The format will be validated.
+Sage,contacts,taxTreatment.euNotTaxRegistered,,boolean,Indicates an EU contact without a tax number - home tax rules should be applied
+Sage,contacts,taxTreatment.euTaxRegistered,,boolean,Indicates a contact where EC tax rules should be applied
+Sage,contacts,taxTreatment.homeTax,,boolean,Indicates a contact where home country tax rules should be applied
+Sage,contacts,taxTreatment.isImporter,,None,"Indicates a contact where import rules should be appliedOnly used for suppliers and FR, ES, IE and UK businesses"
+Sage,contacts,taxTreatment.restOfWorldTax,,boolean,Indicates a contact where rest of world tax rules should be applied
+Sage,contacts,updatedAt,,string,The datetime when the item was last updated
+Sage,otherpayments,bankAccount.$path,,string,The API path for the resource
+Sage,otherpayments,bankAccount.displayed_as,,string,The name of the resource
+Sage,otherpayments,bankAccount.id,,string,The unique identifier for the item
+Sage,otherpayments,baseCurrencyTotalItcAmount,,number,"The total amount of input tax credit in base currency for the
+                     Other Payment (Canada only)"
+Sage,otherpayments,baseCurrencyTotalItrAmount,,number,"The total amount of input tax refund in base currency for the
+                     Other Payment (Canada only)"
+Sage,otherpayments,contact.$path,,string,The API path for the resource
+Sage,otherpayments,contact.displayed_as,,string,The name of the resource
+Sage,otherpayments,contact.id,,string,The unique identifier for the item
+Sage,otherpayments,createdAt,,string,The datetime when the item was created
+Sage,otherpayments,date,,string,The date of the payment
+Sage,otherpayments,deletable,,boolean,Indicates whether or not the payment can be deleted
+Sage,otherpayments,deletedAt,,string,The datetime when the item was deleted
+Sage,otherpayments,displayed_as,,string,The name of the resource
+Sage,otherpayments,editable,,boolean,Indicates whether or not the payment can be edited
+Sage,otherpayments,id,,string,The unique identifier for the item
+Sage,otherpayments,netAmount,,number,The net amount of the payment
+Sage,otherpayments,partRecoverable,,boolean,Indicates if the Other Payment is part recoverable or not (Canada only)
+Sage,otherpayments,paymentLines,analysis_type_categories,array,The analysis types information
+Sage,otherpayments,paymentLines,details,string,The details of the payment line
+Sage,otherpayments,paymentLines,displayed_as,string,The name of the resource
+Sage,otherpayments,paymentLines,gst_amount,number,The gst or hst tax amount for the other payment
+Sage,otherpayments,paymentLines,id,string,The unique identifier for the item
+Sage,otherpayments,paymentLines,is_purchase_for_resale,boolean,Identifies whether the line item is for resale. (Ireland only)
+Sage,otherpayments,paymentLines,ledger_account,object,
+Sage,otherpayments,paymentLines,net_amount,number,The net amount of the payment line
+Sage,otherpayments,paymentLines,pst_amount,number,The pst or qst tax amount for the other payment
+Sage,otherpayments,paymentLines,tax_amount,number,The tax amount of the payment line
+Sage,otherpayments,paymentLines,tax_breakdown,array,The tax breakdown for the payment line
+Sage,otherpayments,paymentLines,tax_rate,object,
+Sage,otherpayments,paymentLines,tax_recoverable,boolean,Indicates if the other payment is tax recoverable or not
+Sage,otherpayments,paymentLines,total_amount,number,The total amount of the payment line
+Sage,otherpayments,paymentLines,trade_of_asset,boolean,Whether the line item is marked as trade of asset.
+Sage,otherpayments,paymentMethod.$path,,string,The API path for the resource
+Sage,otherpayments,paymentMethod.displayed_as,,string,The name of the resource
+Sage,otherpayments,paymentMethod.id,,string,The unique identifier for the item
+Sage,otherpayments,reference,,string,"A reference of the payment
+Note: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
+Sage,otherpayments,taxAddressRegion.$path,,string,The API path for the resource
+Sage,otherpayments,taxAddressRegion.displayed_as,,string,The name of the resource
+Sage,otherpayments,taxAddressRegion.id,,string,The unique identifier for the item
+Sage,otherpayments,taxAmount,,number,The tax amount of the payment
+Sage,otherpayments,totalAmount,,number,The total amount of the payment
+Sage,otherpayments,totalItcAmount,,number,The total amount of input tax credit for the Other Payment (Canada only)
+Sage,otherpayments,totalItrAmount,,number,The total amount of input tax refund for the Other Payment (Canada only)
+Sage,otherpayments,transaction.$path,,string,The API path for the resource
+Sage,otherpayments,transaction.displayed_as,,string,The name of the resource
+Sage,otherpayments,transaction.id,,string,The unique identifier for the item
+Sage,otherpayments,transactionType.$path,,string,The API path for the resource
+Sage,otherpayments,transactionType.displayed_as,,string,The name of the resource
+Sage,otherpayments,transactionType.id,,string,The unique identifier for the item
+Sage,otherpayments,updatedAt,,string,The datetime when the item was last updated
+Sage,otherpayments,withholdingTaxAmount,,number,IRPF withheld tax amount
+Sage,otherpayments,withholdingTaxRate,,number,IRPF withheld tax rate
+Sage,paymentmethods,displayed_as,,string,The name of the resource
+Sage,paymentmethods,id,,string,The unique identifier for the item
+Sage,salescreditnotes,displayed_as,,string,
+Sage,salescreditnotes,id,,string,
+Sage,salesestimates,displayed_as,,string,
+Sage,salesestimates,id,,string,
+Sage,salesinvoices,displayed_as,,string,
+Sage,salesinvoices,id,,string,
+Sage,salesquotes,displayed_as,,string,
+Sage,salesquotes,id,,string,
