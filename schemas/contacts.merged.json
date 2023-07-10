@@ -7,11 +7,11 @@
       "description": "The API path for the resource",
       "type": "string"
     },
-    "aux_reference": {
+    "auxReference": {
       "description": "Auxiliary reference. Used for German \"Kreditorennummer\" and \"Debitorennummer\".\n<br>\n<a href=\"https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings\">\n  See Datev Settings endpoint reference\n</a>\n",
       "type": "string"
     },
-    "auxiliary_account": {
+    "auxiliaryAccount": {
       "description": "Auxiliary account - used when auxiliary accounting is enabled in business settings.\n<br><i>Available only in Spain and France</i>\n",
       "type": "string"
     },
@@ -19,15 +19,15 @@
       "description": "The contact balance",
       "type": "number"
     },
-    "bank_account_details": {
+    "bankAccountDetails": {
       "additionalProperties": true,
       "description": "The account details for the contact's bank account",
       "properties": {
-        "account_name": {
+        "accountName": {
           "description": "The account name",
           "type": "string"
         },
-        "account_number": {
+        "accountNumber": {
           "description": "The account number",
           "type": "string"
         },
@@ -39,41 +39,38 @@
           "description": "The iban",
           "type": "string"
         },
-        "sort_code": {
+        "sortCode": {
           "description": "The sort code",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "cis_registered": {
+    "cisRegistered": {
       "description": "Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>",
       "type": "boolean"
     },
-    "cis_settings": {
+    "cisSettings": {
       "description": "The CIS Settings for the contact",
       "items": {
         "additionalProperties": true,
         "properties": {
           "deduction_rate": {
+            "additionalProperties": true,
             "description": "The CIS Deduction rate for the contact",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
               },
-              "type": "object"
+              "displayedAs": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
             },
             "type": "object"
           },
@@ -90,7 +87,7 @@
       },
       "type": "array"
     },
-    "contact_types": {
+    "contactTypes": {
       "description": "The type of the contact. It has to be either CUSTOMER or VENDOR",
       "items": {
         "additionalProperties": true,
@@ -99,7 +96,7 @@
             "description": "The API path for the resource",
             "type": "string"
           },
-          "displayed_as": {
+          "displayedAs": {
             "description": "The name of the resource",
             "type": "string"
           },
@@ -112,23 +109,23 @@
       },
       "type": "array"
     },
-    "created_at": {
+    "createdAt": {
       "description": "The datetime when the item was created",
       "type": "string"
     },
-    "credit_days": {
+    "creditDays": {
       "description": "Custom credit days for the contact.<br>\nIf returned as null in a GET response, you may want to GET /invoice_settings\nand use 'customer_credit_days'/'vendor_credit_days' as default/fallback according\nto your use case.\n",
       "type": "number"
     },
-    "credit_limit": {
+    "creditLimit": {
       "description": "Custom credit limit amount for the contact <br><i>not applicable to Start</i>",
       "type": "number"
     },
-    "credit_terms": {
+    "creditTerms": {
       "description": "Credit terms options determine how invoice due dates are calculated.\nOptions include: end of next month, a delay of supplier credit_days and immediately.\nOnly: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,\ndate_from_payment, immediate_payment are valid values.\nIf returned as null in a GET response, you may want to GET /invoice_settings\nand use 'customer_credit_terms'/'vendor_credit_terms' as default.\n",
       "type": "string"
     },
-    "credit_terms_and_conditions": {
+    "creditTermsAndConditions": {
       "description": "Custom terms and conditions for the contact. If set will override global /invoice_settings\ndefault terms and conditions.\n<br><i>Customers only</i>\n",
       "type": "string"
     },
@@ -140,7 +137,7 @@
           "description": "The API path for the resource",
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
@@ -151,7 +148,7 @@
       },
       "type": "object"
     },
-    "default_purchase_ledger_account": {
+    "defaultPurchaseLedgerAccount": {
       "additionalProperties": true,
       "description": "The default purchase ledger account for the contact <br><i>Vendors only</i>",
       "properties": {
@@ -159,239 +156,213 @@
           "description": "The API path for the resource",
           "type": "string"
         },
-        "balance_details": {
+        "balanceDetails": {
           "description": "The ledger account balance details for the date range provided",
-          "items": {
-            "properties": {
-              "balance": {
-                "description": "The account balance",
-                "format": "double",
-                "type": "number"
-              },
-              "credit_or_debit": {
-                "description": "Is the balance a debit or credit",
-                "type": "string"
-              },
-              "credits": {
-                "description": "The credit balance",
-                "format": "double",
-                "type": "number"
-              },
-              "debits": {
-                "description": "The debit balance",
-                "format": "double",
-                "type": "number"
-              },
-              "from_date": {
-                "description": "The from date filter",
-                "type": "string"
-              },
-              "to_date": {
-                "description": "The to date filter",
-                "type": "string"
-              }
+          "properties": {
+            "balance": {
+              "description": "The account balance",
+              "type": "number"
             },
-            "type": "object"
+            "creditOrDebit": {
+              "description": "Is the balance a debit or credit",
+              "type": "string"
+            },
+            "credits": {
+              "description": "The credit balance",
+              "type": "number"
+            },
+            "debits": {
+              "description": "The debit balance",
+              "type": "number"
+            },
+            "fromDate": {
+              "description": "The from date filter",
+              "type": "string"
+            },
+            "toDate": {
+              "description": "The to date filter",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "cis_labour": {
+        "cisLabour": {
           "description": "Indicates whether the ledger account is flagged for CIS Labour",
           "type": "boolean"
         },
-        "cis_materials": {
+        "cisMaterials": {
           "description": "Indicates whether the ledger account is flagged for CIS Materials",
           "type": "boolean"
         },
-        "control_name": {
+        "controlName": {
           "description": "The control name for the ledger account.\n\nThis is used internally by Accounting to identify the correct ledger account for booking taxes etc.\nYou cannot add ledger accounts with control name and you cannot modify the control name of existing\nledger accounts.\n",
-          "maxLength": 255,
           "type": "string"
         },
-        "created_at": {
+        "createdAt": {
           "description": "The datetime when the item was created",
-          "format": "date-time",
           "type": "string"
         },
-        "display_formatted": {
+        "displayFormatted": {
           "description": "The display name formatted based on coa_list_order in settings",
           "type": "string"
         },
-        "display_name": {
+        "displayName": {
           "description": "The display name for the ledger account",
-          "maxLength": 200,
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
-        "fixed_tax_rate": {
+        "fixedTaxRate": {
           "description": "Indicates whether the default tax rate is fixed or may be changed per transaction",
           "type": "boolean"
         },
-        "gifi_code": {
+        "gifiCode": {
           "description": "The GIFI code of the ledger account.\n\nGIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.\nInformation from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.\nGIFI is needed when filing a T2 income tax return.\n\n_Canada only_\n",
-          "format": "int32",
           "type": "integer"
         },
         "id": {
           "description": "The unique identifier for the item",
           "type": "string"
         },
-        "included_in_chart": {
+        "includedInChart": {
           "description": "Indicates whether the ledger account is included in the chart of accounts",
           "type": "boolean"
         },
-        "is_control_account": {
+        "isControlAccount": {
           "description": "Indicates whether the ledger account is a control account.\n\nControl accounts cannot be removed. See also `control_name`.\n",
           "type": "boolean"
         },
-        "ledger_account_classification": {
+        "ledgerAccountClassification": {
+          "additionalProperties": true,
           "description": "The ledger account classification for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "ledger_account_group": {
+        "ledgerAccountGroup": {
+          "additionalProperties": true,
           "description": "The ledger account group for the account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
             },
-            "type": "object"
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "ledger_account_type": {
+        "ledgerAccountType": {
+          "additionalProperties": true,
           "description": "The ledger account type for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
         "name": {
           "description": "The name for the ledger account.\n\nChanges to this field do not propagate to other resources, namely not to the name of the associated\nbank_account (unlike the behaviour of the UI).\n",
-          "maxLength": 200,
           "type": "string"
         },
-        "nominal_code": {
+        "nominalCode": {
           "description": "The nominal code of the ledger account",
-          "format": "int32",
           "type": "integer"
         },
-        "non_recoverable_ledger_account": {
-          "$ref": "#/definitions/LedgerAccount",
-          "description": "The non-recoverable ledger account (Canada Only)"
+        "nonRecoverableLedgerAccount": {
+          "description": "The non-recoverable ledger account (Canada Only). $ref: #/definitions/LedgerAccount",
+          "type": "object"
         },
-        "recoverable_percentage": {
+        "recoverablePercentage": {
           "description": "The partial recoverable tax rate (Canada only)",
-          "format": "double",
           "type": "number"
         },
-        "tax_instalment": {
+        "taxInstalment": {
           "description": "Indicates whether the ledger account is flagged for Tax Intalment (Canada only)",
           "type": "boolean"
         },
-        "tax_rate": {
+        "taxRate": {
+          "additionalProperties": true,
           "description": "The default tax rate for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "tax_recoverable": {
+        "taxRecoverable": {
           "description": "Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)\n",
           "type": "boolean"
         },
-        "updated_at": {
+        "updatedAt": {
           "description": "The datetime when the item was last updated",
-          "format": "date-time",
           "type": "string"
         },
-        "visible_in_banking": {
+        "visibleInBanking": {
           "description": "Indicates whether the ledger account is displayed in the banking area of the application",
           "type": "boolean"
         },
-        "visible_in_expenses": {
+        "visibleInExpenses": {
           "description": "Indicates whether the ledger account is displayed in the purchases area of the application",
           "type": "boolean"
         },
-        "visible_in_journals": {
+        "visibleInJournals": {
           "description": "Indicates whether the ledger account is displayed in the journals area of the application",
           "type": "boolean"
         },
-        "visible_in_other_payments": {
+        "visibleInOtherPayments": {
           "description": "Indicates whether the ledger account is displayed in the other payments area of the application\n",
           "type": "boolean"
         },
-        "visible_in_other_receipts": {
+        "visibleInOtherReceipts": {
           "description": "Indicates whether the ledger account is displayed in the other receipts area of the application\n",
           "type": "boolean"
         },
-        "visible_in_reporting": {
+        "visibleInReporting": {
           "description": "Indicates whether the ledger account is displayed in the reporting area of the application",
           "type": "boolean"
         },
-        "visible_in_sales": {
+        "visibleInSales": {
           "description": "Indicates whether the ledger account is displayed in the sales area of the application",
           "type": "boolean"
         },
-        "visible_scopes": {
+        "visibleScopes": {
           "description": "The visible scopes for the ledger account.\n\nThis indicates in which of the UI's areas the ledger account is displayed and available for user\nselection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,\n`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`\nand `purchasing_hrc`.\n",
           "items": {
             "type": "string"
@@ -401,7 +372,7 @@
       },
       "type": "object"
     },
-    "default_sales_ledger_account": {
+    "defaultSalesLedgerAccount": {
       "additionalProperties": true,
       "description": "The default sales ledger account for the contact <br><i>Customers only</i>",
       "properties": {
@@ -409,35 +380,32 @@
           "description": "The API path for the resource",
           "type": "string"
         },
-        "balance_details": {
+        "balanceDetails": {
           "description": "The ledger account balance details for the date range provided",
           "items": {
             "additionalProperties": true,
             "properties": {
               "balance": {
                 "description": "The account balance",
-                "format": "double",
                 "type": "number"
               },
-              "credit_or_debit": {
+              "creditOrDebit": {
                 "description": "Is the balance a debit or credit",
                 "type": "string"
               },
               "credits": {
                 "description": "The credit balance",
-                "format": "double",
                 "type": "number"
               },
               "debits": {
                 "description": "The debit balance",
-                "format": "double",
                 "type": "number"
               },
-              "from_date": {
+              "fromDate": {
                 "description": "The from date filter",
                 "type": "string"
               },
-              "to_date": {
+              "toDate": {
                 "description": "The to date filter",
                 "type": "string"
               }
@@ -446,203 +414,183 @@
           },
           "type": "array"
         },
-        "cis_labour": {
+        "cisLabour": {
           "description": "Indicates whether the ledger account is flagged for CIS Labour",
           "type": "boolean"
         },
-        "cis_materials": {
+        "cisMaterials": {
           "description": "Indicates whether the ledger account is flagged for CIS Materials",
           "type": "boolean"
         },
-        "control_name": {
+        "controlName": {
           "description": "The control name for the ledger account.\n\nThis is used internally by Accounting to identify the correct ledger account for booking taxes etc.\nYou cannot add ledger accounts with control name and you cannot modify the control name of existing\nledger accounts.\n",
-          "maxLength": 255,
           "type": "string"
         },
-        "created_at": {
+        "createdAt": {
           "description": "The datetime when the item was created",
-          "format": "date-time",
           "type": "string"
         },
-        "display_formatted": {
+        "displayFormatted": {
           "description": "The display name formatted based on coa_list_order in settings",
           "type": "string"
         },
-        "display_name": {
+        "displayName": {
           "description": "The display name for the ledger account",
-          "maxLength": 200,
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
-        "fixed_tax_rate": {
+        "fixedTaxRate": {
           "description": "Indicates whether the default tax rate is fixed or may be changed per transaction",
           "type": "boolean"
         },
-        "gifi_code": {
+        "gifiCode": {
           "description": "The GIFI code of the ledger account.\n\nGIFI is short for The General Index of Financial Information and it lets the CRA validate tax information electronically instead of manually.\nInformation from financial statements is categorized under the appropriate 4-digit-long GIFI code and entered on corporate income tax returns.\nGIFI is needed when filing a T2 income tax return.\n\n_Canada only_\n",
-          "format": "int32",
           "type": "integer"
         },
         "id": {
           "description": "The unique identifier for the item",
           "type": "string"
         },
-        "included_in_chart": {
+        "includedInChart": {
           "description": "Indicates whether the ledger account is included in the chart of accounts",
           "type": "boolean"
         },
-        "is_control_account": {
+        "isControlAccount": {
           "description": "Indicates whether the ledger account is a control account.\n\nControl accounts cannot be removed. See also `control_name`.\n",
           "type": "boolean"
         },
-        "ledger_account_classification": {
+        "ledgerAccountClassification": {
+          "additionalProperties": true,
           "description": "The ledger account classification for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "ledger_account_group": {
+        "ledgerAccountGroup": {
+          "additionalProperties": true,
           "description": "The ledger account group for the account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
             },
-            "type": "object"
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "ledger_account_type": {
+        "ledgerAccountType": {
+          "additionalProperties": true,
           "description": "The ledger account type for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
         "name": {
           "description": "The name for the ledger account.\n\nChanges to this field do not propagate to other resources, namely not to the name of the associated\nbank_account (unlike the behaviour of the UI).\n",
-          "maxLength": 200,
           "type": "string"
         },
-        "nominal_code": {
+        "nominalCode": {
           "description": "The nominal code of the ledger account",
-          "format": "int32",
           "type": "integer"
         },
-        "non_recoverable_ledger_account": {
+        "nonRecoverableLedgerAccount": {
           "$ref": "#/definitions/LedgerAccount",
           "description": "The non-recoverable ledger account (Canada Only)"
         },
-        "recoverable_percentage": {
+        "recoverablePercentage": {
           "description": "The partial recoverable tax rate (Canada only)",
-          "format": "double",
           "type": "number"
         },
-        "tax_instalment": {
+        "taxInstalment": {
           "description": "Indicates whether the ledger account is flagged for Tax Intalment (Canada only)",
           "type": "boolean"
         },
-        "tax_rate": {
+        "taxRate": {
+          "additionalProperties": true,
           "description": "The default tax rate for the ledger account",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "tax_recoverable": {
+        "taxRecoverable": {
           "description": "Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)\n",
           "type": "boolean"
         },
-        "updated_at": {
+        "updatedAt": {
           "description": "The datetime when the item was last updated",
-          "format": "date-time",
           "type": "string"
         },
-        "visible_in_banking": {
+        "visibleInBanking": {
           "description": "Indicates whether the ledger account is displayed in the banking area of the application",
           "type": "boolean"
         },
-        "visible_in_expenses": {
+        "visibleInExpenses": {
           "description": "Indicates whether the ledger account is displayed in the purchases area of the application",
           "type": "boolean"
         },
-        "visible_in_journals": {
+        "visibleInJournals": {
           "description": "Indicates whether the ledger account is displayed in the journals area of the application",
           "type": "boolean"
         },
-        "visible_in_other_payments": {
+        "visibleInOtherPayments": {
           "description": "Indicates whether the ledger account is displayed in the other payments area of the application\n",
           "type": "boolean"
         },
-        "visible_in_other_receipts": {
+        "visibleInOtherReceipts": {
           "description": "Indicates whether the ledger account is displayed in the other receipts area of the application\n",
           "type": "boolean"
         },
-        "visible_in_reporting": {
+        "visibleInReporting": {
           "description": "Indicates whether the ledger account is displayed in the reporting area of the application",
           "type": "boolean"
         },
-        "visible_in_sales": {
+        "visibleInSales": {
           "description": "Indicates whether the ledger account is displayed in the sales area of the application",
           "type": "boolean"
         },
-        "visible_scopes": {
+        "visibleScopes": {
           "description": "The visible scopes for the ledger account.\n\nThis indicates in which of the UI's areas the ledger account is displayed and available for user\nselection. Possible entries in this array are `bank`, `sales`, `purchasing`, `other_payment`,\n`other_receipt`, `reporting`, `journals`, `sales_eu`, `sales_row`, `purchasing_eu`, `purchasing_row`\nand `purchasing_hrc`.\n",
           "items": {
             "type": "string"
@@ -652,25 +600,22 @@
       },
       "type": "object"
     },
-    "default_sales_tax_rate": {
+    "defaultSalesTaxRate": {
+      "additionalProperties": true,
       "description": "The default sales tax rate for the contact <br><i>Customers only</i>",
-      "items": {
-        "additionalProperties": true,
-        "properties": {
-          "$path": {
-            "description": "The API path for the resource",
-            "type": "string"
-          },
-          "displayed_as": {
-            "description": "The name of the resource",
-            "type": "string"
-          },
-          "id": {
-            "description": "The unique identifier for the item",
-            "type": "string"
-          }
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
         },
-        "type": "object"
+        "displayedAs": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
       },
       "type": "array"
     },
@@ -678,196 +623,169 @@
       "description": "Indicates whether the contact can be deleted successfully",
       "type": "boolean"
     },
-    "deleted_at": {
+    "deletedAt": {
       "description": "The datetime when the item was deleted",
       "type": "string"
     },
-    "delivery_address": {
+    "deliveryAddress": {
+      "additionalProperties": true,
       "description": "The delivery address <br><i>Customers only</i>",
-      "items": {
-        "additionalProperties": true,
-        "properties": {
-          "$path": {
-            "description": "The API path for the resource",
-            "type": "string"
-          },
-          "address_line_1": {
-            "description": "The first line of the address",
-            "maxLength": 50,
-            "type": "string"
-          },
-          "address_line_2": {
-            "description": "The second line of the address",
-            "maxLength": 50,
-            "type": "string"
-          },
-          "address_type": {
-            "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "bank_account": {
-            "description": "The related bank account of the address, if the address belongs to a bank account.",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "city": {
-            "description": "The address town/city",
-            "maxLength": 50,
-            "type": "string"
-          },
-          "contact": {
-            "description": "The related contact of the address, if the address belongs to a contact.",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "country": {
-            "description": "The address country",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "country_group": {
-            "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.",
-            "items": {
-              "additionalProperties": true,
-              "properties": {
-                "$path": {
-                  "description": "The API path for the resource",
-                  "type": "string"
-                },
-                "displayed_as": {
-                  "description": "The name of the resource",
-                  "type": "string"
-                },
-                "id": {
-                  "description": "The unique identifier for the item",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "type": "object"
-          },
-          "created_at": {
-            "description": "The datetime when the item was created",
-            "format": "date-time",
-            "type": "string"
-          },
-          "deleted_at": {
-            "description": "The datetime when the item was deleted",
-            "format": "date-time",
-            "type": "string"
-          },
-          "displayed_as": {
-            "description": "The name of the resource",
-            "type": "string"
-          },
-          "id": {
-            "description": "The unique identifier for the item",
-            "type": "string"
-          },
-          "is_main_address": {
-            "description": "Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI",
-            "type": "boolean"
-          },
-          "name": {
-            "description": "The custom name of the address",
-            "maxLength": 50,
-            "type": "string"
-          },
-          "postal_code": {
-            "description": "The address postal code/zipcode",
-            "maxLength": 10,
-            "type": "string"
-          },
-          "region": {
-            "description": "The address state/province/region",
-            "maxLength": 50,
-            "type": "string"
-          },
-          "updated_at": {
-            "description": "The datetime when the item was last updated",
-            "format": "date-time",
-            "type": "string"
-          }
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
         },
-        "type": "object"
+        "addressLine_1": {
+          "description": "The first line of the address",
+          "type": "string"
+        },
+        "addressLine_2": {
+          "description": "The second line of the address",
+          "type": "string"
+        },
+        "addressType": {
+          "additionalProperties": true,
+          "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors",
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
+            },
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "bankAccount": {
+          "additionalProperties": true,
+          "description": "The related bank account of the address, if the address belongs to a bank account.",
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
+            },
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "city": {
+          "description": "The address town/city",
+          "type": "string"
+        },
+        "contact": {
+          "additionalProperties": true,
+          "description": "The related contact of the address, if the address belongs to a contact.",
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
+            },
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "country": {
+          "additionalProperties": true,
+          "description": "The address country",
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
+            },
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "countryGroup": {
+          "additionalProperties": true,
+          "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.",
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
+            },
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "createdAt": {
+          "description": "The datetime when the item was created",
+          "type": "string"
+        },
+        "deletedAt": {
+          "description": "The datetime when the item was deleted",
+          "type": "string"
+        },
+        "displayedAs": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        },
+        "isMainAddress": {
+          "description": "Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The custom name of the address",
+          "type": "string"
+        },
+        "postalCode": {
+          "description": "The address postal code/zipcode",
+          "type": "string"
+        },
+        "region": {
+          "description": "The address state/province/region",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "The datetime when the item was last updated",
+          "type": "string"
+        }
       },
       "type": "object"
     },
-    "destination_vat_blocking": {
+    "destinationVatBlocking": {
       "description": "Identifies a contact should be blocked due to destination vat",
       "type": "boolean"
     },
-    "displayed_as": {
+    "displayedAs": {
       "description": "The name of the resource",
       "type": "string"
     },
@@ -875,15 +793,15 @@
       "description": "The email address for the given contact",
       "type": "string"
     },
-    "gb_based": {
+    "gbBased": {
       "description": "Identifies a contact as being based in Great Britain.",
       "type": "boolean"
     },
-    "gdpr_obfuscated": {
+    "gdprObfuscated": {
       "description": "General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts.",
       "type": "boolean"
     },
-    "has_unfinished_recurring_invoices": {
+    "hasUnfinishedRecurringInvoices": {
       "description": "Indicates whether the contact is associated with any unfinished recurring invoices",
       "type": "boolean"
     },
@@ -891,7 +809,7 @@
       "description": "The unique identifier for the item",
       "type": "string"
     },
-    "is_active": {
+    "isActive": {
       "description": "Identifies a contact as being active",
       "type": "boolean"
     },
@@ -921,7 +839,7 @@
       "description": "The locale for the contact",
       "type": "string"
     },
-    "main_address": {
+    "mainAddress": {
       "additionalProperties": true,
       "description": "The main address associated with the contact",
       "properties": {
@@ -929,142 +847,122 @@
           "description": "The API path for the resource",
           "type": "string"
         },
-        "address_line_1": {
+        "addressLine_1": {
           "description": "The first line of the address",
-          "maxLength": 50,
           "type": "string"
         },
-        "address_line_2": {
+        "addressLine_2": {
           "description": "The second line of the address",
-          "maxLength": 50,
           "type": "string"
         },
         "address_type": {
+          "additionalProperties": true,
           "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "bank_account": {
+        "bankAccount": {
+          "additionalProperties": true,
           "description": "The related bank account of the address, if the address belongs to a bank account.",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
         "city": {
           "description": "The address town/city",
-          "maxLength": 50,
           "type": "string"
         },
         "contact": {
+          "additionalProperties": true,
           "description": "The related contact of the address, if the address belongs to a contact.",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
         "country": {
+          "additionalProperties": true,
           "description": "The address country",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
         "country_group": {
+          "additionalProperties": true,
           "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "created_at": {
+        "createdAt": {
           "description": "The datetime when the item was created",
-          "format": "date-time",
           "type": "string"
         },
-        "deleted_at": {
+        "deletedAt": {
           "description": "The datetime when the item was deleted",
-          "format": "date-time",
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
@@ -1072,34 +970,30 @@
           "description": "The unique identifier for the item",
           "type": "string"
         },
-        "is_main_address": {
+        "isMainAddress": {
           "description": "Specifies the address as the contact's main address. Only a single address can exist for a contact in Start so this is always true when returned by the API but cannot be seen in the UI",
           "type": "boolean"
         },
         "name": {
           "description": "The custom name of the address",
-          "maxLength": 50,
           "type": "string"
         },
-        "postal_code": {
+        "postalCode": {
           "description": "The address postal code/zipcode",
-          "maxLength": 10,
           "type": "string"
         },
         "region": {
           "description": "The address state/province/region",
-          "maxLength": 50,
           "type": "string"
         },
-        "updated_at": {
+        "updatedAt": {
           "description": "The datetime when the item was last updated",
-          "format": "date-time",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "main_contact_person": {
+    "mainContactPerson": {
       "additionalProperties": true,
       "description": "The main contact person of the contact.",
       "properties": {
@@ -1108,28 +1002,25 @@
           "type": "string"
         },
         "address": {
+          "additionalProperties": true,
           "description": "The address of the contact person",
-          "items": {
-            "additionalProperties": true,
-            "properties": {
-              "$path": {
-                "description": "The API path for the resource",
-                "type": "string"
-              },
-              "displayed_as": {
-                "description": "The name of the resource",
-                "type": "string"
-              },
-              "id": {
-                "description": "The unique identifier for the item",
-                "type": "string"
-              }
+          "properties": {
+            "$path": {
+              "description": "The API path for the resource",
+              "type": "string"
             },
-            "type": "object"
+            "displayedAs": {
+              "description": "The name of the resource",
+              "type": "string"
+            },
+            "id": {
+              "description": "The unique identifier for the item",
+              "type": "string"
+            }
           },
           "type": "object"
         },
-        "contact_person_types": {
+        "contactPersonTypes": {
           "description": "The contact person types for the contact person. Get possible types by retrieving\n<a href=\"https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes\">\n  all available contact person types\n</a>.\n",
           "items": {
             "additionalProperties": true,
@@ -1138,13 +1029,12 @@
                 "description": "The API path for the resource",
                 "type": "string"
               },
-              "displayed_as": {
+              "displayedAs": {
                 "description": "The name of the resource",
                 "type": "string"
               },
               "id": {
                 "description": "The unique identifier for the item",
-                "maxLength": 15,
                 "type": "string"
               }
             },
@@ -1152,71 +1042,62 @@
           },
           "type": "array"
         },
-        "created_at": {
+        "createdAt": {
           "description": "The datetime when the item was created",
-          "format": "date-time",
           "type": "string"
         },
-        "deleted_at": {
+        "deletedAt": {
           "description": "The datetime when the item was deleted",
-          "format": "date-time",
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
         "email": {
           "description": "The email address of the contact person",
-          "maxLength": 100,
           "type": "string"
         },
         "fax": {
           "description": "The fax number of the contact person",
-          "maxLength": 50,
           "type": "string"
         },
         "id": {
           "description": "The unique identifier for the item",
           "type": "string"
         },
-        "is_main_contact": {
+        "isMainContact": {
           "description": "Indicates whether this is the main contact person. Per contact, only one main contact can be selected.",
           "type": "boolean"
         },
-        "is_preferred_contact": {
+        "isPreferredContact": {
           "description": "Indicates whether this contact person is a preferred contact",
           "type": "boolean"
         },
-        "job_title": {
+        "jobTitle": {
           "description": "The job title of the contact person",
-          "maxLength": 50,
           "type": "string"
         },
         "mobile": {
           "description": "The mobile number of the contact person",
-          "maxLength": 50,
           "type": "string"
         },
         "name": {
           "description": "The name of the contact person",
-          "maxLength": 50,
           "type": "string"
         },
         "telephone": {
           "description": "The telephone number of the contact person",
-          "maxLength": 50,
           "type": "string"
         },
-        "updated_at": {
+        "updatedAt": {
           "description": "The datetime when the item was last updated",
-          "format": "date-time",
           "type": "string"
         }
       },
       "type": "object"
     },
-    "mandate_active": {
+    "mandateActive": {
       "description": "Not found in the docs",
       "type": "boolean"
     },
@@ -1224,7 +1105,7 @@
       "description": "The contact's full name or business name",
       "type": "string"
     },
-    "ni_based": {
+    "niBased": {
       "description": "Identifies a contact as being based in Northern Ireland.",
       "type": "boolean"
     },
@@ -1232,14 +1113,14 @@
       "description": "The notes for the contact",
       "type": "string"
     },
-    "preferred_address": {
+    "preferredAddress": {
       "additionalProperties": true,
       "description": "Not found in the docs",
       "properties": {
         "$path": {
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "type": "string"
         },
         "id": {
@@ -1248,14 +1129,14 @@
       },
       "type": "object"
     },
-    "preferred_contact_person": {
+    "preferredContactPerson": {
       "additionalProperties": true,
       "description": "Not found in the docs",
       "properties": {
         "$path": {
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "type": "string"
         },
         "id": {
@@ -1264,7 +1145,7 @@
       },
       "type": "object"
     },
-    "product_sales_price_type": {
+    "productSalesPriceType": {
       "additionalProperties": true,
       "description": "All default product_sales_price_type defaults.\n<a\n  href=\"https://developer.sage.com/api/accounting/guides/inventory/#product-sales-prices--service-rates\"\n  target=\"_blank\">Learn more about sales price types\n</a>\n<br><i>Customers only, not applicable to Start<i>\n",
       "properties": {
@@ -1272,7 +1153,7 @@
           "description": "The API path for the resource",
           "type": "string"
         },
-        "displayed_as": {
+        "displayedAs": {
           "description": "The name of the resource",
           "type": "string"
         },
@@ -1287,19 +1168,19 @@
       "description": "Auxiliary reference. Used for German \"Kreditorennummer\" and \"Debitorennummer\".\n<br>\n<a href=\"https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings\">\n  See Datev Settings endpoint reference\n</a>\n",
       "type": "string"
     },
-    "registered_number": {
+    "registeredNumber": {
       "description": "The registered number of the contact's business. Only used for German businesses and represents the \"Steuernummer\" there (not the \"USt-ID\").",
       "type": "string"
     },
-    "send_statements": {
+    "sendStatements": {
       "description": "Not found in the docs",
       "type": "boolean"
     },
-    "source_guid": {
+    "sourceGuid": {
       "description": "Used when importing contacts from external sources",
       "type": "string"
     },
-    "statement_run": {
+    "statementRun": {
       "additionalProperties": true,
       "description": "Not found in the docs",
       "properties": {
@@ -1316,31 +1197,31 @@
       "description": "Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.",
       "type": "boolean"
     },
-    "tax_calculation": {
+    "taxCalculation": {
       "description": "<b>France:</b> The tax calculation method used to define tax\ntreatment <i>Vendors only</i>\n<br>\n<b>Spain:</b> Defines if contact is a retailer and tax is subject\nto Recargo de Equivalencia <i>Customers only</i>\n<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse\ncharge <i>Customers & Suppliers</i>\n",
       "type": "string"
     },
-    "tax_number": {
+    "taxNumber": {
       "description": "The VAT registration number of the contact. The format will be validated.",
       "type": "string"
     },
-    "tax_treatment": {
+    "taxTreatment": {
       "additionalProperties": true,
       "description": "The tax treatment - indicates which tax rules to apply for a contact",
       "properties": {
-        "eu_not_tax_registered": {
+        "euNotTaxRegistered": {
           "description": "Indicates an EU contact without a tax number - home tax rules should be applied",
           "type": "boolean"
         },
-        "eu_tax_registered": {
+        "euTaxRegistered": {
           "description": "Indicates a contact where EC tax rules should be applied",
           "type": "boolean"
         },
-        "home_tax": {
+        "homeTax": {
           "description": "Indicates a contact where home country tax rules should be applied",
           "type": "boolean"
         },
-        "is_importer": {
+        "isImporter": {
           "anyOf": [
             {
               "type": "boolean"
@@ -1351,14 +1232,14 @@
           ],
           "description": "Indicates a contact where import rules should be appliedOnly used for suppliers and FR, ES, IE and UK businesses"
         },
-        "rest_of_world_tax": {
+        "restOfWorldTax": {
           "description": "Indicates a contact where rest of world tax rules should be applied",
           "type": "boolean"
         }
       },
       "type": "object"
     },
-    "updated_at": {
+    "updatedAt": {
       "description": "The datetime when the item was last updated",
       "type": "string"
     }
