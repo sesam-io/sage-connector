@@ -73,9 +73,9 @@ Sage,contacts,default_purchase_ledger_account.is_control_account,,boolean,"Indic
 
 Control accounts cannot be removed. See also `control_name`.
 "
-Sage,contacts,default_purchase_ledger_account.ledger_account_classification,,None,The ledger account classification for the ledger account
-Sage,contacts,default_purchase_ledger_account.ledger_account_group,,None,The ledger account group for the account
-Sage,contacts,default_purchase_ledger_account.ledger_account_type,,None,The ledger account type for the ledger account
+Sage,contacts,default_purchase_ledger_account.ledger_account_classification,,object,The ledger account classification for the ledger account
+Sage,contacts,default_purchase_ledger_account.ledger_account_group,,object,The ledger account group for the account
+Sage,contacts,default_purchase_ledger_account.ledger_account_type,,object,The ledger account type for the ledger account
 Sage,contacts,default_purchase_ledger_account.name,,string,"The name for the ledger account.
 
 Changes to this field do not propagate to other resources, namely not to the name of the associated
@@ -85,7 +85,7 @@ Sage,contacts,default_purchase_ledger_account.nominal_code,,integer,The nominal 
 Sage,contacts,default_purchase_ledger_account.non_recoverable_ledger_account,,None,The non-recoverable ledger account (Canada Only)
 Sage,contacts,default_purchase_ledger_account.recoverable_percentage,,number,The partial recoverable tax rate (Canada only)
 Sage,contacts,default_purchase_ledger_account.tax_instalment,,boolean,Indicates whether the ledger account is flagged for Tax Intalment (Canada only)
-Sage,contacts,default_purchase_ledger_account.tax_rate,,None,The default tax rate for the ledger account
+Sage,contacts,default_purchase_ledger_account.tax_rate,,object,The default tax rate for the ledger account
 Sage,contacts,default_purchase_ledger_account.tax_recoverable,,boolean,"Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
 "
 Sage,contacts,default_purchase_ledger_account.updated_at,,string,The datetime when the item was last updated
@@ -106,7 +106,7 @@ selection. Possible entries in this array are `bank`, `sales`, `purchasing`, `ot
 and `purchasing_hrc`.
 "
 Sage,contacts,default_sales_ledger_account.$path,,string,The API path for the resource
-Sage,contacts,default_sales_ledger_account.balance_details,,None,The ledger account balance details for the date range provided
+Sage,contacts,default_sales_ledger_account.balance_details,,array,The ledger account balance details for the date range provided
 Sage,contacts,default_sales_ledger_account.cis_labour,,boolean,Indicates whether the ledger account is flagged for CIS Labour
 Sage,contacts,default_sales_ledger_account.cis_materials,,boolean,Indicates whether the ledger account is flagged for CIS Materials
 Sage,contacts,default_sales_ledger_account.control_name,,string,"The control name for the ledger account.
@@ -134,9 +134,9 @@ Sage,contacts,default_sales_ledger_account.is_control_account,,boolean,"Indicate
 
 Control accounts cannot be removed. See also `control_name`.
 "
-Sage,contacts,default_sales_ledger_account.ledger_account_classification,,None,The ledger account classification for the ledger account
-Sage,contacts,default_sales_ledger_account.ledger_account_group,,None,The ledger account group for the account
-Sage,contacts,default_sales_ledger_account.ledger_account_type,,None,The ledger account type for the ledger account
+Sage,contacts,default_sales_ledger_account.ledger_account_classification,,object,The ledger account classification for the ledger account
+Sage,contacts,default_sales_ledger_account.ledger_account_group,,object,The ledger account group for the account
+Sage,contacts,default_sales_ledger_account.ledger_account_type,,object,The ledger account type for the ledger account
 Sage,contacts,default_sales_ledger_account.name,,string,"The name for the ledger account.
 
 Changes to this field do not propagate to other resources, namely not to the name of the associated
@@ -146,7 +146,7 @@ Sage,contacts,default_sales_ledger_account.nominal_code,,integer,The nominal cod
 Sage,contacts,default_sales_ledger_account.non_recoverable_ledger_account,,None,The non-recoverable ledger account (Canada Only)
 Sage,contacts,default_sales_ledger_account.recoverable_percentage,,number,The partial recoverable tax rate (Canada only)
 Sage,contacts,default_sales_ledger_account.tax_instalment,,boolean,Indicates whether the ledger account is flagged for Tax Intalment (Canada only)
-Sage,contacts,default_sales_ledger_account.tax_rate,,None,The default tax rate for the ledger account
+Sage,contacts,default_sales_ledger_account.tax_rate,,object,The default tax rate for the ledger account
 Sage,contacts,default_sales_ledger_account.tax_recoverable,,boolean,"Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)
 "
 Sage,contacts,default_sales_ledger_account.updated_at,,string,The datetime when the item was last updated
@@ -187,12 +187,12 @@ Sage,contacts,locale,,string,The locale for the contact
 Sage,contacts,main_address.$path,,string,The API path for the resource
 Sage,contacts,main_address.address_line_1,,string,The first line of the address
 Sage,contacts,main_address.address_line_2,,string,The second line of the address
-Sage,contacts,main_address.address_type,,None,"Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to 'Sales' for Customers and 'Purchasing' for Vendors"
-Sage,contacts,main_address.bank_account,,None,"The related bank account of the address, if the address belongs to a bank account."
+Sage,contacts,main_address.address_type,,object,"Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to 'Sales' for Customers and 'Purchasing' for Vendors"
+Sage,contacts,main_address.bank_account,,object,"The related bank account of the address, if the address belongs to a bank account."
 Sage,contacts,main_address.city,,string,The address town/city
-Sage,contacts,main_address.contact,,None,"The related contact of the address, if the address belongs to a contact."
-Sage,contacts,main_address.country,,None,The address country
-Sage,contacts,main_address.country_group,,None,Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.
+Sage,contacts,main_address.contact,,object,"The related contact of the address, if the address belongs to a contact."
+Sage,contacts,main_address.country,,object,The address country
+Sage,contacts,main_address.country_group,,object,Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.
 Sage,contacts,main_address.created_at,,string,The datetime when the item was created
 Sage,contacts,main_address.deleted_at,,string,The datetime when the item was deleted
 Sage,contacts,main_address.displayed_as,,string,The name of the resource
@@ -203,7 +203,7 @@ Sage,contacts,main_address.postal_code,,string,The address postal code/zipcode
 Sage,contacts,main_address.region,,string,The address state/province/region
 Sage,contacts,main_address.updated_at,,string,The datetime when the item was last updated
 Sage,contacts,main_contact_person.$path,,string,The API path for the resource
-Sage,contacts,main_contact_person.address,,None,The address of the contact person
+Sage,contacts,main_contact_person.address,,object,The address of the contact person
 Sage,contacts,main_contact_person.contact_person_types,,array,"The contact person types for the contact person. Get possible types by retrieving
 <a href='https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes'>
   all available contact person types

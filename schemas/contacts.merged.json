@@ -248,16 +248,66 @@
           "type": "boolean"
         },
         "ledger_account_classification": {
-          "$ref": "#/definitions/Base",
-          "description": "The ledger account classification for the ledger account"
+          "description": "The ledger account classification for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "ledger_account_group": {
-          "$ref": "#/definitions/CoaGroupType",
-          "description": "The ledger account group for the account"
+          "description": "The ledger account group for the account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "ledger_account_type": {
-          "$ref": "#/definitions/Base",
-          "description": "The ledger account type for the ledger account"
+          "description": "The ledger account type for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "name": {
           "description": "The name for the ledger account.\n\nChanges to this field do not propagate to other resources, namely not to the name of the associated\nbank_account (unlike the behaviour of the UI).\n",
@@ -283,8 +333,26 @@
           "type": "boolean"
         },
         "tax_rate": {
-          "$ref": "#/definitions/Base",
-          "description": "The default tax rate for the ledger account"
+          "description": "The default tax rate for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "tax_recoverable": {
           "description": "Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)\n",
@@ -342,8 +410,41 @@
           "type": "string"
         },
         "balance_details": {
-          "$ref": "#/definitions/LedgerAccountBalanceDetails",
-          "description": "The ledger account balance details for the date range provided"
+          "description": "The ledger account balance details for the date range provided",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "balance": {
+                "description": "The account balance",
+                "format": "double",
+                "type": "number"
+              },
+              "credit_or_debit": {
+                "description": "Is the balance a debit or credit",
+                "type": "string"
+              },
+              "credits": {
+                "description": "The credit balance",
+                "format": "double",
+                "type": "number"
+              },
+              "debits": {
+                "description": "The debit balance",
+                "format": "double",
+                "type": "number"
+              },
+              "from_date": {
+                "description": "The from date filter",
+                "type": "string"
+              },
+              "to_date": {
+                "description": "The to date filter",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         "cis_labour": {
           "description": "Indicates whether the ledger account is flagged for CIS Labour",
@@ -398,16 +499,66 @@
           "type": "boolean"
         },
         "ledger_account_classification": {
-          "$ref": "#/definitions/Base",
-          "description": "The ledger account classification for the ledger account"
+          "description": "The ledger account classification for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "ledger_account_group": {
-          "$ref": "#/definitions/CoaGroupType",
-          "description": "The ledger account group for the account"
+          "description": "The ledger account group for the account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "ledger_account_type": {
-          "$ref": "#/definitions/Base",
-          "description": "The ledger account type for the ledger account"
+          "description": "The ledger account type for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "name": {
           "description": "The name for the ledger account.\n\nChanges to this field do not propagate to other resources, namely not to the name of the associated\nbank_account (unlike the behaviour of the UI).\n",
@@ -433,8 +584,26 @@
           "type": "boolean"
         },
         "tax_rate": {
-          "$ref": "#/definitions/Base",
-          "description": "The default tax rate for the ledger account"
+          "description": "The default tax rate for the ledger account",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "tax_recoverable": {
           "description": "Indicates that transactions posted to this ledger account have part recoverable taxes (Canada only)\n",
@@ -533,12 +702,48 @@
             "type": "string"
           },
           "address_type": {
-            "$ref": "#/definitions/Base",
-            "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors"
+            "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
           },
           "bank_account": {
-            "$ref": "#/definitions/Base",
-            "description": "The related bank account of the address, if the address belongs to a bank account."
+            "description": "The related bank account of the address, if the address belongs to a bank account.",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
           },
           "city": {
             "description": "The address town/city",
@@ -546,16 +751,70 @@
             "type": "string"
           },
           "contact": {
-            "$ref": "#/definitions/Base",
-            "description": "The related contact of the address, if the address belongs to a contact."
+            "description": "The related contact of the address, if the address belongs to a contact.",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
           },
           "country": {
-            "$ref": "#/definitions/Base",
-            "description": "The address country"
+            "description": "The address country",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
           },
           "country_group": {
-            "$ref": "#/definitions/Base",
-            "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC."
+            "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "object"
           },
           "created_at": {
             "description": "The datetime when the item was created",
@@ -681,12 +940,48 @@
           "type": "string"
         },
         "address_type": {
-          "$ref": "#/definitions/Base",
-          "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors"
+          "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "bank_account": {
-          "$ref": "#/definitions/Base",
-          "description": "The related bank account of the address, if the address belongs to a bank account."
+          "description": "The related bank account of the address, if the address belongs to a bank account.",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "city": {
           "description": "The address town/city",
@@ -694,16 +989,70 @@
           "type": "string"
         },
         "contact": {
-          "$ref": "#/definitions/Base",
-          "description": "The related contact of the address, if the address belongs to a contact."
+          "description": "The related contact of the address, if the address belongs to a contact.",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "country": {
-          "$ref": "#/definitions/Base",
-          "description": "The address country"
+          "description": "The address country",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "country_group": {
-          "$ref": "#/definitions/Base",
-          "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC."
+          "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC.",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "created_at": {
           "description": "The datetime when the item was created",
@@ -759,13 +1108,47 @@
           "type": "string"
         },
         "address": {
-          "$ref": "#/definitions/Base",
-          "description": "The address of the contact person"
+          "description": "The address of the contact person",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
         },
         "contact_person_types": {
           "description": "The contact person types for the contact person. Get possible types by retrieving\n<a href=\"https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes\">\n  all available contact person types\n</a>.\n",
           "items": {
-            "$ref": "#/definitions/ContactPersonType"
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "maxLength": 15,
+                "type": "string"
+              }
+            },
+            "type": "object"
           },
           "type": "array"
         },

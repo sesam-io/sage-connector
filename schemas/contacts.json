@@ -165,7 +165,21 @@
           "description": "The datetime when the item was last updated"
         },
         "ledger_account_group": {
-          "$ref": "#/definitions/CoaGroupType",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account group for the account"
         },
         "name": {
@@ -195,15 +209,69 @@
           "description": "The nominal code of the ledger account"
         },
         "ledger_account_type": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account type for the ledger account"
         },
         "ledger_account_classification": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account classification for the ledger account"
         },
         "tax_rate": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The default tax rate for the ledger account"
         },
         "fixed_tax_rate": {
@@ -347,7 +415,21 @@
           "description": "The datetime when the item was last updated"
         },
         "ledger_account_group": {
-          "$ref": "#/definitions/CoaGroupType",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account group for the account"
         },
         "name": {
@@ -377,15 +459,69 @@
           "description": "The nominal code of the ledger account"
         },
         "ledger_account_type": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account type for the ledger account"
         },
         "ledger_account_classification": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The ledger account classification for the ledger account"
         },
         "tax_rate": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The default tax rate for the ledger account"
         },
         "fixed_tax_rate": {
@@ -421,7 +557,40 @@
           "description": "Indicates whether the ledger account is displayed in the sales area of the application"
         },
         "balance_details": {
-          "$ref": "#/definitions/LedgerAccountBalanceDetails",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "balance": {
+                "type": "number",
+                "format": "double",
+                "description": "The account balance"
+            },
+            "credit_or_debit": {
+                "type": "string",
+                "description": "Is the balance a debit or credit"
+            },
+            "credits": {
+                "type": "number",
+                "format": "double",
+                "description": "The credit balance"
+            },
+            "debits": {
+                "type": "number",
+                "format": "double",
+                "description": "The debit balance"
+            },
+            "from_date": {
+                "type": "string",
+                "description": "The from date filter"
+            },
+            "to_date": {
+                "type": "string",
+                "description": "The to date filter"
+            }
+            },
+            "type":"object"
+          },
+          "type":"array",
           "description": "The ledger account balance details for the date range provided"
         },
         "is_control_account": {
@@ -534,7 +703,25 @@
             "description": "The address postal code/zipcode"
         },
         "country": {
-            "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
             "description": "The address country"
         },
         "deleted_at": {
@@ -553,15 +740,69 @@
             "description": "The datetime when the item was last updated"
         },
         "bank_account": {
-            "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
             "description": "The related bank account of the address, if the address belongs to a bank account."
         },
         "contact": {
-            "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
             "description": "The related contact of the address, if the address belongs to a contact."
         },
         "address_type": {
-            "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
             "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors"
         },
         "name": {
@@ -575,7 +816,25 @@
             "description": "The address state/province/region"
         },
         "country_group": {
-            "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
             "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC."
         },
         "is_main_address": {
@@ -682,7 +941,25 @@
           "description": "The address postal code/zipcode"
         },
         "country": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The address country"
         },
         "deleted_at": {
@@ -701,15 +978,69 @@
           "description": "The datetime when the item was last updated"
         },
         "bank_account": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The related bank account of the address, if the address belongs to a bank account."
         },
         "contact": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The related contact of the address, if the address belongs to a contact."
         },
         "address_type": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "Defines the nature of the address (Shipping, Billing, Head Office etc.).<br>Start defaults to \"Sales\" for Customers and \"Purchasing\" for Vendors"
         },
         "name": {
@@ -723,7 +1054,25 @@
           "description": "The address state/province/region"
         },
         "country_group": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "Country group allows countries to be filtered for selection.<br>Set it to e.g. EU if the address is within the EEC."
         },
         "is_main_address": {
@@ -767,7 +1116,23 @@
         "contact_person_types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContactPersonType"
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 15,
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
           },
           "description": "The contact person types for the contact person. Get possible types by retrieving\n<a href=\"https://developer.sage.com/accounting/reference/contacts/#operation/getContactPersonTypes\">\n  all available contact person types\n</a>.\n"
         },
@@ -806,7 +1171,25 @@
           "description": "Indicates whether this is the main contact person. Per contact, only one main contact can be selected."
         },
         "address": {
-          "$ref": "#/definitions/Base",
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The unique identifier for the item"
+            },
+            "displayed_as": {
+                "type": "string",
+                "description": "The name of the resource"
+            },
+            "$path": {
+                "type": "string",
+                "description": "The API path for the resource"
+            }
+            },
+            "type":"object"
+          },
+          "type":"object",
           "description": "The address of the contact person"
         },
         "is_preferred_contact": {
