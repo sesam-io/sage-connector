@@ -704,9 +704,9 @@ Sage,purchaseinvoices,notes,,string,Invoice notes
 Sage,purchaseinvoices,outstanding_amount,,number,The outstanding amount of the invoice
 Sage,purchaseinvoices,part_recoverable,,boolean,Indicates if the purchase invoice is part recoverable or not (Canada only)
 Sage,purchaseinvoices,payments_allocations,amount,number,The allocated amount of the payment/allocation
-Sage,purchaseinvoices,payments_allocations,artefact,None,
-Sage,purchaseinvoices,payments_allocations,contact_allocation,None,
-Sage,purchaseinvoices,payments_allocations,contact_payment,None,
+Sage,purchaseinvoices,payments_allocations,artefact,object,
+Sage,purchaseinvoices,payments_allocations,contact_allocation,object,
+Sage,purchaseinvoices,payments_allocations,contact_payment,object,
 Sage,purchaseinvoices,payments_allocations,date,string,The date for the payment/allocation
 Sage,purchaseinvoices,payments_allocations,discount,number,The discount amount of the payment/allocation
 Sage,purchaseinvoices,payments_allocations,displayed_as,string,Display text for the item
@@ -769,10 +769,528 @@ Sage,salescreditnotes,displayed_as,,string,
 Sage,salescreditnotes,id,,string,
 Sage,salesestimates,displayed_as,,string,
 Sage,salesestimates,id,,string,
-Sage,salesinvoices,displayed_as,,string,
-Sage,salesinvoices,id,,string,
-Sage,salesquotes,displayed_as,,string,
-Sage,salesquotes,id,,string,
+Sage,salesinvoices,base_currency_cis_applicable_amount,,number,The total amount of CIS deductible labour in the base currency - only applicable in UK
+Sage,salesinvoices,base_currency_net_amount,,number,The net amount of the invoice in base currency
+Sage,salesinvoices,base_currency_outstanding_amount,,number,The outstanding amount of the invoice in base currency
+Sage,salesinvoices,base_currency_shipping_net_amount,,number,The net shipping amount in base currency
+Sage,salesinvoices,base_currency_shipping_tax_amount,,number,The tax shipping amount in base currency
+Sage,salesinvoices,base_currency_shipping_tax_breakdown,,array,The shipping tax breakdown for the invoice in base currency
+Sage,salesinvoices,base_currency_shipping_total_amount,,number,The total shipping amount in base currency
+Sage,salesinvoices,base_currency_tax_amount,,number,The tax amount of the invoice in base currency
+Sage,salesinvoices,base_currency_total_after_cis_deduction,,number,The total of the artefact with the total of CIS deducted in the base currency - only applicable in UK
+Sage,salesinvoices,base_currency_total_amount,,number,The total amount of the invoice in base currency
+Sage,salesinvoices,base_currency_total_discount_amount,,number,The discount amount on the invoice in base currency
+Sage,salesinvoices,base_currency_withholding_tax_amount,,number,The withheld Tax Amount in the base currency - only applicable in UK (CIS subcontractor tax) and Spain (IRPF)
+Sage,salesinvoices,cis_applicable_amount,,number,The total amount of CIS deductible labour - only applicable in UK
+Sage,salesinvoices,contact.$path,,string,The API path for the resource
+Sage,salesinvoices,contact.aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,salesinvoices,contact.auxiliary_account,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,salesinvoices,contact.balance,,number,The contact balance
+Sage,salesinvoices,contact.bank_account_details,,object,
+Sage,salesinvoices,contact.cis_registered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,salesinvoices,contact.cis_settings,,object,
+Sage,salesinvoices,contact.contact_types,,array,The type of the contact. It has to be either CUSTOMER or VENDOR
+Sage,salesinvoices,contact.created_at,,string,The datetime when the item was created
+Sage,salesinvoices,contact.credit_days,,integer,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,salesinvoices,contact.credit_limit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,salesinvoices,contact.credit_terms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,salesinvoices,contact.credit_terms_and_conditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,salesinvoices,contact.currency,,object,
+Sage,salesinvoices,contact.default_purchase_ledger_account,,object,
+Sage,salesinvoices,contact.default_sales_ledger_account,,object,
+Sage,salesinvoices,contact.default_sales_tax_rate,,object,
+Sage,salesinvoices,contact.deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,salesinvoices,contact.deleted_at,,string,The datetime when the item was deleted
+Sage,salesinvoices,contact.delivery_address,,object,
+Sage,salesinvoices,contact.destination_vat_blocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,salesinvoices,contact.displayed_as,,string,The name of the resource
+Sage,salesinvoices,contact.email,,string,The email address for the given contact
+Sage,salesinvoices,contact.gb_based,,boolean,Identifies a contact as being based in Great Britain.
+Sage,salesinvoices,contact.gdpr_obfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,salesinvoices,contact.has_unfinished_recurring_invoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,salesinvoices,contact.id,,string,The unique identifier for the item
+Sage,salesinvoices,contact.is_active,,boolean,Identifies a contact as being active
+Sage,salesinvoices,contact.links,,array,Links for the resource
+Sage,salesinvoices,contact.locale,,string,The locale for the contact
+Sage,salesinvoices,contact.main_address,,object,
+Sage,salesinvoices,contact.main_contact_person,,object,
+Sage,salesinvoices,contact.name,,string,The contact's full name or business name
+Sage,salesinvoices,contact.ni_based,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,salesinvoices,contact.notes,,string,The notes for the contact
+Sage,salesinvoices,contact.product_sales_price_type,,object,
+Sage,salesinvoices,contact.reference,,string,Unique reference for the contact
+Sage,salesinvoices,contact.registered_number,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,salesinvoices,contact.source_guid,,string,Used when importing contacts from external sources
+Sage,salesinvoices,contact.system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,salesinvoices,contact.tax_calculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,salesinvoices,contact.tax_number,,string,The VAT registration number of the contact. The format will be validated.
+Sage,salesinvoices,contact.tax_treatment,,object,
+Sage,salesinvoices,contact.updated_at,,string,The datetime when the item was last updated
+Sage,salesinvoices,contact_name,,string,The name of the contact when the invoice was created
+Sage,salesinvoices,contact_reference,,string,The reference of the contact when the invoice was created
+Sage,salesinvoices,corrections,$path,string,The API path for the resource
+Sage,salesinvoices,corrections,base_currency_net_amount,number,The net amount of the invoice in base currency
+Sage,salesinvoices,corrections,base_currency_outstanding_amount,number,The outstanding amount of the invoice in base currency
+Sage,salesinvoices,corrections,base_currency_tax_amount,number,The tax amount of the invoice in base currency
+Sage,salesinvoices,corrections,base_currency_total_amount,number,The total amount of the invoice in base currency
+Sage,salesinvoices,corrections,base_currency_withholding_tax_amount,number,IRPF withheld Tax Amount (Spain only) in the base currency
+Sage,salesinvoices,corrections,contact,object,
+Sage,salesinvoices,corrections,contact_name,string,The name of the contact when the invoice was created
+Sage,salesinvoices,corrections,contact_reference,string,The reference of the contact when the invoice was created
+Sage,salesinvoices,corrections,created_at,string,The datetime when the item was created
+Sage,salesinvoices,corrections,currency,object,
+Sage,salesinvoices,corrections,date,string,The date of the invoice
+Sage,salesinvoices,corrections,deleted_at,string,The datetime when the item was deleted
+Sage,salesinvoices,corrections,detailed_tax_analysis,object,
+Sage,salesinvoices,corrections,displayed_as,string,The name of the resource
+Sage,salesinvoices,corrections,due_date,string,The due date of the invoice
+Sage,salesinvoices,corrections,editable,boolean,Indicates whether artefact can be edited
+Sage,salesinvoices,corrections,exchange_rate,number,The exchange rate for the invoice
+Sage,salesinvoices,corrections,id,string,The unique identifier for the item
+Sage,salesinvoices,corrections,import,boolean,"Indicates whether import rules are applied to the artefact. Only used for Accounting businesses, where the vendor is flagged as importer."
+Sage,salesinvoices,corrections,inverse_exchange_rate,string,The inverse exchange rate for the credit note
+Sage,salesinvoices,corrections,invoice_lines,array,The invoice lines of the invoice
+Sage,salesinvoices,corrections,last_paid,string,The date of the last payment
+Sage,salesinvoices,corrections,links,array,Links for the resource
+Sage,salesinvoices,corrections,net_amount,number,The net amount of the invoice
+Sage,salesinvoices,corrections,notes,string,Invoice notes
+Sage,salesinvoices,corrections,original_invoice,object,
+Sage,salesinvoices,corrections,original_invoice_date,string,The Invoice date relating to the original invoice (Spain only)
+Sage,salesinvoices,corrections,original_invoice_number,string,The number relating to the original invoice (Spain only)
+Sage,salesinvoices,corrections,outstanding_amount,number,The outstanding amount of the invoice
+Sage,salesinvoices,corrections,payments_allocations,array,The associated payments and allocations
+Sage,salesinvoices,corrections,payments_allocations_total_amount,number,The total amount of all payments and allocations
+Sage,salesinvoices,corrections,payments_allocations_total_discount,number,The total discount of all payments and allocations
+Sage,salesinvoices,corrections,reference,string,The reference for the invoice
+Sage,salesinvoices,corrections,status,object,
+Sage,salesinvoices,corrections,tax_amount,number,The tax amount of the invoice
+Sage,salesinvoices,corrections,tax_analysis,array,"The invoice tax analysis (Optional for Spain, restricted for all other regions)"
+Sage,salesinvoices,corrections,tax_reconciled,boolean,Indicates if the artefact is tax reconciled or not.
+Sage,salesinvoices,corrections,total_amount,number,The total amount of the invoice
+Sage,salesinvoices,corrections,total_paid,number,"The total paid amount of the invoice including any payments, allocations and discounts"
+Sage,salesinvoices,corrections,total_quantity,number,The total quantity of the invoice
+Sage,salesinvoices,corrections,transaction,object,
+Sage,salesinvoices,corrections,transaction_type,object,
+Sage,salesinvoices,corrections,updated_at,string,The datetime when the item was last updated
+Sage,salesinvoices,corrections,vat_reverse_charge,boolean,Indicates whether Domestic Reverser Charge is applied to the artefact. Only used for a UK business.
+Sage,salesinvoices,corrections,vendor_reference,string,The vendor reference for the invoice
+Sage,salesinvoices,corrections,void_reason,string,The reason the invoice was voided
+Sage,salesinvoices,corrections,withholding_tax_amount,number,IRPF withheld Tax Amount (Spain only)
+Sage,salesinvoices,corrections,withholding_tax_rate,number,IRPF withheld Tax Rate (Spain only)
+Sage,salesinvoices,created_at,,string,The datetime when the item was created
+Sage,salesinvoices,currency.$path,,string,The API path for the resource
+Sage,salesinvoices,currency.displayed_as,,string,The name of the resource
+Sage,salesinvoices,currency.id,,string,The unique identifier for the item
+Sage,salesinvoices,date,,string,The date of the invoice
+Sage,salesinvoices,deleted_at,,string,The datetime when the item was deleted
+Sage,salesinvoices,delivery_address.$path,,string,The API path for the resource
+Sage,salesinvoices,delivery_address.address_line_1,,string,The first line of the address
+Sage,salesinvoices,delivery_address.address_line_2,,string,The second line of the address
+Sage,salesinvoices,delivery_address.address_type,,object,
+Sage,salesinvoices,delivery_address.city,,string,The address town/city
+Sage,salesinvoices,delivery_address.country,,object,
+Sage,salesinvoices,delivery_address.country_group,,object,
+Sage,salesinvoices,delivery_address.deleted_at,,string,The datetime when the item was deleted
+Sage,salesinvoices,delivery_address.displayed_as,,string,The name of the resource
+Sage,salesinvoices,delivery_address.id,,string,The unique identifier for the item
+Sage,salesinvoices,delivery_address.postal_code,,string,The address postal code/zipcode
+Sage,salesinvoices,delivery_address.region,,string,The address state/province/region
+Sage,salesinvoices,delivery_address_free_form,,string,"The free-form delivery address of the invoice
+Note: An upper length limit of 500 characters is imposed conditionally and may not apply in every request. A hard upper limit of 65535 characters is imposed by the storage layer, though."
+Sage,salesinvoices,delivery_performance_date,,string,Delivery/Performance Date (Germany only)
+Sage,salesinvoices,destination_consignment,,boolean,"Indicates whether consignment checkbox for destination VAT is checked on the artefact. Only used for an UK business, where destination VAT was enabled in the settings."
+Sage,salesinvoices,destination_vat_rates_in_use,,boolean,Indicates whether destination vat rates are in use
+Sage,salesinvoices,detailed_tax_analysis.base_currency_total,,number,The total base currency amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.base_currency_total_goods_amount,,number,The total base currency amount relating to goods for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.base_currency_total_net,,number,The base currency total net amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.base_currency_total_services_amount,,number,The total base currency amount relating to services for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.base_currency_total_tax,,number,The base currency total tax amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.tax_rates_breakdown,,object,
+Sage,salesinvoices,detailed_tax_analysis.total,,number,The total amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.total_goods_amount,,number,The total amount relating to goods for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.total_net,,number,The total net amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.total_retailer_tax,,number,The total retailer tax amount for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.total_services_amount,,number,The total amount relating to services for all tax rates
+Sage,salesinvoices,detailed_tax_analysis.total_tax,,number,The total tax amount for all tax rates
+Sage,salesinvoices,displayed_as,,string,The name of the resource
+Sage,salesinvoices,due_date,,string,The due date of the invoice
+Sage,salesinvoices,editable,,boolean,Indicates whether artefact can be edited
+Sage,salesinvoices,exchange_rate,,number,The exchange rate for the invoice
+Sage,salesinvoices,has_cis_labour,,boolean,Identifies an artefact as having CIS Labour line items
+Sage,salesinvoices,has_cis_materials,,boolean,Identifies an artefact as having CIS Materials line items
+Sage,salesinvoices,id,,string,The unique identifier for the item
+Sage,salesinvoices,inverse_exchange_rate,,number,The inverse exchange rate for the invoice
+Sage,salesinvoices,invoice_lines,analysis_type_categories,array,The analysis types information
+Sage,salesinvoices,invoice_lines,base_currency_net_amount,number,The net amount for the invoice line in base currency
+Sage,salesinvoices,invoice_lines,base_currency_tax_amount,number,The tax amount for the invoice line in base currency
+Sage,salesinvoices,invoice_lines,base_currency_tax_breakdown,array,The tax breakdown for the invoice line in base currency
+Sage,salesinvoices,invoice_lines,base_currency_total_amount,number,The total amount for the invoice line in base currency
+Sage,salesinvoices,invoice_lines,base_currency_unit_price,number,The unit price for the invoice line in base currency
+Sage,salesinvoices,invoice_lines,description,string,The description for the invoice line
+Sage,salesinvoices,invoice_lines,displayed_as,string,The name of the resource
+Sage,salesinvoices,invoice_lines,eu_goods_services_type,object,
+Sage,salesinvoices,invoice_lines,gst_amount,number,The gst or hst tax amount for the invoice line
+Sage,salesinvoices,invoice_lines,id,string,The unique identifier for the item
+Sage,salesinvoices,invoice_lines,is_purchase_for_resale,boolean,Identifies whether the line item is for resale. (Ireland Only)
+Sage,salesinvoices,invoice_lines,ledger_account,object,
+Sage,salesinvoices,invoice_lines,net_amount,number,The net amount for the invoice line
+Sage,salesinvoices,invoice_lines,product,object,
+Sage,salesinvoices,invoice_lines,pst_amount,number,The pst or qst tax amount for the invoice line
+Sage,salesinvoices,invoice_lines,quantity,number,The quantity for the invoice line
+Sage,salesinvoices,invoice_lines,service,object,
+Sage,salesinvoices,invoice_lines,tax_amount,number,"The tax amount for the invoice line'. This attribute is required in v3.1, unless the tax rate is of a 'zero', 'exempt' or 'no_tax' type. Then the tax_amount is infered as 0.0. In v3, this attribute is optional, but you should still set, as it defaults to 0.0 in any case. This is not what you want for tax rates with a percentage > 0.0."
+Sage,salesinvoices,invoice_lines,tax_breakdown,array,The tax breakdown for the invoice line
+Sage,salesinvoices,invoice_lines,tax_rate,object,
+Sage,salesinvoices,invoice_lines,tax_recoverable,boolean,Indicates if the invoice line is tax recoverable or not
+Sage,salesinvoices,invoice_lines,total_amount,number,The total amount for the invoice line
+Sage,salesinvoices,invoice_lines,trade_of_asset,boolean,Whether the line item is marked as trade of asset.
+Sage,salesinvoices,invoice_lines,unit_price,number,The unit price for the invoice line
+Sage,salesinvoices,invoice_lines,unit_price_includes_tax,boolean,Defines whether the unit price includes tax
+Sage,salesinvoices,invoice_number,,string,The generated invoice number
+Sage,salesinvoices,invoice_number_prefix,,string,The invoice number prefix
+Sage,salesinvoices,is_cis,,boolean,Identifies an artefact as CIS (Construction Industry Scheme) applicable - UK only
+Sage,salesinvoices,last_paid,,string,The date of the last payment
+Sage,salesinvoices,links,,array,Links for the resource
+Sage,salesinvoices,main_address.$path,,string,The API path for the resource
+Sage,salesinvoices,main_address.address_line_1,,string,The first line of the address
+Sage,salesinvoices,main_address.address_line_2,,string,The second line of the address
+Sage,salesinvoices,main_address.address_type,,object,
+Sage,salesinvoices,main_address.city,,string,The address town/city
+Sage,salesinvoices,main_address.country,,object,
+Sage,salesinvoices,main_address.country_group,,object,
+Sage,salesinvoices,main_address.deleted_at,,string,The datetime when the item was deleted
+Sage,salesinvoices,main_address.displayed_as,,string,The name of the resource
+Sage,salesinvoices,main_address.id,,string,The unique identifier for the item
+Sage,salesinvoices,main_address.postal_code,,string,The address postal code/zipcode
+Sage,salesinvoices,main_address.region,,string,The address state/province/region
+Sage,salesinvoices,main_address_free_form,,string,"The free-form main address of the invoice
+Note: An upper length limit of 500 characters is imposed conditionally and may not apply in every request. A hard upper limit of 65535 characters is imposed by the storage layer, though."
+Sage,salesinvoices,migrated,,boolean,Indicates if the sales invoice was migrated from another system.
+Sage,salesinvoices,net_amount,,number,The net amount of the invoice
+Sage,salesinvoices,notes,,string,Invoice notes
+Sage,salesinvoices,original_quote_estimate.$path,,string,The API path for the resource
+Sage,salesinvoices,original_quote_estimate.displayed_as,,string,The name of the resource
+Sage,salesinvoices,original_quote_estimate.id,,string,The unique identifier for the item
+Sage,salesinvoices,original_quote_estimate.links,,array,Links for the resource
+Sage,salesinvoices,outstanding_amount,,number,The outstanding amount of the invoice
+Sage,salesinvoices,payments_allocations,amount,number,The allocated amount of the payment/allocation
+Sage,salesinvoices,payments_allocations,artefact,object,
+Sage,salesinvoices,payments_allocations,contact_allocation,object,
+Sage,salesinvoices,payments_allocations,contact_payment,object,
+Sage,salesinvoices,payments_allocations,date,string,The date for the payment/allocation
+Sage,salesinvoices,payments_allocations,discount,number,The discount amount of the payment/allocation
+Sage,salesinvoices,payments_allocations,displayed_as,string,Display text for the item
+Sage,salesinvoices,payments_allocations,links,array,Links for the resource
+Sage,salesinvoices,payments_allocations,negative_payment,boolean,This is a negative payment
+Sage,salesinvoices,payments_allocations,reference,string,The reference for the payment/allocation
+Sage,salesinvoices,payments_allocations,stripe_transaction_id,string,
+Sage,salesinvoices,payments_allocations,type,string,The type of the payment/allocation
+Sage,salesinvoices,payments_allocations_total_amount,,number,The total amount of all payments and allocations
+Sage,salesinvoices,payments_allocations_total_discount,,number,The total discount of all payments and allocations
+Sage,salesinvoices,recurring_invoice.displayed_as,,string,The name of the resource
+Sage,salesinvoices,recurring_invoice.frequency,,integer,The invoice recurrence frequency
+Sage,salesinvoices,recurring_invoice.id,,string,The unique identifier for the item
+Sage,salesinvoices,recurring_invoice.links,,array,Links for the resource
+Sage,salesinvoices,recurring_invoice.on_day_number,,integer,The invoice recurrence day
+Sage,salesinvoices,recurring_invoice.on_week_day,,integer,The invoice recurrence week day
+Sage,salesinvoices,recurring_invoice.recurrence_status_identifier,,string,The status of the recurrence
+Sage,salesinvoices,recurring_invoice.recurrence_type,,string,The invoice recurrence type
+Sage,salesinvoices,reference,,string,The reference for the invoice
+Sage,salesinvoices,sent,,boolean,Indicates whether the invoice has been sent
+Sage,salesinvoices,sent_by_email,,boolean,Indicates whether the invoice has been emailed
+Sage,salesinvoices,shipping_net_amount,,number,The net shipping amount
+Sage,salesinvoices,shipping_tax_amount,,number,The tax shipping amount. NOTE: This is not required for POST/PUT requests as the shipping tax is calculated based on the shipping_net_amount and the shipping_tax_rate.
+Sage,salesinvoices,shipping_tax_breakdown,amount,number,The tax amount for the given tax rate
+Sage,salesinvoices,shipping_tax_breakdown,percentage,number,The tax rate percentage
+Sage,salesinvoices,shipping_tax_breakdown,tax_rate,object,
+Sage,salesinvoices,shipping_tax_rate.$path,,string,The API path for the resource
+Sage,salesinvoices,shipping_tax_rate.displayed_as,,string,The name of the resource
+Sage,salesinvoices,shipping_tax_rate.id,,string,The unique identifier for the item
+Sage,salesinvoices,shipping_total_amount,,number,The total shipping amount
+Sage,salesinvoices,status.$path,,string,The API path for the resource
+Sage,salesinvoices,status.displayed_as,,string,The name of the resource
+Sage,salesinvoices,status.id,,string,The unique identifier for the item
+Sage,salesinvoices,tax_address_region.$path,,string,The API path for the resource
+Sage,salesinvoices,tax_address_region.displayed_as,,string,The name of the resource
+Sage,salesinvoices,tax_address_region.id,,string,The unique identifier for the item
+Sage,salesinvoices,tax_amount,,number,The tax amount of the invoice
+Sage,salesinvoices,tax_analysis,goods_amount,number,The total amount for the tax rate relating to goods
+Sage,salesinvoices,tax_analysis,net_amount,number,The net amount for the tax rate
+Sage,salesinvoices,tax_analysis,service_amount,number,The total amount for the tax rate relating to services
+Sage,salesinvoices,tax_analysis,tax_amount,number,The tax amount for the tax rate
+Sage,salesinvoices,tax_analysis,tax_rate,object,
+Sage,salesinvoices,tax_analysis,total_amount,number,The total amount for the tax rate
+Sage,salesinvoices,tax_calculation_method,,string,"The tax calculation method, if applicable, for this sales invoice, returns invoice, cash or retailer."
+Sage,salesinvoices,tax_reconciled,,boolean,Indicates if the sales invoice is tax reconciled or not.
+Sage,salesinvoices,terms_and_conditions,,string,Invoice terms and conditions
+Sage,salesinvoices,total_after_cis_deduction,,number,The total of the artefact with the total of CIS deducted - only applicable in UK
+Sage,salesinvoices,total_amount,,number,The total amount of the invoice
+Sage,salesinvoices,total_discount_amount,,number,The discount amount on the invoice
+Sage,salesinvoices,total_paid,,number,"The total paid amount of the invoice including any payments, allocations and discounts"
+Sage,salesinvoices,total_quantity,,number,The total quantity of the invoice
+Sage,salesinvoices,transaction.$path,,string,The API path for the resource
+Sage,salesinvoices,transaction.audit_trail_id,,string,The original entity that generated the transaction
+Sage,salesinvoices,transaction.contact,,object,
+Sage,salesinvoices,transaction.created_at,,string,The datetime when the item was created
+Sage,salesinvoices,transaction.date,,string,The date of the transaction
+Sage,salesinvoices,transaction.deleted,,boolean,Indicates whether the transaction has been deleted
+Sage,salesinvoices,transaction.displayed_as,,string,The name of the resource
+Sage,salesinvoices,transaction.id,,string,The unique identifier for the item
+Sage,salesinvoices,transaction.number_of_attachments,,string,The number of attachments related to the transaction
+Sage,salesinvoices,transaction.origin,,object,
+Sage,salesinvoices,transaction.reference,,string,The transaction reference
+Sage,salesinvoices,transaction.total,,number,The transaction total in the base currency
+Sage,salesinvoices,transaction.total_in_transaction_currency,,number,The transaction total in the transaction's origin's currency. This is null for some origin types.
+Sage,salesinvoices,transaction.transaction_type,,object,
+Sage,salesinvoices,transaction.updated_at,,string,The datetime when the item was last updated
+Sage,salesinvoices,transaction_type.$path,,string,The API path for the resource
+Sage,salesinvoices,transaction_type.displayed_as,,string,The name of the resource
+Sage,salesinvoices,transaction_type.id,,string,The unique identifier for the item
+Sage,salesinvoices,updated_at,,string,The datetime when the item was last updated
+Sage,salesinvoices,vat_reverse_charge,,boolean,Indicates whether Domestic Reverser Charge is applied to the artefact. Only used for a UK business.
+Sage,salesinvoices,void_reason,,string,The reason the invoice was voided
+Sage,salesinvoices,withholding_tax_amount,,number,The withheld Tax Amount - only applicable in UK (CIS subcontractor tax) and Spain (IRPF)
+Sage,salesinvoices,withholding_tax_rate,,number,The withheld Tax Rate - only applicable in UK (CIS subcontractor tax rate) and Spain (IRPF)
+Sage,salesquotes,base_currency_net_amount,,number,The net amount of the quote in base currency
+Sage,salesquotes,base_currency_shipping_net_amount,,number,The net shipping amount in base currency
+Sage,salesquotes,base_currency_shipping_tax_amount,,number,The tax shipping amount in base currency
+Sage,salesquotes,base_currency_shipping_tax_breakdown,amount,number,The tax amount for the given tax rate
+Sage,salesquotes,base_currency_shipping_tax_breakdown,percentage,number,The tax rate percentage
+Sage,salesquotes,base_currency_shipping_tax_breakdown,tax_rate,object,
+Sage,salesquotes,base_currency_shipping_total_amount,,number,The total shipping amount in base currency
+Sage,salesquotes,base_currency_tax_amount,,number,The tax amount of the quote in base currency
+Sage,salesquotes,base_currency_total_amount,,number,The total amount of the quote in base currency
+Sage,salesquotes,base_currency_total_discount_amount,,number,The discount amount on the  quote in base currency
+Sage,salesquotes,base_currency_withholding_tax_amount,,number,IRPF withheld Tax Amount (Spain only) in the base currency
+Sage,salesquotes,contact.$path,,string,The API path for the resource
+Sage,salesquotes,contact.aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,salesquotes,contact.auxiliary_account,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,salesquotes,contact.balance,,number,The contact balance
+Sage,salesquotes,contact.bank_account_details,,object,
+Sage,salesquotes,contact.cis_registered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,salesquotes,contact.cis_settings,,object,
+Sage,salesquotes,contact.contact_types,,array,The type of the contact. It has to be either CUSTOMER or VENDOR
+Sage,salesquotes,contact.created_at,,string,The datetime when the item was created
+Sage,salesquotes,contact.credit_days,,integer,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,salesquotes,contact.credit_limit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,salesquotes,contact.credit_terms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,salesquotes,contact.credit_terms_and_conditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,salesquotes,contact.currency,,object,
+Sage,salesquotes,contact.default_purchase_ledger_account,,object,
+Sage,salesquotes,contact.default_sales_ledger_account,,object,
+Sage,salesquotes,contact.default_sales_tax_rate,,object,
+Sage,salesquotes,contact.deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,salesquotes,contact.deleted_at,,string,The datetime when the item was deleted
+Sage,salesquotes,contact.delivery_address,,object,
+Sage,salesquotes,contact.destination_vat_blocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,salesquotes,contact.displayed_as,,string,The name of the resource
+Sage,salesquotes,contact.email,,string,The email address for the given contact
+Sage,salesquotes,contact.gb_based,,boolean,Identifies a contact as being based in Great Britain.
+Sage,salesquotes,contact.gdpr_obfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,salesquotes,contact.has_unfinished_recurring_invoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,salesquotes,contact.id,,string,The unique identifier for the item
+Sage,salesquotes,contact.is_active,,boolean,Identifies a contact as being active
+Sage,salesquotes,contact.links,,array,Links for the resource
+Sage,salesquotes,contact.locale,,string,The locale for the contact
+Sage,salesquotes,contact.main_address,,object,
+Sage,salesquotes,contact.main_contact_person,,object,
+Sage,salesquotes,contact.name,,string,The contact's full name or business name
+Sage,salesquotes,contact.ni_based,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,salesquotes,contact.notes,,string,The notes for the contact
+Sage,salesquotes,contact.product_sales_price_type,,object,
+Sage,salesquotes,contact.reference,,string,Unique reference for the contact
+Sage,salesquotes,contact.registered_number,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,salesquotes,contact.source_guid,,string,Used when importing contacts from external sources
+Sage,salesquotes,contact.system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,salesquotes,contact.tax_calculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,salesquotes,contact.tax_number,,string,The VAT registration number of the contact. The format will be validated.
+Sage,salesquotes,contact.tax_treatment,,object,
+Sage,salesquotes,contact.updated_at,,string,The datetime when the item was last updated
+Sage,salesquotes,contact_name,,string,The name of the contact when the quote was created
+Sage,salesquotes,contact_reference,,string,The reference of the contact when the quote was created
+Sage,salesquotes,created_at,,string,The datetime when the item was created
+Sage,salesquotes,currency.$path,,string,The API path for the resource
+Sage,salesquotes,currency.displayed_as,,string,The name of the resource
+Sage,salesquotes,currency.id,,string,The unique identifier for the item
+Sage,salesquotes,date,,string,The date of the quote
+Sage,salesquotes,delivery_address.$path,,string,The API path for the resource
+Sage,salesquotes,delivery_address.address_line_1,,string,The first line of the address
+Sage,salesquotes,delivery_address.address_line_2,,string,The second line of the address
+Sage,salesquotes,delivery_address.address_type,,object,
+Sage,salesquotes,delivery_address.city,,string,The address town/city
+Sage,salesquotes,delivery_address.country,,object,
+Sage,salesquotes,delivery_address.country_group,,object,
+Sage,salesquotes,delivery_address.deleted_at,,string,The datetime when the item was deleted
+Sage,salesquotes,delivery_address.displayed_as,,string,The name of the resource
+Sage,salesquotes,delivery_address.id,,string,The unique identifier for the item
+Sage,salesquotes,delivery_address.postal_code,,string,The address postal code/zipcode
+Sage,salesquotes,delivery_address.region,,string,The address state/province/region
+Sage,salesquotes,delivery_address_free_form,,string,"The free-form delivery address of the quote
+Note: An upper length limit of 500 characters is imposed conditionally and may not apply in every request. A hard upper limit of 65535 characters is imposed by the storage layer, though."
+Sage,salesquotes,destination_consignment,,boolean,"Indicates whether consignment checkbox for destination VAT is checked on the artefact. Only used for an UK business, where destination VAT was enabled in the settings."
+Sage,salesquotes,destination_vat_rates_in_use,,boolean,Indicates whether destination vat rates are in use
+Sage,salesquotes,detailed_tax_analysis.base_currency_total,,number,The total base currency amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.base_currency_total_goods_amount,,number,The total base currency amount relating to goods for all tax rates
+Sage,salesquotes,detailed_tax_analysis.base_currency_total_net,,number,The base currency total net amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.base_currency_total_services_amount,,number,The total base currency amount relating to services for all tax rates
+Sage,salesquotes,detailed_tax_analysis.base_currency_total_tax,,number,The base currency total tax amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.tax_rates_breakdown,,object,
+Sage,salesquotes,detailed_tax_analysis.total,,number,The total amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.total_goods_amount,,number,The total amount relating to goods for all tax rates
+Sage,salesquotes,detailed_tax_analysis.total_net,,number,The total net amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.total_retailer_tax,,number,The total retailer tax amount for all tax rates
+Sage,salesquotes,detailed_tax_analysis.total_services_amount,,number,The total amount relating to services for all tax rates
+Sage,salesquotes,detailed_tax_analysis.total_tax,,number,The total tax amount for all tax rates
+Sage,salesquotes,displayed_as,,string,The name of the resource
+Sage,salesquotes,editable,,boolean,Indicates whether artefact can be edited
+Sage,salesquotes,exchange_rate,,number,The exchange rate for the quote
+Sage,salesquotes,expiry_date,,string,The expiry date of the quote
+Sage,salesquotes,id,,string,The unique identifier for the item
+Sage,salesquotes,inverse_exchange_rate,,number,The inverse exchange rate for the quote
+Sage,salesquotes,invoice.$path,,string,The API path for the resource
+Sage,salesquotes,invoice.displayed_as,,string,The name of the resource
+Sage,salesquotes,invoice.id,,string,The unique identifier for the item
+Sage,salesquotes,invoice.links,,array,Links for the resource
+Sage,salesquotes,links,href,string,The link path
+Sage,salesquotes,links,rel,string,The relationship of the link to the resource
+Sage,salesquotes,links,type,string,The content-type of the link
+Sage,salesquotes,main_address.$path,,string,The API path for the resource
+Sage,salesquotes,main_address.address_line_1,,string,The first line of the address
+Sage,salesquotes,main_address.address_line_2,,string,The second line of the address
+Sage,salesquotes,main_address.address_type,,object,
+Sage,salesquotes,main_address.city,,string,The address town/city
+Sage,salesquotes,main_address.country,,object,
+Sage,salesquotes,main_address.country_group,,object,
+Sage,salesquotes,main_address.deleted_at,,string,The datetime when the item was deleted
+Sage,salesquotes,main_address.displayed_as,,string,The name of the resource
+Sage,salesquotes,main_address.id,,string,The unique identifier for the item
+Sage,salesquotes,main_address.postal_code,,string,The address postal code/zipcode
+Sage,salesquotes,main_address.region,,string,The address state/province/region
+Sage,salesquotes,main_address_free_form,,string,"The free-form main address of the quote
+Note: An upper length limit of 500 characters is imposed conditionally and may not apply in every request. A hard upper limit of 65535 characters is imposed by the storage layer, though."
+Sage,salesquotes,net_amount,,number,The net amount of the quote
+Sage,salesquotes,notes,,string,Quote notes
+Sage,salesquotes,payments_allocations_total_amount,,number,The total amount of all payments and allocations
+Sage,salesquotes,payments_allocations_total_discount,,number,The total discount of all payments and allocations
+Sage,salesquotes,profit_analysis.line_breakdown,,array,The breakdown of profit per line
+Sage,salesquotes,profit_analysis.total,,object,
+Sage,salesquotes,quote_lines,analysis_type_categories,array,The analysis types information
+Sage,salesquotes,quote_lines,base_currency_discount_amount,number,The discount amount for the quote line in base currency
+Sage,salesquotes,quote_lines,base_currency_net_amount,number,The net amount for the quote line in base currency
+Sage,salesquotes,quote_lines,base_currency_tax_amount,number,The tax amount for the quote line in base currency
+Sage,salesquotes,quote_lines,base_currency_tax_breakdown,array,The tax breakdown for the quote line in base currency
+Sage,salesquotes,quote_lines,base_currency_total_amount,number,The total amount for the quote line in base currency
+Sage,salesquotes,quote_lines,base_currency_unit_price,number,The unit price for the quote line in base currency
+Sage,salesquotes,quote_lines,description,string,The description for the quote line
+Sage,salesquotes,quote_lines,discount_amount,number,The discount amount for the quote line
+Sage,salesquotes,quote_lines,discount_percentage,number,The discount percentage for the quote line
+Sage,salesquotes,quote_lines,displayed_as,string,The name of the resource
+Sage,salesquotes,quote_lines,eu_goods_services_type,object,
+Sage,salesquotes,quote_lines,eu_sales_description,object,
+Sage,salesquotes,quote_lines,id,string,The unique identifier for the item
+Sage,salesquotes,quote_lines,ledger_account,object,
+Sage,salesquotes,quote_lines,net_amount,number,The net amount for the quote line
+Sage,salesquotes,quote_lines,product,object,
+Sage,salesquotes,quote_lines,quantity,number,The quantity for the quote line
+Sage,salesquotes,quote_lines,service,object,
+Sage,salesquotes,quote_lines,tax_amount,number,"The tax amount for the quote line'. This attribute is required in v3.1, unless the tax rate is of a 'zero', 'exempt' or 'no_tax' type. Then the tax_amount is infered as 0.0. In v3, this attribute is optional, but you should still set, as it defaults to 0.0 in any case. This is not what you want for tax rates with a percentage > 0.0."
+Sage,salesquotes,quote_lines,tax_breakdown,array,The tax breakdown for the quote line
+Sage,salesquotes,quote_lines,tax_rate,object,
+Sage,salesquotes,quote_lines,total_amount,number,The total amount for the quote line
+Sage,salesquotes,quote_lines,trade_of_asset,boolean,Whether the line item is marked as trade of asset.
+Sage,salesquotes,quote_lines,unit_price,number,The unit price for the quote line
+Sage,salesquotes,quote_lines,unit_price_includes_tax,boolean,Defines whether the unit price includes tax
+Sage,salesquotes,quote_number,,string,The generated quote number
+Sage,salesquotes,quote_number_prefix,,string,The quote number prefix
+Sage,salesquotes,reference,,string,The reference for the quote
+Sage,salesquotes,sent,,boolean,Indicates whether the quote has been sent
+Sage,salesquotes,sent_by_email,,boolean,Indicates whether the quote has been emailed
+Sage,salesquotes,shipping_net_amount,,number,The net shipping amount
+Sage,salesquotes,shipping_tax_amount,,number,The tax shipping amount. NOTE: This is not required for POST/PUT requests as the shipping tax is calculated based on the shipping_net_amount and the shipping_tax_rate.
+Sage,salesquotes,shipping_tax_breakdown,amount,number,The tax amount for the given tax rate
+Sage,salesquotes,shipping_tax_breakdown,percentage,number,The tax rate percentage
+Sage,salesquotes,shipping_tax_breakdown,tax_rate,object,
+Sage,salesquotes,shipping_tax_rate.$path,,string,The API path for the resource
+Sage,salesquotes,shipping_tax_rate.displayed_as,,string,The name of the resource
+Sage,salesquotes,shipping_tax_rate.id,,string,The unique identifier for the item
+Sage,salesquotes,shipping_total_amount,,number,The total shipping amount
+Sage,salesquotes,status.displayed_as,,string,The quote status name
+Sage,salesquotes,status.id,,string,The quote status id
+Sage,salesquotes,tax_address_region.$path,,string,The API path for the resource
+Sage,salesquotes,tax_address_region.displayed_as,,string,The name of the resource
+Sage,salesquotes,tax_address_region.id,,string,The unique identifier for the item
+Sage,salesquotes,tax_amount,,number,The tax amount of the quote
+Sage,salesquotes,tax_analysis,goods_amount,number,The total amount for the tax rate relating to goods
+Sage,salesquotes,tax_analysis,net_amount,number,The net amount for the tax rate
+Sage,salesquotes,tax_analysis,service_amount,number,The total amount for the tax rate relating to services
+Sage,salesquotes,tax_analysis,tax_amount,number,The tax amount for the tax rate
+Sage,salesquotes,tax_analysis,tax_rate,object,
+Sage,salesquotes,tax_analysis,total_amount,number,The total amount for the tax rate
+Sage,salesquotes,tax_calculation_method,,string,"The tax calculation method, if applicable, for this sales invoice, returns invoice, cash or retailer."
+Sage,salesquotes,tax_reconciled,,boolean,Indicates if the quote/estimate is tax reconciled or not.
+Sage,salesquotes,terms_and_conditions,,string,Quote terms and conditions
+Sage,salesquotes,total_amount,,number,The total amount of the quote
+Sage,salesquotes,total_discount_amount,,number,The discount amount on the  quote
+Sage,salesquotes,total_paid,,number,"The total paid amount of the quote including any payments, allocations and discounts"
+Sage,salesquotes,total_quantity,,number,The total quantity of the quote
+Sage,salesquotes,updated_at,,string,The datetime when the item was last updated
+Sage,salesquotes,vat_reverse_charge,,boolean,Indicates whether Domestic Reverser Charge is applied to the artefact. Only used for a UK business.
+Sage,salesquotes,withholding_tax_amount,,number,IRPF withheld Tax Amount (Spain only)
+Sage,salesquotes,withholding_tax_rate,,number,IRPF withheld Tax Rate (Spain only)
 Sage,services,active,,boolean,Indicates whether the service is active
 Sage,services,cost_price,,number,The cost price of the service
 Sage,services,created_at,,string,The datetime when the item was created
