@@ -7,18 +7,18 @@
       "type": "string",
       "description": "The API path for the resource"
     },
-    "bankAccountDetails": {
+    "bank_account_details": {
       "additionalProperties": true,
       "properties": {
-        "accountName": {
+        "account_name": {
           "type": "string",
           "description": "The account name"
         },
-        "accountNumber": {
+        "account_number": {
           "type": "string",
           "description": "The account number"
         },
-        "sortCode": {
+        "sort_code": {
           "type": "string",
           "description": "The sort code"
         },
@@ -34,11 +34,11 @@
       "type": "object",
       "description": "The account details for the contact's bank account"
     },
-    "cisRegistered": {
+    "cis_registered": {
       "type": "boolean",
       "description": "Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>"
     },
-    "cisSettings": {
+    "cis_settings": {
       "items": {
         "additionalProperties": true,
         "properties": {
@@ -75,7 +75,7 @@
       "type": "array",
       "description": "The CIS Settings for the contact"
     },
-    "contactTypes": {
+    "contact_types": {
       "items": {
         "additionalProperties": true,
         "properties": {
@@ -97,23 +97,23 @@
       "type": "array",
       "description": "The type of the contact. It has to be either CUSTOMER or VENDOR"
     },
-    "createdAt": {
+    "created_at": {
       "type": "string",
       "description": "The datetime when the item was created"
     },
-    "creditDays": {
+    "credit_days": {
       "type": "number",
       "description": "Custom credit days for the contact.<br>\nIf returned as null in a GET response, you may want to GET /invoice_settings\nand use 'customer_credit_days'/'vendor_credit_days' as default/fallback according\nto your use case.\n"
     },
-    "creditLimit": {
+    "credit_limit": {
       "type": "number",
       "description": "Custom credit limit amount for the contact <br><i>not applicable to Start</i>"
     },
-    "creditTerms": {
+    "credit_terms": {
       "type": "string",
       "description": "Credit terms options determine how invoice due dates are calculated.\nOptions include: end of next month, a delay of supplier credit_days and immediately.\nOnly: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,\ndate_from_payment, immediate_payment are valid values.\nIf returned as null in a GET response, you may want to GET /invoice_settings\nand use 'customer_credit_terms'/'vendor_credit_terms' as default.\n"
     },
-    "creditTermsAndConditions": {
+    "credit_terms_and_conditions": {
       "type": "string",
       "description": "Custom terms and conditions for the contact. If set will override global /invoice_settings\ndefault terms and conditions.\n<br><i>Customers only</i>\n"
     },
@@ -136,7 +136,7 @@
       "type": "object",
       "description": "The currency that the contact trades in <br><i>not applicable to Start</i>"
     },
-    "defaultPurchaseLedgerAccount": {
+    "default_purchase_ledger_account": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -361,7 +361,7 @@
       "type": "object",
       "description": "The default purchase ledger account for the contact <br><i>Vendors only</i>"
     },
-    "defaultSalesLedgerAccount": {
+    "default_sales_ledger_account": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -586,7 +586,7 @@
       "type": "object",
       "description": "The default sales ledger account for the contact <br><i>Customers only</i>"
     },
-    "defaultSalesTaxRate": {
+    "default_sales_tax_rate": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -609,7 +609,7 @@
       "type": "boolean",
       "description": "Indicates whether the contact can be deleted successfully"
     },
-    "deliveryAddress": {
+    "delivery_address": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -763,11 +763,11 @@
       "type": "object",
       "description": "The delivery address <br><i>Customers only</i>"
     },
-    "destinationVatBlocking": {
+    "destination_vat_blocking": {
       "type": "boolean",
       "description": "Identifies a contact should be blocked due to destination vat"
     },
-    "displayedAs": {
+    "displayed_as": {
       "type": "string",
       "description": "The name of the resource"
     },
@@ -775,15 +775,15 @@
       "type": "string",
       "description": "The email address for the given contact"
     },
-    "gbBased": {
+    "gb_based": {
       "type": "boolean",
       "description": "Identifies a contact as being based in Great Britain."
     },
-    "gdprObfuscated": {
+    "gdpr_obfuscated": {
       "type": "boolean",
       "description": "General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
     },
-    "hasUnfinishedRecurringInvoices": {
+    "has_unfinished_recurring_invoices": {
       "type": "boolean",
       "description": "Indicates whether the contact is associated with any unfinished recurring invoices"
     },
@@ -791,7 +791,7 @@
       "type": "string",
       "description": "The unique identifier for the item"
     },
-    "isActive": {
+    "is_active": {
       "type": "boolean",
       "description": "Identifies a contact as being active"
     },
@@ -821,7 +821,7 @@
       "type": "string",
       "description": "The locale for the contact"
     },
-    "mainAddress": {
+    "main_address": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -975,7 +975,7 @@
       "type": "object",
       "description": "The main address associated with the contact"
     },
-    "mainContactPerson": {
+    "main_contact_person": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -1079,7 +1079,7 @@
       "type": "object",
       "description": "The main contact person of the contact."
     },
-    "mandateActive": {
+    "mandate_active": {
       "type": "boolean",
       "description": "Not found in the docs"
     },
@@ -1087,7 +1087,7 @@
       "type": "string",
       "description": "The contact's full name or business name"
     },
-    "niBased": {
+    "ni_based": {
       "type": "boolean",
       "description": "Identifies a contact as being based in Northern Ireland."
     },
@@ -1095,7 +1095,7 @@
       "type": "string",
       "description": "The notes for the contact"
     },
-    "preferredAddress": {
+    "preferred_address": {
       "additionalProperties": true,
       "properties": {
         "$path": {
@@ -1111,7 +1111,7 @@
       "type": "object",
       "description": "Not found in the docs"
     },
-    "preferredContactPerson": {
+    "preferred_contact_person": {
       "additionalProperties": true,
       "properties": {
         "$path": {
@@ -1127,7 +1127,7 @@
       "type": "object",
       "description": "Not found in the docs"
     },
-    "productSalesPriceType": {
+    "product_sales_price_type": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -1150,19 +1150,19 @@
       "type": "string",
       "description": "Auxiliary reference. Used for German \"Kreditorennummer\" and \"Debitorennummer\".\n<br>\n<a href=\"https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings\">\n  See Datev Settings endpoint reference\n</a>\n"
     },
-    "registeredNumber": {
+    "registered_number": {
       "type": "string",
       "description": "The registered number of the contact's business. Only used for German businesses and represents the \"Steuernummer\" there (not the \"USt-ID\")."
     },
-    "sendStatements": {
+    "send_statements": {
       "type": "boolean",
       "description": "Not found in the docs"
     },
-    "sourceGuid": {
+    "source_guid": {
       "type": "string",
       "description": "Used when importing contacts from external sources"
     },
-    "statementRun": {
+    "statement_run": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -1179,15 +1179,15 @@
       "type": "boolean",
       "description": "Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds."
     },
-    "taxCalculation": {
+    "tax_calculation": {
       "type": "string",
       "description": "<b>France:</b> The tax calculation method used to define tax\ntreatment <i>Vendors only</i>\n<br>\n<b>Spain:</b> Defines if contact is a retailer and tax is subject\nto Recargo de Equivalencia <i>Customers only</i>\n<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse\ncharge <i>Customers & Suppliers</i>\n"
     },
-    "taxNumber": {
+    "tax_number": {
       "type": "string",
       "description": "The VAT registration number of the contact. The format will be validated."
     },
-    "taxTreatment": {
+    "tax_treatment": {
       "additionalProperties": true,
       "properties": {
         "euNotTaxRegistered": {
@@ -1221,11 +1221,11 @@
       "type": "object",
       "description": "The tax treatment - indicates which tax rules to apply for a contact"
     },
-    "updatedAt": {
+    "updated_at": {
       "type": "string",
       "description": "The datetime when the item was last updated"
     },
-    "deletedAt": {
+    "deleted_at": {
       "type": "string",
       "description": "The datetime when the item was deleted"
     },
@@ -1233,11 +1233,11 @@
       "type": "number",
       "description": "The contact balance"
     },
-    "auxReference": {
+    "aux_reference": {
       "type": "string",
       "description": "Auxiliary reference. Used for German \"Kreditorennummer\" and \"Debitorennummer\".\n<br>\n<a href=\"https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings\">\n  See Datev Settings endpoint reference\n</a>\n"
     },
-    "auxiliaryAccount": {
+    "auxiliary_account": {
       "type": "string",
       "description": "Auxiliary account - used when auxiliary accounting is enabled in business settings.\n<br><i>Available only in Spain and France</i>\n"
     }
