@@ -25,7 +25,7 @@
       "format": "date-time",
       "description": "The datetime when the item was last updated"
   },
-  "deletedAt": {
+  "deleted_at": {
       "type": "string",
       "format": "date-time",
       "description": "The datetime when the item was deleted"
@@ -38,11 +38,11 @@
       "type": "boolean",
       "description": "Indicates whether the product can be deactivated"
   },
-  "usedOnRecurringInvoice": {
+  "used_on_recurring_invoice": {
       "type": "boolean",
       "description": "Indicates whether the product has been used on a recurring invoice"
   },
-  "itemCode": {
+  "item_code": {
       "type": "string",
       "maxLength": 255,
       "description": "The item code for the product"
@@ -57,7 +57,7 @@
       "maxLength": 500,
       "description": "The notes for the product"
   },
-  "salesLedgerAccount": {
+  "sales_ledger_account": {
     "additionalProperties": true,
     "properties": {
 
@@ -77,7 +77,7 @@
     "type":"object",
     "description": "The sales ledger account for the product"
   },
-  "salesTaxRate": {
+  "sales_tax_rate": {
     "additionalProperties": true,
     "properties": {
 
@@ -97,7 +97,7 @@
     "type":"object",
     "description": "The sales tax rate for the product"
   },
-  "purchaseLedgerAccount": {
+  "purchase_ledger_account": {
     "additionalProperties": true,
     "properties": {
 
@@ -117,7 +117,7 @@
     "type":"object",
     "description": "The purchase ledger account for the product"
   },
-  "usualSupplier": {
+  "usual_supplier": {
     "additionalProperties": true,
     "properties": {
         "id": {
@@ -1232,7 +1232,7 @@
     "description": "The usual supplier for the product"
 
   },
-  "purchaseTaxRate": {
+  "purchase_tax_rate": {
     "additionalProperties": true,
     "properties": {
 
@@ -1252,12 +1252,12 @@
     "type":"object",
     "description": "The purchase tax rate for the product"
   },
-  "costPrice": {
+  "cost_price": {
       "type": "number",
       "format": "double",
       "description": "The cost price of the product"
   },
-  "salesPrices": {
+  "sales_prices": {
       "type": "array",
       "items": {
         "additionalProperties": true,
@@ -1317,12 +1317,12 @@
       },
       "description": "The sales prices for the product"
   },
-  "sourceGuid": {
+  "source_guid": {
       "type": "string",
       "maxLength": 255,
       "description": "Used when importing products from external sources"
   },
-  "purchaseDescription": {
+  "purchase_description": {
       "type": "string",
       "maxLength": 250,
       "description": "The product purchase description"
@@ -1331,7 +1331,7 @@
       "type": "boolean",
       "description": "Indicates whether the product is active"
   },
-  "catalogItemType": {
+  "catalog_item_type": {
     "additionalProperties": true,
     "properties": {
 
