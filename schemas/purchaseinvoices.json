@@ -4787,6 +4787,7 @@
                 "type": "string"
             },
             "contact_allocation": {
+              "type":"object",
                 "id": {
                     "type": "string",
                     "description": "The unique identifier for the item"
@@ -4928,6 +4929,7 @@
                 }
             },
             "artefact": {
+              "type":"object",
                 "id": {
                     "type": "string",
                     "description": "The unique identifier for the item"
@@ -4960,6 +4962,7 @@
                 }
             },
             "contact_payment": {
+              "type":"object",
                 "id": {
                     "type": "string",
                     "description": "The unique identifier for the item"
