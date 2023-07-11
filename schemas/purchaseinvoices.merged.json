@@ -9737,7 +9737,8 @@
                 }
               },
               "type": "array"
-            }
+            },
+            "type": "object"
           },
           "contact_allocation": {
             "$path": {
@@ -9874,6 +9875,7 @@
                 "type": "string"
               }
             },
+            "type": "object",
             "updated_at": {
               "description": "The datetime when the item was last updated",
               "format": "date-time",
@@ -10253,6 +10255,7 @@
                 "type": "string"
               }
             },
+            "type": "object",
             "updated_at": {
               "description": "The datetime when the item was last updated",
               "format": "date-time",
