@@ -15,11 +15,11 @@
       "type": "string",
       "description": "The API path for the resource"
     },
-    "createdAt": {
+    "created_at": {
       "type": "string",
       "description": "The datetime when the item was created"
     },
-    "updatedAt": {
+    "updated_at": {
       "type": "string",
       "description": "The datetime when the item was last updated"
     },
@@ -42,7 +42,7 @@
       "type": "object",
       "description": "The transaction for the item"
     },
-    "transactionType": {
+    "transaction_type": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -61,15 +61,15 @@
       "type": "object",
       "description": "The transaction type of the payment"
     },
-    "deletedAt": {
+    "deleted_at": {
       "type": "string",
       "description": "The datetime when the item was deleted"
     },
-    "baseCurrencyTotalItcAmount": {
+    "base_currency_total_itc_amount": {
       "type": "number",
       "description": "The total amount of input tax credit in base currency for the\n                     Other Payment (Canada only)"
     },
-    "totalItcAmount": {
+    "total_itc_amount": {
       "type": "number",
       "description": "The total amount of input tax credit for the Other Payment (Canada only)"
     },
@@ -77,15 +77,15 @@
       "type": "number",
       "description": "The total amount of input tax refund in base currency for the\n                     Other Payment (Canada only)"
     },
-    "totalItrAmount": {
+    "total_itr_amount": {
       "type": "number",
       "description": "The total amount of input tax refund for the Other Payment (Canada only)"
     },
-    "partRecoverable": {
+    "part_recoverable": {
       "type": "boolean",
       "description": "Indicates if the Other Payment is part recoverable or not (Canada only)"
     },
-    "paymentMethod": {
+    "payment_method": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -123,7 +123,7 @@
       "type": "object",
       "description": "The contact of the payment"
     },
-    "bankAccount": {
+    "bank_account": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -142,7 +142,7 @@
       "type": "object",
       "description": "The bank account of the payment"
     },
-    "taxAddressRegion": {
+    "tax_address_region": {
       "additionalProperties": true,
       "properties": {
         "id": {
@@ -165,15 +165,15 @@
       "type": "string",
       "description": "The date of the payment"
     },
-    "netAmount": {
+    "net_amount": {
       "type": "number",
       "description": "The net amount of the payment"
     },
-    "taxAmount": {
+    "tax_amount": {
       "type": "number",
       "description": "The tax amount of the payment"
     },
-    "totalAmount": {
+    "total_amount": {
       "type": "number",
       "description": "The total amount of the payment"
     },
@@ -181,7 +181,7 @@
       "type": "string",
       "description": "A reference of the payment\nNote: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
     },
-    "paymentLines": {
+    "payment_lines": {
       "type": "array",
       "items": {
         "additionalProperties": true,
@@ -419,11 +419,11 @@
       "type": "boolean",
       "description": "Indicates whether or not the payment can be deleted"
     },
-    "withholdingTaxRate": {
+    "withholding_tax_rate": {
       "type": "number",
       "description": "IRPF withheld tax rate"
     },
-    "withholdingTaxAmount": {
+    "withholding_tax_amount": {
       "type": "number",
       "description": "IRPF withheld tax amount"
     }
