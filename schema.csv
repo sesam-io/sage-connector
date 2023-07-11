@@ -508,6 +508,263 @@ charge <i>Customers & Suppliers</i>
 Sage,products,usual_supplier.tax_number,,string,The VAT registration number of the contact. The format will be validated.
 Sage,products,usual_supplier.tax_treatment,,object,
 Sage,products,usual_supplier.updated_at,,string,The datetime when the item was last updated
+Sage,purchaseinvoices,base_currency_cis_applicable_amount,,number,The total amount of CIS deductible labour in the base currency - only applicable in UK
+Sage,purchaseinvoices,base_currency_net_amount,,number,The net amount of the invoice in base currency
+Sage,purchaseinvoices,base_currency_outstanding_amount,,number,The outstanding amount of the invoice in base currency
+Sage,purchaseinvoices,base_currency_tax_amount,,number,The tax amount of the invoice in base currency
+Sage,purchaseinvoices,base_currency_total_after_cis_deduction,,number,The total of the artefact with the total of CIS deducted in the base currency - only applicable in UK
+Sage,purchaseinvoices,base_currency_total_amount,,number,The total amount of the invoice in base currency
+Sage,purchaseinvoices,base_currency_total_itc_amount,,number,"The total amount of input tax credit in base currency for the
+                     purchase invoice (Canada only)"
+Sage,purchaseinvoices,base_currency_total_itr_amount,,number,"The total amount of input tax refund in base currency for the
+                     purchase invoice (Canada only)"
+Sage,purchaseinvoices,base_currency_withholding_tax_amount,,number,The withheld Tax Amount in the base currency - only applicable in UK (CIS subcontractor tax) and Spain (IRPF)
+Sage,purchaseinvoices,cis_applicable_amount,,number,The total amount of CIS deductible labour - only applicable in UK
+Sage,purchaseinvoices,contact.$path,,string,The API path for the resource
+Sage,purchaseinvoices,contact.aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,purchaseinvoices,contact.auxiliary_account,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,purchaseinvoices,contact.balance,,number,The contact balance
+Sage,purchaseinvoices,contact.bank_account_details,,object,
+Sage,purchaseinvoices,contact.cis_registered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,purchaseinvoices,contact.cis_settings,,object,
+Sage,purchaseinvoices,contact.contact_types,,array,The type of the contact. It has to be either CUSTOMER or VENDOR
+Sage,purchaseinvoices,contact.created_at,,string,The datetime when the item was created
+Sage,purchaseinvoices,contact.credit_days,,integer,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,purchaseinvoices,contact.credit_limit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,purchaseinvoices,contact.credit_terms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,purchaseinvoices,contact.credit_terms_and_conditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,purchaseinvoices,contact.currency,,object,
+Sage,purchaseinvoices,contact.default_purchase_ledger_account,,object,
+Sage,purchaseinvoices,contact.default_sales_ledger_account,,object,
+Sage,purchaseinvoices,contact.default_sales_tax_rate,,object,
+Sage,purchaseinvoices,contact.deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,purchaseinvoices,contact.deleted_at,,string,The datetime when the item was deleted
+Sage,purchaseinvoices,contact.delivery_address,,object,
+Sage,purchaseinvoices,contact.destination_vat_blocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,purchaseinvoices,contact.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,contact.email,,string,The email address for the given contact
+Sage,purchaseinvoices,contact.gb_based,,boolean,Identifies a contact as being based in Great Britain.
+Sage,purchaseinvoices,contact.gdpr_obfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,purchaseinvoices,contact.has_unfinished_recurring_invoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,purchaseinvoices,contact.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,contact.is_active,,boolean,Identifies a contact as being active
+Sage,purchaseinvoices,contact.links,,array,Links for the resource
+Sage,purchaseinvoices,contact.locale,,string,The locale for the contact
+Sage,purchaseinvoices,contact.main_address,,object,
+Sage,purchaseinvoices,contact.main_contact_person,,object,
+Sage,purchaseinvoices,contact.name,,string,The contact's full name or business name
+Sage,purchaseinvoices,contact.ni_based,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,purchaseinvoices,contact.notes,,string,The notes for the contact
+Sage,purchaseinvoices,contact.product_sales_price_type,,object,
+Sage,purchaseinvoices,contact.reference,,string,Unique reference for the contact
+Sage,purchaseinvoices,contact.registered_number,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,purchaseinvoices,contact.source_guid,,string,Used when importing contacts from external sources
+Sage,purchaseinvoices,contact.system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,purchaseinvoices,contact.tax_calculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,purchaseinvoices,contact.tax_number,,string,The VAT registration number of the contact. The format will be validated.
+Sage,purchaseinvoices,contact.tax_treatment,,object,
+Sage,purchaseinvoices,contact.updated_at,,string,The datetime when the item was last updated
+Sage,purchaseinvoices,contact_name,,string,The name of the contact when the invoice was created
+Sage,purchaseinvoices,contact_reference,,string,The reference of the contact when the invoice was created
+Sage,purchaseinvoices,corrections,$path,string,The API path for the resource
+Sage,purchaseinvoices,corrections,base_currency_net_amount,number,The net amount of the invoice in base currency
+Sage,purchaseinvoices,corrections,base_currency_outstanding_amount,number,The outstanding amount of the invoice in base currency
+Sage,purchaseinvoices,corrections,base_currency_tax_amount,number,The tax amount of the invoice in base currency
+Sage,purchaseinvoices,corrections,base_currency_total_amount,number,The total amount of the invoice in base currency
+Sage,purchaseinvoices,corrections,base_currency_withholding_tax_amount,number,IRPF withheld Tax Amount (Spain only) in the base currency
+Sage,purchaseinvoices,corrections,contact,object,
+Sage,purchaseinvoices,corrections,contact_name,string,The name of the contact when the invoice was created
+Sage,purchaseinvoices,corrections,contact_reference,string,The reference of the contact when the invoice was created
+Sage,purchaseinvoices,corrections,created_at,string,The datetime when the item was created
+Sage,purchaseinvoices,corrections,currency,object,
+Sage,purchaseinvoices,corrections,date,string,The date of the invoice
+Sage,purchaseinvoices,corrections,deleted_at,string,The datetime when the item was deleted
+Sage,purchaseinvoices,corrections,detailed_tax_analysis,object,
+Sage,purchaseinvoices,corrections,displayed_as,string,The name of the resource
+Sage,purchaseinvoices,corrections,due_date,string,The due date of the invoice
+Sage,purchaseinvoices,corrections,editable,boolean,Indicates whether artefact can be edited
+Sage,purchaseinvoices,corrections,exchange_rate,number,The exchange rate for the invoice
+Sage,purchaseinvoices,corrections,id,string,The unique identifier for the item
+Sage,purchaseinvoices,corrections,import,boolean,"Indicates whether import rules are applied to the artefact. Only used for Accounting businesses, where the vendor is flagged as importer."
+Sage,purchaseinvoices,corrections,inverse_exchange_rate,string,The inverse exchange rate for the credit note
+Sage,purchaseinvoices,corrections,invoice_lines,array,The invoice lines of the invoice
+Sage,purchaseinvoices,corrections,last_paid,string,The date of the last payment
+Sage,purchaseinvoices,corrections,links,array,Links for the resource
+Sage,purchaseinvoices,corrections,net_amount,number,The net amount of the invoice
+Sage,purchaseinvoices,corrections,notes,string,Invoice notes
+Sage,purchaseinvoices,corrections,original_invoice,object,
+Sage,purchaseinvoices,corrections,original_invoice_date,string,The Invoice date relating to the original invoice (Spain only)
+Sage,purchaseinvoices,corrections,original_invoice_number,string,The number relating to the original invoice (Spain only)
+Sage,purchaseinvoices,corrections,outstanding_amount,number,The outstanding amount of the invoice
+Sage,purchaseinvoices,corrections,payments_allocations,array,The associated payments and allocations
+Sage,purchaseinvoices,corrections,payments_allocations_total_amount,number,The total amount of all payments and allocations
+Sage,purchaseinvoices,corrections,payments_allocations_total_discount,number,The total discount of all payments and allocations
+Sage,purchaseinvoices,corrections,reference,string,The reference for the invoice
+Sage,purchaseinvoices,corrections,status,object,
+Sage,purchaseinvoices,corrections,tax_amount,number,The tax amount of the invoice
+Sage,purchaseinvoices,corrections,tax_analysis,array,"The invoice tax analysis (Optional for Spain, restricted for all other regions)"
+Sage,purchaseinvoices,corrections,tax_reconciled,boolean,Indicates if the artefact is tax reconciled or not.
+Sage,purchaseinvoices,corrections,total_amount,number,The total amount of the invoice
+Sage,purchaseinvoices,corrections,total_paid,number,"The total paid amount of the invoice including any payments, allocations and discounts"
+Sage,purchaseinvoices,corrections,total_quantity,number,The total quantity of the invoice
+Sage,purchaseinvoices,corrections,transaction,object,
+Sage,purchaseinvoices,corrections,transaction_type,object,
+Sage,purchaseinvoices,corrections,updated_at,string,The datetime when the item was last updated
+Sage,purchaseinvoices,corrections,vat_reverse_charge,boolean,Indicates whether Domestic Reverser Charge is applied to the artefact. Only used for a UK business.
+Sage,purchaseinvoices,corrections,vendor_reference,string,The vendor reference for the invoice
+Sage,purchaseinvoices,corrections,void_reason,string,The reason the invoice was voided
+Sage,purchaseinvoices,corrections,withholding_tax_amount,number,IRPF withheld Tax Amount (Spain only)
+Sage,purchaseinvoices,corrections,withholding_tax_rate,number,IRPF withheld Tax Rate (Spain only)
+Sage,purchaseinvoices,created_at,,string,The datetime when the item was created
+Sage,purchaseinvoices,currency.$path,,string,The API path for the resource
+Sage,purchaseinvoices,currency.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,currency.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,date,,string,The date of the invoice
+Sage,purchaseinvoices,deleted_at,,string,The datetime when the item was deleted
+Sage,purchaseinvoices,detailed_tax_analysis.base_currency_total,,number,The total base currency amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.base_currency_total_goods_amount,,number,The total base currency amount relating to goods for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.base_currency_total_net,,number,The base currency total net amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.base_currency_total_services_amount,,number,The total base currency amount relating to services for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.base_currency_total_tax,,number,The base currency total tax amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.tax_rates_breakdown,,object,
+Sage,purchaseinvoices,detailed_tax_analysis.total,,number,The total amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.total_goods_amount,,number,The total amount relating to goods for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.total_net,,number,The total net amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.total_retailer_tax,,number,The total retailer tax amount for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.total_services_amount,,number,The total amount relating to services for all tax rates
+Sage,purchaseinvoices,detailed_tax_analysis.total_tax,,number,The total tax amount for all tax rates
+Sage,purchaseinvoices,displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,due_date,,string,The due date of the invoice
+Sage,purchaseinvoices,editable,,boolean,Indicates whether artefact can be edited
+Sage,purchaseinvoices,exchange_rate,,number,The exchange rate for the invoice
+Sage,purchaseinvoices,has_cis_labour,,boolean,Identifies an artefact as having CIS Labour line items
+Sage,purchaseinvoices,has_cis_materials,,boolean,Identifies an artefact as having CIS Materials line items
+Sage,purchaseinvoices,id,,string,The unique identifier for the item
+Sage,purchaseinvoices,import,,boolean,"Indicates whether import rules are applied to the artefact. Only used for UK, IE, FR and ES Accounting businesses, where the vendor is flagged as importer."
+Sage,purchaseinvoices,inverse_exchange_rate,,number,The inverse exchange rate for the invoice
+Sage,purchaseinvoices,invoice_lines,analysis_type_categories,array,The analysis types information
+Sage,purchaseinvoices,invoice_lines,base_currency_net_amount,number,The net amount for the invoice line in base currency
+Sage,purchaseinvoices,invoice_lines,base_currency_tax_amount,number,The tax amount for the invoice line in base currency
+Sage,purchaseinvoices,invoice_lines,base_currency_tax_breakdown,array,The tax breakdown for the invoice line in base currency
+Sage,purchaseinvoices,invoice_lines,base_currency_total_amount,number,The total amount for the invoice line in base currency
+Sage,purchaseinvoices,invoice_lines,base_currency_unit_price,number,The unit price for the invoice line in base currency
+Sage,purchaseinvoices,invoice_lines,description,string,The description for the invoice line
+Sage,purchaseinvoices,invoice_lines,displayed_as,string,The name of the resource
+Sage,purchaseinvoices,invoice_lines,eu_goods_services_type,object,
+Sage,purchaseinvoices,invoice_lines,gst_amount,number,The gst or hst tax amount for the invoice line
+Sage,purchaseinvoices,invoice_lines,id,string,The unique identifier for the item
+Sage,purchaseinvoices,invoice_lines,is_purchase_for_resale,boolean,Identifies whether the line item is for resale. (Ireland Only)
+Sage,purchaseinvoices,invoice_lines,ledger_account,object,
+Sage,purchaseinvoices,invoice_lines,net_amount,number,The net amount for the invoice line
+Sage,purchaseinvoices,invoice_lines,product,object,
+Sage,purchaseinvoices,invoice_lines,pst_amount,number,The pst or qst tax amount for the invoice line
+Sage,purchaseinvoices,invoice_lines,quantity,number,The quantity for the invoice line
+Sage,purchaseinvoices,invoice_lines,service,object,
+Sage,purchaseinvoices,invoice_lines,tax_amount,number,"The tax amount for the invoice line'. This attribute is required in v3.1, unless the tax rate is of a 'zero', 'exempt' or 'no_tax' type. Then the tax_amount is infered as 0.0. In v3, this attribute is optional, but you should still set, as it defaults to 0.0 in any case. This is not what you want for tax rates with a percentage > 0.0."
+Sage,purchaseinvoices,invoice_lines,tax_breakdown,array,The tax breakdown for the invoice line
+Sage,purchaseinvoices,invoice_lines,tax_rate,object,
+Sage,purchaseinvoices,invoice_lines,tax_recoverable,boolean,Indicates if the invoice line is tax recoverable or not
+Sage,purchaseinvoices,invoice_lines,total_amount,number,The total amount for the invoice line
+Sage,purchaseinvoices,invoice_lines,trade_of_asset,boolean,Whether the line item is marked as trade of asset.
+Sage,purchaseinvoices,invoice_lines,unit_price,number,The unit price for the invoice line
+Sage,purchaseinvoices,invoice_lines,unit_price_includes_tax,boolean,Defines whether the unit price includes tax
+Sage,purchaseinvoices,is_cis,,boolean,Identifies an artefact as CIS (Construction Industry Scheme) applicable - UK only
+Sage,purchaseinvoices,last_paid,,string,The date of the last payment
+Sage,purchaseinvoices,links,,array,Links for the resource
+Sage,purchaseinvoices,migrated,,boolean,Indicates if the purchase invoice was migrated from another system.
+Sage,purchaseinvoices,net_amount,,number,The net amount of the invoice
+Sage,purchaseinvoices,notes,,string,Invoice notes
+Sage,purchaseinvoices,outstanding_amount,,number,The outstanding amount of the invoice
+Sage,purchaseinvoices,part_recoverable,,boolean,Indicates if the purchase invoice is part recoverable or not (Canada only)
+Sage,purchaseinvoices,payments_allocations,amount,number,The allocated amount of the payment/allocation
+Sage,purchaseinvoices,payments_allocations,artefact,None,
+Sage,purchaseinvoices,payments_allocations,contact_allocation,None,
+Sage,purchaseinvoices,payments_allocations,contact_payment,None,
+Sage,purchaseinvoices,payments_allocations,date,string,The date for the payment/allocation
+Sage,purchaseinvoices,payments_allocations,discount,number,The discount amount of the payment/allocation
+Sage,purchaseinvoices,payments_allocations,displayed_as,string,Display text for the item
+Sage,purchaseinvoices,payments_allocations,links,array,Links for the resource
+Sage,purchaseinvoices,payments_allocations,negative_payment,boolean,This is a negative payment
+Sage,purchaseinvoices,payments_allocations,reference,string,The reference for the payment/allocation
+Sage,purchaseinvoices,payments_allocations,stripe_transaction_id,string,
+Sage,purchaseinvoices,payments_allocations,type,string,The type of the payment/allocation
+Sage,purchaseinvoices,payments_allocations_total_amount,,number,The total amount of all payments and allocations
+Sage,purchaseinvoices,payments_allocations_total_discount,,number,The total discount of all payments and allocations
+Sage,purchaseinvoices,postponed_accounting,,boolean,"Indicates whether postponed accounting rules are applied to the artefact. Only used for UK and IE accounting businesses, where the vendor is flagged as importer"
+Sage,purchaseinvoices,reference,,string,The reference for the invoice
+Sage,purchaseinvoices,status.$path,,string,The API path for the resource
+Sage,purchaseinvoices,status.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,status.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,tax_address_region.$path,,string,The API path for the resource
+Sage,purchaseinvoices,tax_address_region.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,tax_address_region.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,tax_amount,,number,The tax amount of the invoice
+Sage,purchaseinvoices,tax_analysis,goods_amount,number,The total amount for the tax rate relating to goods
+Sage,purchaseinvoices,tax_analysis,net_amount,number,The net amount for the tax rate
+Sage,purchaseinvoices,tax_analysis,service_amount,number,The total amount for the tax rate relating to services
+Sage,purchaseinvoices,tax_analysis,tax_amount,number,The tax amount for the tax rate
+Sage,purchaseinvoices,tax_analysis,tax_rate,object,
+Sage,purchaseinvoices,tax_analysis,total_amount,number,The total amount for the tax rate
+Sage,purchaseinvoices,tax_calculation_method,,string,"The tax calculation method, if applicable, for this purchase invoice, returns invoice or cash."
+Sage,purchaseinvoices,tax_reconciled,,boolean,Indicates if the purchase invoice is tax reconciled or not.
+Sage,purchaseinvoices,total_after_cis_deduction,,number,The total of the artefact with the total of CIS deducted - only applicable in UK
+Sage,purchaseinvoices,total_amount,,number,The total amount of the invoice
+Sage,purchaseinvoices,total_itc_amount,,number,The total amount of input tax credit for the purchase invoice (Canada only)
+Sage,purchaseinvoices,total_itr_amount,,number,The total amount of input tax refund for the purchase invoice (Canada only)
+Sage,purchaseinvoices,total_paid,,number,"The total paid amount of the invoice including any payments, allocations and discounts"
+Sage,purchaseinvoices,total_quantity,,number,The total quantity of the invoice
+Sage,purchaseinvoices,transaction.$path,,string,The API path for the resource
+Sage,purchaseinvoices,transaction.audit_trail_id,,string,The original entity that generated the transaction
+Sage,purchaseinvoices,transaction.contact,,object,
+Sage,purchaseinvoices,transaction.created_at,,string,The datetime when the item was created
+Sage,purchaseinvoices,transaction.date,,string,The date of the transaction
+Sage,purchaseinvoices,transaction.deleted,,boolean,Indicates whether the transaction has been deleted
+Sage,purchaseinvoices,transaction.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,transaction.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,transaction.number_of_attachments,,string,The number of attachments related to the transaction
+Sage,purchaseinvoices,transaction.origin,,object,
+Sage,purchaseinvoices,transaction.reference,,string,The transaction reference
+Sage,purchaseinvoices,transaction.total,,number,The transaction total in the base currency
+Sage,purchaseinvoices,transaction.total_in_transaction_currency,,number,The transaction total in the transaction's origin's currency. This is null for some origin types.
+Sage,purchaseinvoices,transaction.transaction_type,,object,
+Sage,purchaseinvoices,transaction.updated_at,,string,The datetime when the item was last updated
+Sage,purchaseinvoices,transaction_type.$path,,string,The API path for the resource
+Sage,purchaseinvoices,transaction_type.displayed_as,,string,The name of the resource
+Sage,purchaseinvoices,transaction_type.id,,string,The unique identifier for the item
+Sage,purchaseinvoices,updated_at,,string,The datetime when the item was last updated
+Sage,purchaseinvoices,vat_exempt_consignment,,boolean,"Indicates whether vat exempt import is applied to the artefact. Only used for a UK business, where the artefact has the consignment checkbox selected."
+Sage,purchaseinvoices,vat_reverse_charge,,boolean,Indicates whether Domestic Reverser Charge is applied to the artefact. Only used for a UK business.
+Sage,purchaseinvoices,vendor_reference,,string,The vendor reference for the invoice
+Sage,purchaseinvoices,void_reason,,string,The reason the invoice was voided
+Sage,purchaseinvoices,withholding_tax_amount,,number,The withheld Tax Amount - only applicable in UK (CIS subcontractor tax) and Spain (IRPF)
+Sage,purchaseinvoices,withholding_tax_rate,,number,The withheld Tax Rate - only applicable in UK (CIS subcontractor tax rate) and Spain (IRPF)
 Sage,salescreditnotes,displayed_as,,string,
 Sage,salescreditnotes,id,,string,
 Sage,salesestimates,displayed_as,,string,
