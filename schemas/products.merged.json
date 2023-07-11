@@ -35,7 +35,7 @@
       "format": "double",
       "type": "number"
     },
-    "createdAt": {
+    "created_at": {
       "description": "The datetime when the item was created",
       "format": "date-time",
       "type": "string"
@@ -58,7 +58,7 @@
       "maxLength": 255,
       "type": "string"
     },
-    "displayedAs": {
+    "displayed_as": {
       "description": "The name of the resource",
       "type": "string"
     },
@@ -221,7 +221,7 @@
       "maxLength": 255,
       "type": "string"
     },
-    "updatedAt": {
+    "updated_at": {
       "description": "The datetime when the item was last updated",
       "format": "date-time",
       "type": "string"
