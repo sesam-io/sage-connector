@@ -563,8 +563,8 @@
           "description": "The partial recoverable tax rate (Canada only)"
         },
         "non_recoverable_ledger_account": {
-          "$ref": "#/definitions/LedgerAccount",
-          "description": "The non-recoverable ledger account (Canada Only)"
+          "type":"object",
+          "description": "The non-recoverable ledger account (Canada Only). $ref: #/definitions/LedgerAccount"
         },
         "cis_materials": {
           "type": "boolean",
@@ -1211,6 +1211,7 @@
               "type": "null"
             }
           ],
+          "type":"boolean",
           "description": "Indicates a contact where import rules should be appliedOnly used for suppliers and FR, ES, IE and UK businesses"
         },
         "rest_of_world_tax": {
