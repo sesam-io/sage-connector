@@ -704,9 +704,9 @@ Sage,purchaseinvoices,notes,,string,Invoice notes
 Sage,purchaseinvoices,outstanding_amount,,number,The outstanding amount of the invoice
 Sage,purchaseinvoices,part_recoverable,,boolean,Indicates if the purchase invoice is part recoverable or not (Canada only)
 Sage,purchaseinvoices,payments_allocations,amount,number,The allocated amount of the payment/allocation
-Sage,purchaseinvoices,payments_allocations,artefact,None,
-Sage,purchaseinvoices,payments_allocations,contact_allocation,None,
-Sage,purchaseinvoices,payments_allocations,contact_payment,None,
+Sage,purchaseinvoices,payments_allocations,artefact,object,
+Sage,purchaseinvoices,payments_allocations,contact_allocation,object,
+Sage,purchaseinvoices,payments_allocations,contact_payment,object,
 Sage,purchaseinvoices,payments_allocations,date,string,The date for the payment/allocation
 Sage,purchaseinvoices,payments_allocations,discount,number,The discount amount of the payment/allocation
 Sage,purchaseinvoices,payments_allocations,displayed_as,string,Display text for the item
