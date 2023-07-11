@@ -156,6 +156,7 @@
           },
           "service_rate_type": {
             "additionalProperties": true,
+            "description": "The service rate type",
             "properties": {
               "$path": {
                 "description": "The API path for the resource",
