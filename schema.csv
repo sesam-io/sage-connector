@@ -1,6 +1,69 @@
 System,Type,Name,SubName,Datatype,Description
-Sage,contactpayments,displayed_as,,string,
-Sage,contactpayments,id,,string,
+Sage,contactpayments,allocated_artefacts,amount,number,The allocated amount
+Sage,contactpayments,allocated_artefacts,artefact,object,The artefact the allocation relates to
+Sage,contactpayments,allocated_artefacts,discount,number,The allocated discount
+Sage,contactpayments,allocated_artefacts,id,string,The unique identifier for the item
+Sage,contactpayments,bank_account.$path,,string,The API path for the resource
+Sage,contactpayments,bank_account.displayed_as,,string,The name of the resource
+Sage,contactpayments,bank_account.id,,string,The unique identifier for the item
+Sage,contactpayments,base_currency_currency_charge,,number,The currency conversion charges in base currency
+Sage,contactpayments,base_currency_net_amount,,number,The net amount of the payment in base currency
+Sage,contactpayments,base_currency_tax_amount,,number,The tax amount of the payment in base currency
+Sage,contactpayments,base_currency_total_amount,,number,The total amount of the payment in base currency
+Sage,contactpayments,contact.$path,,string,The API path for the resource
+Sage,contactpayments,contact.displayed_as,,string,The name of the resource
+Sage,contactpayments,contact.id,,string,The unique identifier for the item
+Sage,contactpayments,created_at,,string,The datetime when the item was created
+Sage,contactpayments,currency.$path,,string,The API path for the resource
+Sage,contactpayments,currency.displayed_as,,string,The name of the resource
+Sage,contactpayments,currency.id,,string,The unique identifier for the item
+Sage,contactpayments,date,,string,The date the payment was made
+Sage,contactpayments,deleted_at,,string,The datetime when the item was deleted
+Sage,contactpayments,displayed_as,,string,The name of the resource
+Sage,contactpayments,exchange_rate,,number,The exchange rate of the payment
+Sage,contactpayments,id,,string,The unique identifier for the item
+Sage,contactpayments,links,href,string,The link path
+Sage,contactpayments,links,rel,string,The relationship of the link to the resource
+Sage,contactpayments,links,type,string,The content-type of the link
+Sage,contactpayments,net_amount,,number,The net amount of the payment
+Sage,contactpayments,payment_method.$path,,string,The API path for the resource
+Sage,contactpayments,payment_method.displayed_as,,string,The name of the resource
+Sage,contactpayments,payment_method.id,,string,The unique identifier for the item
+Sage,contactpayments,payment_on_account.$path,,string,The API path for the resource
+Sage,contactpayments,payment_on_account.base_currency_net_amount,,number,The net amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_outstanding_amount,,number,The outstanding amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_tax_amount,,number,The tax amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.base_currency_total_amount,,number,The total amount of the payment on account in base currency
+Sage,contactpayments,payment_on_account.contact,,object,
+Sage,contactpayments,payment_on_account.contact_name,,string,The name of the contact when the payment on account was created
+Sage,contactpayments,payment_on_account.contact_reference,,string,The reference of the contact when the payment on account was created
+Sage,contactpayments,payment_on_account.created_at,,string,The datetime when the item was created
+Sage,contactpayments,payment_on_account.currency,,object,
+Sage,contactpayments,payment_on_account.date,,string,The date of the payment on account
+Sage,contactpayments,payment_on_account.displayed_as,,string,The name of the resource
+Sage,contactpayments,payment_on_account.exchange_rate,,number,The exchange rate for the payment on account
+Sage,contactpayments,payment_on_account.id,,string,The unique identifier for the item
+Sage,contactpayments,payment_on_account.net_amount,,number,The net amount of the payment on account
+Sage,contactpayments,payment_on_account.outstanding_amount,,number,The outstanding amount of the payment on account
+Sage,contactpayments,payment_on_account.reference,,string,The reference for the payment on account
+Sage,contactpayments,payment_on_account.status,,object,
+Sage,contactpayments,payment_on_account.tax_amount,,number,The tax amount of the payment on account
+Sage,contactpayments,payment_on_account.total_amount,,number,The total amount of the payment on account
+Sage,contactpayments,payment_on_account.updated_at,,string,The datetime when the item was last updated
+Sage,contactpayments,reference,,string,"A reference for the payment
+Note: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
+Sage,contactpayments,tax_amount,,number,The tax amount of the payment
+Sage,contactpayments,tax_rate.$path,,string,The API path for the resource
+Sage,contactpayments,tax_rate.displayed_as,,string,The name of the resource
+Sage,contactpayments,tax_rate.id,,string,The unique identifier for the item
+Sage,contactpayments,total_amount,,number,The total amount of the payment
+Sage,contactpayments,transaction.$path,,string,The API path for the resource
+Sage,contactpayments,transaction.displayed_as,,string,The name of the resource
+Sage,contactpayments,transaction.id,,string,The unique identifier for the item
+Sage,contactpayments,transaction_type.$path,,string,The API path for the resource
+Sage,contactpayments,transaction_type.displayed_as,,string,The name of the resource
+Sage,contactpayments,transaction_type.id,,string,The unique identifier for the item
+Sage,contactpayments,updated_at,,string,The datetime when the item was last updated
 Sage,contacts,aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
 <br>
 <a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
@@ -279,10 +342,63 @@ Sage,contacts,tax_treatment.home_tax,,boolean,Indicates a contact where home cou
 Sage,contacts,tax_treatment.is_importer,,boolean,"Indicates a contact where import rules should be appliedOnly used for suppliers and FR, ES, IE and UK businesses"
 Sage,contacts,tax_treatment.rest_of_world_tax,,boolean,Indicates a contact where rest of world tax rules should be applied
 Sage,contacts,updated_at,,string,The datetime when the item was last updated
-Sage,otherpayments,displayed_as,,string,
-Sage,otherpayments,id,,string,
-Sage,paymentmethods,displayed_as,,string,
-Sage,paymentmethods,id,,string,
+Sage,otherpayments,bank_account.$path,,string,The API path for the resource
+Sage,otherpayments,bank_account.displayed_as,,string,The name of the resource
+Sage,otherpayments,bank_account.id,,string,The unique identifier for the item
+Sage,otherpayments,baseCurrencyTotalItrAmount,,number,"The total amount of input tax refund in base currency for the
+                     Other Payment (Canada only)"
+Sage,otherpayments,base_currency_total_itc_amount,,number,"The total amount of input tax credit in base currency for the
+                     Other Payment (Canada only)"
+Sage,otherpayments,contact.$path,,string,The API path for the resource
+Sage,otherpayments,contact.displayed_as,,string,The name of the resource
+Sage,otherpayments,contact.id,,string,The unique identifier for the item
+Sage,otherpayments,created_at,,string,The datetime when the item was created
+Sage,otherpayments,date,,string,The date of the payment
+Sage,otherpayments,deletable,,boolean,Indicates whether or not the payment can be deleted
+Sage,otherpayments,deleted_at,,string,The datetime when the item was deleted
+Sage,otherpayments,displayed_as,,string,The name of the resource
+Sage,otherpayments,editable,,boolean,Indicates whether or not the payment can be edited
+Sage,otherpayments,id,,string,The unique identifier for the item
+Sage,otherpayments,net_amount,,number,The net amount of the payment
+Sage,otherpayments,part_recoverable,,boolean,Indicates if the Other Payment is part recoverable or not (Canada only)
+Sage,otherpayments,payment_lines,analysis_type_categories,array,The analysis types information
+Sage,otherpayments,payment_lines,details,string,The details of the payment line
+Sage,otherpayments,payment_lines,displayed_as,string,The name of the resource
+Sage,otherpayments,payment_lines,gst_amount,number,The gst or hst tax amount for the other payment
+Sage,otherpayments,payment_lines,id,string,The unique identifier for the item
+Sage,otherpayments,payment_lines,is_purchase_for_resale,boolean,Identifies whether the line item is for resale. (Ireland only)
+Sage,otherpayments,payment_lines,ledger_account,object,
+Sage,otherpayments,payment_lines,net_amount,number,The net amount of the payment line
+Sage,otherpayments,payment_lines,pst_amount,number,The pst or qst tax amount for the other payment
+Sage,otherpayments,payment_lines,tax_amount,number,The tax amount of the payment line
+Sage,otherpayments,payment_lines,tax_breakdown,array,The tax breakdown for the payment line
+Sage,otherpayments,payment_lines,tax_rate,object,
+Sage,otherpayments,payment_lines,tax_recoverable,boolean,Indicates if the other payment is tax recoverable or not
+Sage,otherpayments,payment_lines,total_amount,number,The total amount of the payment line
+Sage,otherpayments,payment_lines,trade_of_asset,boolean,Whether the line item is marked as trade of asset.
+Sage,otherpayments,payment_method.$path,,string,The API path for the resource
+Sage,otherpayments,payment_method.displayed_as,,string,The name of the resource
+Sage,otherpayments,payment_method.id,,string,The unique identifier for the item
+Sage,otherpayments,reference,,string,"A reference of the payment
+Note: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
+Sage,otherpayments,tax_address_region.$path,,string,The API path for the resource
+Sage,otherpayments,tax_address_region.displayed_as,,string,The name of the resource
+Sage,otherpayments,tax_address_region.id,,string,The unique identifier for the item
+Sage,otherpayments,tax_amount,,number,The tax amount of the payment
+Sage,otherpayments,total_amount,,number,The total amount of the payment
+Sage,otherpayments,total_itc_amount,,number,The total amount of input tax credit for the Other Payment (Canada only)
+Sage,otherpayments,total_itr_amount,,number,The total amount of input tax refund for the Other Payment (Canada only)
+Sage,otherpayments,transaction.$path,,string,The API path for the resource
+Sage,otherpayments,transaction.displayed_as,,string,The name of the resource
+Sage,otherpayments,transaction.id,,string,The unique identifier for the item
+Sage,otherpayments,transaction_type.$path,,string,The API path for the resource
+Sage,otherpayments,transaction_type.displayed_as,,string,The name of the resource
+Sage,otherpayments,transaction_type.id,,string,The unique identifier for the item
+Sage,otherpayments,updated_at,,string,The datetime when the item was last updated
+Sage,otherpayments,withholding_tax_amount,,number,IRPF withheld tax amount
+Sage,otherpayments,withholding_tax_rate,,number,IRPF withheld tax rate
+Sage,paymentmethods,displayed_as,,string,The name of the resource
+Sage,paymentmethods,id,,string,The unique identifier for the item
 Sage,salescreditnotes,displayed_as,,string,
 Sage,salescreditnotes,id,,string,
 Sage,salesestimates,displayed_as,,string,

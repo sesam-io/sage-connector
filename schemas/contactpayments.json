@@ -1,0 +1,445 @@
+{
+    "$id": "/api/pipes/xxxxxx-contactpayments-collect/entity-types/sink",
+    "$schema": "http://json-schema.org/schema#",
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique identifier for the item"
+        },
+        "displayed_as": {
+            "type": "string",
+            "description": "The name of the resource"
+        },
+        "$path": {
+            "type": "string",
+            "description": "The API path for the resource"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The datetime when the item was created"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The datetime when the item was last updated"
+        },
+        "links": {
+            "type": "array",
+            "items": {
+                "additionalProperties": true,
+                "properties": {
+                    "href": {
+                        "type": "string",
+                        "description": "The link path"
+                    },
+                    "rel": {
+                        "type": "string",
+                        "description": "The relationship of the link to the resource"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The content-type of the link"
+                    }
+                },
+                "type": "object"
+            },
+            "description": "Links for the resource"
+        },
+        "transaction": {
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type":"object",
+            "description": "The transaction for the item"
+        },
+        "transaction_type": {
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type":"object",
+            "description": "The transaction type of the payment"
+
+        },
+        "deleted_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The datetime when the item was deleted"
+        },
+        "payment_method": {
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type": "object"
+        },
+        "contact": {
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type": "object"
+        },
+        "bank_account": {
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type": "object",
+            "description": "The bank account the opening balance relates to"
+        },
+        "date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date the payment was made"
+        },
+        "net_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The net amount of the payment"
+        },
+        "tax_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The tax amount of the payment"
+        },
+        "total_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The total amount of the payment"
+        },
+        "currency": {
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type": "object"
+        },
+        "exchange_rate": {
+            "type": "number",
+            "format": "double",
+            "description": "The exchange rate of the payment"
+        },
+        "base_currency_net_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The net amount of the payment in base currency"
+        },
+        "base_currency_tax_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The tax amount of the payment in base currency"
+        },
+        "base_currency_total_amount": {
+            "type": "number",
+            "format": "double",
+            "description": "The total amount of the payment in base currency"
+        },
+        "base_currency_currency_charge": {
+            "type": "number",
+            "format": "double",
+            "description": "The currency conversion charges in base currency"
+        },
+        "reference": {
+            "type": "string",
+            "maxLength": 25,
+            "description": "A reference for the payment\nNote: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though."
+        },
+        "allocated_artefacts": {
+            "type": "array",
+            "items": {
+                "additionalProperties": true,
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the item"
+                    },
+                    "artefact": {
+                        "items": {
+                            "additionalProperties": true,
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique identifier for the item"
+                                },
+                                "displayed_as": {
+                                    "type": "string",
+                                    "description": "The name of the resource"
+                                },
+                                "$path": {
+                                    "type": "string",
+                                    "description": "The API path for the resource"
+                                },
+                                "links": {
+                                    "type": "array",
+                                    "items": {
+                                        "additionalProperties": true,
+                                        "properties": {
+                                            "href": {
+                                                "type": "string",
+                                                "description": "The link path"
+                                            },
+                                            "rel": {
+                                                "type": "string",
+                                                "description": "The relationship of the link to the resource"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "description": "The content-type of the link"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "description": "Links for the resource"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "object",
+                        "description": "The artefact the allocation relates to"
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "The allocated amount"
+                    },
+                    "discount": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "The allocated discount"
+                    }
+                },
+                "type": "object"
+            },
+            "description": "The allocated artefacts"
+        },
+        "tax_rate": {
+            "additionalProperties": true,
+            "properties": {
+
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                }
+            },
+            "type":"object",
+            "description": "The tax rate for the payment (only used with some cash based tax schemes)"
+        },
+        "payment_on_account": {
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the item"
+                },
+                "displayed_as": {
+                    "type": "string",
+                    "description": "The name of the resource"
+                },
+                "$path": {
+                    "type": "string",
+                    "description": "The API path for the resource"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The datetime when the item was created"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The datetime when the item was last updated"
+                },
+                "contact_name": {
+                    "type": "string",
+                    "description": "The name of the contact when the payment on account was created"
+                },
+                "contact_reference": {
+                    "type": "string",
+                    "description": "The reference of the contact when the payment on account was created"
+                },
+                "contact": {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The unique identifier for the item"
+                        },
+                        "displayed_as": {
+                            "type": "string",
+                            "description": "The name of the resource"
+                        },
+                        "$path": {
+                            "type": "string",
+                            "description": "The API path for the resource"
+                        }
+                    },
+                    "type": "object"
+                },
+                "date": {
+                    "type": "string",
+                    "description": "The date of the payment on account"
+                },
+                "reference": {
+                    "type": "string",
+                    "description": "The reference for the payment on account"
+                },
+                "net_amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "The net amount of the payment on account"
+                },
+                "tax_amount": {
+                    "type": "number",
+                    "description": "The tax amount of the payment on account"
+                },
+                "total_amount": {
+                    "type": "number",
+                    "description": "The total amount of the payment on account"
+                },
+                "outstanding_amount": {
+                    "type": "number",
+                    "description": "The outstanding amount of the payment on account"
+                },
+                "currency": {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The unique identifier for the item"
+                        },
+                        "displayed_as": {
+                            "type": "string",
+                            "description": "The name of the resource"
+                        },
+                        "$path": {
+                            "type": "string",
+                            "description": "The API path for the resource"
+                        }
+                    },
+                    "type": "object"
+                },
+                "exchange_rate": {
+                    "type": "number",
+                    "description": "The exchange rate for the payment on account"
+                },
+                "base_currency_net_amount": {
+                    "type": "number",
+                    "description": "The net amount of the payment on account in base currency"
+                },
+                "base_currency_tax_amount": {
+                    "type": "number",
+                    "description": "The tax amount of the payment on account in base currency"
+                },
+                "base_currency_total_amount": {
+                    "type": "number",
+                    "description": "The total amount of the payment on account in base currency"
+                },
+                "base_currency_outstanding_amount": {
+                    "type": "number",
+                    "description": "The outstanding amount of the payment on account in base currency"
+                },
+                "status": {
+                    "additionalProperties": true,
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The unique identifier for the item"
+                        },
+                        "displayed_as": {
+                            "type": "string",
+                            "description": "The name of the resource"
+                        },
+                        "$path": {
+                            "type": "string",
+                            "description": "The API path for the resource"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "title": "Pipe sink entity type: xxxxxx-contactpayments-collect",
+    "type": "object"
+}

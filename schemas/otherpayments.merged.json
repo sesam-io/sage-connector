@@ -1,0 +1,433 @@
+{
+  "$id": "/api/pipes/xxxxxx-otherpayments-collect/entity-types/sink",
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "$path": {
+      "description": "The API path for the resource",
+      "type": "string"
+    },
+    "bank_account": {
+      "additionalProperties": true,
+      "description": "The bank account of the payment",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "baseCurrencyTotalItrAmount": {
+      "description": "The total amount of input tax refund in base currency for the\n                     Other Payment (Canada only)",
+      "type": "number"
+    },
+    "base_currency_total_itc_amount": {
+      "description": "The total amount of input tax credit in base currency for the\n                     Other Payment (Canada only)",
+      "type": "number"
+    },
+    "contact": {
+      "additionalProperties": true,
+      "description": "The contact of the payment",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "created_at": {
+      "description": "The datetime when the item was created",
+      "type": "string"
+    },
+    "date": {
+      "description": "The date of the payment",
+      "type": "string"
+    },
+    "deletable": {
+      "description": "Indicates whether or not the payment can be deleted",
+      "type": "boolean"
+    },
+    "deleted_at": {
+      "description": "The datetime when the item was deleted",
+      "type": "string"
+    },
+    "displayed_as": {
+      "description": "The name of the resource",
+      "type": "string"
+    },
+    "editable": {
+      "description": "Indicates whether or not the payment can be edited",
+      "type": "boolean"
+    },
+    "id": {
+      "description": "The unique identifier for the item",
+      "type": "string"
+    },
+    "net_amount": {
+      "description": "The net amount of the payment",
+      "type": "number"
+    },
+    "part_recoverable": {
+      "description": "Indicates if the Other Payment is part recoverable or not (Canada only)",
+      "type": "boolean"
+    },
+    "payment_lines": {
+      "description": "The payment lines of the payment",
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "analysis_type_categories": {
+            "description": "The analysis types information",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "$path": {
+                  "description": "The API path for the resource",
+                  "type": "string"
+                },
+                "analysis_type": {
+                  "$path": {
+                    "description": "The API path for the resource",
+                    "type": "string"
+                  },
+                  "active_areas": {
+                    "description": "The areas for which the analysis type is available",
+                    "type": "array"
+                  },
+                  "analysis_type_categories": {
+                    "description": "The analysis type categories for the analysis type",
+                    "items": {
+                      "$path": {
+                        "description": "The API path for the resource",
+                        "type": "string"
+                      },
+                      "analysis_type": {
+                        "$path": {
+                          "description": "The API path for the resource",
+                          "type": "string"
+                        },
+                        "displayed_as": {
+                          "description": "The name of the resource",
+                          "type": "string"
+                        },
+                        "id": {
+                          "description": "The unique identifier for the item",
+                          "type": "string"
+                        }
+                      },
+                      "code": {
+                        "description": "The code for the analysis type category",
+                        "type": "string"
+                      },
+                      "combined_id": {
+                        "description": "The combined_id of the analysis type category",
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "description": "The datetime when the item was created",
+                        "type": "string"
+                      },
+                      "displayed_as": {
+                        "description": "The name of the resource",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "The unique identifier for the item",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name of the analysis type category",
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "description": "The datetime when the item was last updated",
+                        "type": "string"
+                      }
+                    },
+                    "type": "array"
+                  },
+                  "analysis_type_level": {
+                    "description": "The analysis type level",
+                    "type": "array"
+                  },
+                  "created_at": {
+                    "description": "The datetime when the item was created",
+                    "type": "string"
+                  },
+                  "displayed_as": {
+                    "description": "The name of the resource",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "The unique identifier for the item",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "The name of the analysis type",
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "description": "The datetime when the item was last updated",
+                    "type": "string"
+                  }
+                },
+                "displayed_as": {
+                  "description": "The name of the resource",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "The unique identifier for the item",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "details": {
+            "description": "The details of the payment line",
+            "type": "string"
+          },
+          "displayed_as": {
+            "description": "The name of the resource",
+            "type": "string"
+          },
+          "gst_amount": {
+            "description": "The gst or hst tax amount for the other payment",
+            "type": "number"
+          },
+          "id": {
+            "description": "The unique identifier for the item",
+            "type": "string"
+          },
+          "is_purchase_for_resale": {
+            "description": "Identifies whether the line item is for resale. (Ireland only)",
+            "type": "boolean"
+          },
+          "ledger_account": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "net_amount": {
+            "description": "The net amount of the payment line",
+            "type": "number"
+          },
+          "pst_amount": {
+            "description": "The pst or qst tax amount for the other payment",
+            "type": "number"
+          },
+          "tax_amount": {
+            "description": "The tax amount of the payment line",
+            "type": "number"
+          },
+          "tax_breakdown": {
+            "description": "The tax breakdown for the payment line",
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "amount": {
+                  "description": "The tax amount for the given tax rate",
+                  "type": "number"
+                },
+                "percentage": {
+                  "description": "The tax rate percentage",
+                  "type": "number"
+                },
+                "tax_rate": {
+                  "$path": {
+                    "description": "The API path for the resource",
+                    "type": "string"
+                  },
+                  "displayed_as": {
+                    "description": "The name of the resource",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "The unique identifier for the item",
+                    "type": "string"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "tax_rate": {
+            "additionalProperties": true,
+            "properties": {
+              "$path": {
+                "description": "The API path for the resource",
+                "type": "string"
+              },
+              "displayed_as": {
+                "description": "The name of the resource",
+                "type": "string"
+              },
+              "id": {
+                "description": "The unique identifier for the item",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "tax_recoverable": {
+            "description": "Indicates if the other payment is tax recoverable or not",
+            "type": "boolean"
+          },
+          "total_amount": {
+            "description": "The total amount of the payment line",
+            "type": "number"
+          },
+          "trade_of_asset": {
+            "description": "Whether the line item is marked as trade of asset.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "payment_method": {
+      "additionalProperties": true,
+      "description": "The payment method of the payment",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "reference": {
+      "description": "A reference of the payment\nNote: An upper length limit of 25 or 40 characters is imposed conditionally and may not apply in every request. A hard upper limit of 255 characters is imposed by the storage layer, though.",
+      "type": "string"
+    },
+    "tax_address_region": {
+      "additionalProperties": true,
+      "description": "The address region for tax purposes (Canada only)",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tax_amount": {
+      "description": "The tax amount of the payment",
+      "type": "number"
+    },
+    "total_amount": {
+      "description": "The total amount of the payment",
+      "type": "number"
+    },
+    "total_itc_amount": {
+      "description": "The total amount of input tax credit for the Other Payment (Canada only)",
+      "type": "number"
+    },
+    "total_itr_amount": {
+      "description": "The total amount of input tax refund for the Other Payment (Canada only)",
+      "type": "number"
+    },
+    "transaction": {
+      "additionalProperties": true,
+      "description": "The transaction for the item",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "transaction_type": {
+      "additionalProperties": true,
+      "description": "The transaction type of the payment",
+      "properties": {
+        "$path": {
+          "description": "The API path for the resource",
+          "type": "string"
+        },
+        "displayed_as": {
+          "description": "The name of the resource",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for the item",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "updated_at": {
+      "description": "The datetime when the item was last updated",
+      "type": "string"
+    },
+    "withholding_tax_amount": {
+      "description": "IRPF withheld tax amount",
+      "type": "number"
+    },
+    "withholding_tax_rate": {
+      "description": "IRPF withheld tax rate",
+      "type": "number"
+    }
+  },
+  "title": "Pipe sink entity type: xxxxxx-otherpayments-collect",
+  "type": "object"
+}
