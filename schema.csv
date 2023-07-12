@@ -399,6 +399,115 @@ Sage,otherpayments,withholding_tax_amount,,number,IRPF withheld tax amount
 Sage,otherpayments,withholding_tax_rate,,number,IRPF withheld tax rate
 Sage,paymentmethods,displayed_as,,string,The name of the resource
 Sage,paymentmethods,id,,string,The unique identifier for the item
+Sage,products,active,,boolean,Indicates whether the product is active
+Sage,products,catalog_item_type.$path,,string,The API path for the resource
+Sage,products,catalog_item_type.displayed_as,,string,The name of the resource
+Sage,products,catalog_item_type.id,,string,The unique identifier for the item
+Sage,products,cost_price,,number,The cost price of the product
+Sage,products,created_at,,string,The datetime when the item was created
+Sage,products,deactivatable,,boolean,Indicates whether the product can be deactivated
+Sage,products,deletable,,boolean,Indicates whether the product can be deleted
+Sage,products,deleted_at,,string,The datetime when the item was deleted
+Sage,products,description,,string,The product description
+Sage,products,displayed_as,,string,The name of the resource
+Sage,products,id,,string,The unique identifier for the item
+Sage,products,item_code,,string,The item code for the product
+Sage,products,notes,,string,The notes for the product
+Sage,products,purchase_description,,string,The product purchase description
+Sage,products,purchase_ledger_account.$path,,string,The API path for the resource
+Sage,products,purchase_ledger_account.displayed_as,,string,The name of the resource
+Sage,products,purchase_ledger_account.id,,string,The unique identifier for the item
+Sage,products,purchase_tax_rate.$path,,string,The API path for the resource
+Sage,products,purchase_tax_rate.displayed_as,,string,The name of the resource
+Sage,products,purchase_tax_rate.id,,string,The unique identifier for the item
+Sage,products,sales_ledger_account.$path,,string,The API path for the resource
+Sage,products,sales_ledger_account.displayed_as,,string,The name of the resource
+Sage,products,sales_ledger_account.id,,string,The unique identifier for the item
+Sage,products,sales_prices,created_at,string,The datetime when the item was created
+Sage,products,sales_prices,displayed_as,string,The name of the resource
+Sage,products,sales_prices,id,string,The unique identifier for the item
+Sage,products,sales_prices,price,number,The sales price amount
+Sage,products,sales_prices,price_includes_tax,boolean,Indicates whether the sales price already includes tax
+Sage,products,sales_prices,price_name,string,The name of the product sales price
+Sage,products,sales_prices,product_sales_price_type,object,
+Sage,products,sales_prices,updated_at,string,The datetime when the item was last updated
+Sage,products,sales_tax_rate.$path,,string,The API path for the resource
+Sage,products,sales_tax_rate.displayed_as,,string,The name of the resource
+Sage,products,sales_tax_rate.id,,string,The unique identifier for the item
+Sage,products,source_guid,,string,Used when importing products from external sources
+Sage,products,updated_at,,string,The datetime when the item was last updated
+Sage,products,used_on_recurring_invoice,,boolean,Indicates whether the product has been used on a recurring invoice
+Sage,products,usual_supplier.$path,,string,The API path for the resource
+Sage,products,usual_supplier.aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,products,usual_supplier.auxiliary_account,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,products,usual_supplier.balance,,number,The contact balance
+Sage,products,usual_supplier.bank_account_details,,object,
+Sage,products,usual_supplier.cis_registered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,products,usual_supplier.cis_settings,,object,
+Sage,products,usual_supplier.contact_types,,array,The type of the contact. It has to be either CUSTOMER or VENDOR
+Sage,products,usual_supplier.created_at,,string,The datetime when the item was created
+Sage,products,usual_supplier.credit_days,,integer,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,products,usual_supplier.credit_limit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,products,usual_supplier.credit_terms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,products,usual_supplier.credit_terms_and_conditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,products,usual_supplier.currency,,object,
+Sage,products,usual_supplier.default_purchase_ledger_account,,object,
+Sage,products,usual_supplier.default_sales_ledger_account,,object,
+Sage,products,usual_supplier.default_sales_tax_rate,,object,
+Sage,products,usual_supplier.deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,products,usual_supplier.deleted_at,,string,The datetime when the item was deleted
+Sage,products,usual_supplier.delivery_address,,object,
+Sage,products,usual_supplier.destination_vat_blocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,products,usual_supplier.displayed_as,,string,The name of the resource
+Sage,products,usual_supplier.email,,string,The email address for the given contact
+Sage,products,usual_supplier.gb_based,,boolean,Identifies a contact as being based in Great Britain.
+Sage,products,usual_supplier.gdpr_obfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,products,usual_supplier.has_unfinished_recurring_invoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,products,usual_supplier.id,,string,The unique identifier for the item
+Sage,products,usual_supplier.is_active,,boolean,Identifies a contact as being active
+Sage,products,usual_supplier.links,,array,Links for the resource
+Sage,products,usual_supplier.locale,,string,The locale for the contact
+Sage,products,usual_supplier.main_address,,object,
+Sage,products,usual_supplier.main_contact_person,,object,
+Sage,products,usual_supplier.name,,string,The contact's full name or business name
+Sage,products,usual_supplier.ni_based,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,products,usual_supplier.notes,,string,The notes for the contact
+Sage,products,usual_supplier.product_sales_price_type,,object,
+Sage,products,usual_supplier.reference,,string,Unique reference for the contact
+Sage,products,usual_supplier.registered_number,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,products,usual_supplier.source_guid,,string,Used when importing contacts from external sources
+Sage,products,usual_supplier.system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,products,usual_supplier.tax_calculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,products,usual_supplier.tax_number,,string,The VAT registration number of the contact. The format will be validated.
+Sage,products,usual_supplier.tax_treatment,,object,
+Sage,products,usual_supplier.updated_at,,string,The datetime when the item was last updated
 Sage,salescreditnotes,displayed_as,,string,
 Sage,salescreditnotes,id,,string,
 Sage,salesestimates,displayed_as,,string,
@@ -407,6 +516,113 @@ Sage,salesinvoices,displayed_as,,string,
 Sage,salesinvoices,id,,string,
 Sage,salesquotes,displayed_as,,string,
 Sage,salesquotes,id,,string,
+Sage,services,active,,boolean,Indicates whether the service is active
+Sage,services,cost_price,,number,The cost price of the service
+Sage,services,created_at,,string,The datetime when the item was created
+Sage,services,deactivatable,,boolean,Indicates whether the service can be deactivated
+Sage,services,deletable,,boolean,Indicates whether the service can be deleted
+Sage,services,deleted_at,,string,The datetime when the item was deleted
+Sage,services,description,,string,The service description
+Sage,services,displayed_as,,string,The name of the resource
+Sage,services,id,,string,The unique identifier for the item
+Sage,services,item_code,,string,The item code for the service
+Sage,services,notes,,string,The notes for the service
+Sage,services,oss_service,,boolean,Indicates whether the service is One Stop Shop
+Sage,services,purchase_description,,string,The service purchase description
+Sage,services,purchase_ledger_account.$path,,string,The API path for the resource
+Sage,services,purchase_ledger_account.displayed_as,,string,The name of the resource
+Sage,services,purchase_ledger_account.id,,string,The unique identifier for the item
+Sage,services,purchase_tax_rate.$path,,string,The API path for the resource
+Sage,services,purchase_tax_rate.displayed_as,,string,The name of the resource
+Sage,services,purchase_tax_rate.id,,string,The unique identifier for the item
+Sage,services,sales_ledger_account.$path,,string,The API path for the resource
+Sage,services,sales_ledger_account.displayed_as,,string,The name of the resource
+Sage,services,sales_ledger_account.id,,string,The unique identifier for the item
+Sage,services,sales_rates,created_at,string,The datetime when the item was created
+Sage,services,sales_rates,displayed_as,string,The name of the resource
+Sage,services,sales_rates,id,string,The unique identifier for the item
+Sage,services,sales_rates,rate,number,The rate amount
+Sage,services,sales_rates,rate_includes_tax,boolean,Indicates whether the rate already includes tax
+Sage,services,sales_rates,rate_name,string,The name of the service rate
+Sage,services,sales_rates,service_rate_type,object,The service rate type
+Sage,services,sales_rates,updated_at,string,The datetime when the item was last updated
+Sage,services,sales_tax_rate.$path,,string,The API path for the resource
+Sage,services,sales_tax_rate.displayed_as,,string,The name of the resource
+Sage,services,sales_tax_rate.id,,string,The unique identifier for the item
+Sage,services,source_guid,,string,Used when importing services from external sources
+Sage,services,updated_at,,string,The datetime when the item was last updated
+Sage,services,used_on_recurring_invoice,,boolean,Indicates whether the service has been used on a recurring invoice
+Sage,services,usual_supplier.$path,,string,The API path for the resource
+Sage,services,usual_supplier.aux_reference,,string,"Auxiliary reference. Used for German 'Kreditorennummer' and 'Debitorennummer'.
+<br>
+<a href='https://developer.sage.com/accounting/reference/settings/#tag/Datev-Settings'>
+  See Datev Settings endpoint reference
+</a>
+"
+Sage,services,usual_supplier.auxiliary_account,,string,"Auxiliary account - used when auxiliary accounting is enabled in business settings.
+<br><i>Available only in Spain and France</i>
+"
+Sage,services,usual_supplier.balance,,number,The contact balance
+Sage,services,usual_supplier.bank_account_details,,object,
+Sage,services,usual_supplier.cis_registered,,boolean,Identifies a contact as being registered as CIS.<br><i>only applicable to UK business</i>
+Sage,services,usual_supplier.cis_settings,,object,
+Sage,services,usual_supplier.contact_types,,array,The type of the contact. It has to be either CUSTOMER or VENDOR
+Sage,services,usual_supplier.created_at,,string,The datetime when the item was created
+Sage,services,usual_supplier.credit_days,,integer,"Custom credit days for the contact.<br>
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_days'/'vendor_credit_days' as default/fallback according
+to your use case.
+"
+Sage,services,usual_supplier.credit_limit,,number,Custom credit limit amount for the contact <br><i>not applicable to Start</i>
+Sage,services,usual_supplier.credit_terms,,string,"Credit terms options determine how invoice due dates are calculated.
+Options include: end of next month, a delay of supplier credit_days and immediately.
+Only: month_end_invoice, date_from_invoice, immediate_invoice, month_end_payment,
+date_from_payment, immediate_payment are valid values.
+If returned as null in a GET response, you may want to GET /invoice_settings
+and use 'customer_credit_terms'/'vendor_credit_terms' as default.
+"
+Sage,services,usual_supplier.credit_terms_and_conditions,,string,"Custom terms and conditions for the contact. If set will override global /invoice_settings
+default terms and conditions.
+<br><i>Customers only</i>
+"
+Sage,services,usual_supplier.currency,,object,
+Sage,services,usual_supplier.default_purchase_ledger_account,,object,
+Sage,services,usual_supplier.default_sales_ledger_account,,object,
+Sage,services,usual_supplier.default_sales_tax_rate,,object,
+Sage,services,usual_supplier.deletable,,boolean,Indicates whether the contact can be deleted successfully
+Sage,services,usual_supplier.deleted_at,,string,The datetime when the item was deleted
+Sage,services,usual_supplier.delivery_address,,object,
+Sage,services,usual_supplier.destination_vat_blocking,,boolean,Identifies a contact should be blocked due to destination vat
+Sage,services,usual_supplier.displayed_as,,string,The name of the resource
+Sage,services,usual_supplier.email,,string,The email address for the given contact
+Sage,services,usual_supplier.gb_based,,boolean,Identifies a contact as being based in Great Britain.
+Sage,services,usual_supplier.gdpr_obfuscated,,boolean,"General Data Protection Regulation (GDPR) came into effect on 25th May 2018. It introduces new rules for how business owners manage their contacts' personal data. When this field returns 'true', means that the contact has been requested to be obfuscated and you can not create any artifact (sales invoices, purchase invoices, ...) but you can still check previously created artifacts."
+Sage,services,usual_supplier.has_unfinished_recurring_invoices,,boolean,Indicates whether the contact is associated with any unfinished recurring invoices
+Sage,services,usual_supplier.id,,string,The unique identifier for the item
+Sage,services,usual_supplier.is_active,,boolean,Identifies a contact as being active
+Sage,services,usual_supplier.links,,array,Links for the resource
+Sage,services,usual_supplier.locale,,string,The locale for the contact
+Sage,services,usual_supplier.main_address,,object,
+Sage,services,usual_supplier.main_contact_person,,object,
+Sage,services,usual_supplier.name,,string,The contact's full name or business name
+Sage,services,usual_supplier.ni_based,,boolean,Identifies a contact as being based in Northern Ireland.
+Sage,services,usual_supplier.notes,,string,The notes for the contact
+Sage,services,usual_supplier.product_sales_price_type,,object,
+Sage,services,usual_supplier.reference,,string,Unique reference for the contact
+Sage,services,usual_supplier.registered_number,,string,The registered number of the contact's business. Only used for German businesses and represents the 'Steuernummer' there (not the 'USt-ID').
+Sage,services,usual_supplier.source_guid,,string,Used when importing contacts from external sources
+Sage,services,usual_supplier.system,,boolean,Identifies a contact as being a system contact used for processing specific transaction types and reserved specifically for those transaction types such as tax return payments/refunds.
+Sage,services,usual_supplier.tax_calculation,,string,"<b>France:</b> The tax calculation method used to define tax
+treatment <i>Vendors only</i>
+<br>
+<b>Spain:</b> Defines if contact is a retailer and tax is subject
+to Recargo de Equivalencia <i>Customers only</i>
+<b>United Kingdom:</b> Defines if contact tax treatment is domestic reverse
+charge <i>Customers & Suppliers</i>
+"
+Sage,services,usual_supplier.tax_number,,string,The VAT registration number of the contact. The format will be validated.
+Sage,services,usual_supplier.tax_treatment,,object,
+Sage,services,usual_supplier.updated_at,,string,The datetime when the item was last updated
 Sage,services,active,,boolean,
 Sage,services,cost_price,,string,
 Sage,services,created_at,,string,
