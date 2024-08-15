@@ -1,53 +1,66 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "_id": "{{@ system @}}-{{@ endpoint @}}-all",
     "namespaced_identifiers": false,
     "source": {
-      "operation": "list",
-      "properties": {
-        "endpoint": "{{@ datatype @}}"
-      },
+      "operation": "{{@ endpoint @}}-list",
+      "supports_since": true,
       "system": "{{@ system @}}",
       "type": "rest"
     },
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-{{@ endpoint @}}-collect",
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-{{@ endpoint @}}-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "dataset": "{{@ system @}}-{{@ endpoint @}}-all",
       "type": "dataset"
     },
     "transform": [
       {
         "properties": {
-          "operation_lookup": "lookup",
-          "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
           "primary_key": "id",
-          "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-{{@ endpoint @}}-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
+      },
+      {
+        "rules": {
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$last-modified",
+              [
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
+                "_S.updated_at"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
       }
     ],
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-share",
+    "_id": "{{@ system @}}-{{@ endpoint @}}-share",
     "add_namespaces": false,
     "batch_size": 1,
     "compaction": {
       "keep_versions": 100
     },
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-{{@ endpoint @}}-share"
     ],
     "namespaced_identifiers": false,
     "sink": {
@@ -55,7 +68,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
+      "dataset": "{{@ system @}}-{{@ endpoint @}}-transform",
       "type": "dataset"
     },
     "transform": [
@@ -68,7 +81,8 @@
               [
                 "list",
                 "_*",
-                "$*"
+                "$*",
+                "contact_types"
               ]
             ],
             [
@@ -101,22 +115,13 @@
       },
       {
         "properties": {
-          "client_side_patching": true,
-          "operation_delete_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
-          "operation_insert_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
-          "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
-          "operation_update_properties": {
-            "endpoint": "{{@ datatype @}}"
-          },
+          "operation_delete": "{{@ endpoint @}}-delete",
+          "operation_insert": "{{@ endpoint @}}-insert",
+          "operation_lookup": "{{@ endpoint @}}-lookup",
+          "operation_update": "{{@ endpoint @}}-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-{{@ endpoint @}}-share"
         },
         "template": "transform-share-rest",
         "type": "template"

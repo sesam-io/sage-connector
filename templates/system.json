@@ -1,5 +1,8 @@
 {
   "_id": "{{@ system @}}",
+  "headers": {
+    "Content-Type": "application/json"
+  },
   "oauth2": {
     "access_token": "$SECRET(oauth_access_token)",
     "client_id": "$SECRET(oauth_client_id)",
@@ -8,14 +11,34 @@
     "token_url": "{{@ token_url @}}"
   },
   "operations": {
-    "delete": {
+    "contacts-delete": {
       "method": "DELETE",
-      "url": "{{ properties.endpoint }}/{{ entity.id }}"
+      "url": "contacts/{{ entity.id }}"
     },
-    "insert": {
-      "id_expression": "{{ id }}",
+    "contacts-insert": {
       "method": "POST",
-      "url": "{{ properties.endpoint }}"
+      "url": "/contacts"
+    },
+    "contacts-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 1,
+      "payload_property": "$items",
+      "since_property_name": "updated_or_created_since",
+      "updated_expression": "{{ updated_at }}",
+      "url": "/contacts?attributes=all&items_per_page={{ page_size }}"
+    },
+    "contacts-lookup": {
+      "method": "GET",
+      "url": "/contacts/{{ entity.id }}"
+    },
+    "contacts-update": {
+      "method": "PUT",
+      "url": "/contacts/{{ entity.id }}"
     },
     "list": {
       "id_expression": "{{ id }}",
@@ -26,13 +49,9 @@
     "lookup": {
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
-    },
-    "update": {
-      "method": "PUT",
-      "url": "{{ properties.endpoint }}/{{ entity.id }}"
     }
   },
   "type": "system:rest",
-  "url_pattern": "https://api.accounting.sage.com/v3.1/%s",
+  "url_pattern": "https://api.accounting.sage.com/v3.1%s",
   "verify_ssl": true
 }
