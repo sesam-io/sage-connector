@@ -4,6 +4,9 @@
   },
   "auth": "oauth2",
   "datatypes": {
+    "contact": {
+      "template": "templates/contact.json"
+    },
     "contactpayments": {
       "parameters": {
         "endpoint": "contact_payments",
@@ -14,14 +17,14 @@
     "contactpersons": {
       "label": "contactpersons",
       "parameters": {
-        "endpoint": "contact_persons"
+        "object_type_name": "contact_person_type"
       },
       "template": "templates/contacts.json"
     },
     "contacts": {
       "label": "contacts",
       "parameters": {
-        "endpoint": "contacts"
+        "object_type_name": "contact_type"
       },
       "template": "templates/contacts.json"
     },

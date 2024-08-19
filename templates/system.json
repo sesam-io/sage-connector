@@ -27,7 +27,7 @@
       "next_page_termination_strategy": [
         "next-page-link-empty"
       ],
-      "page_size": 1,
+      "page_size": 100,
       "payload_property": "$items",
       "since_property_name": "updated_or_created_since",
       "updated_expression": "{{ updated_at }}",
@@ -35,7 +35,7 @@
     },
     "contactpersons-lookup": {
       "method": "GET",
-      "url": "/contact_personss/{{ entity.id }}"
+      "url": "/contact_persons/{{ entity.id }}"
     },
     "contactpersons-update": {
       "method": "PUT",
@@ -56,7 +56,7 @@
       "next_page_termination_strategy": [
         "next-page-link-empty"
       ],
-      "page_size": 1,
+      "page_size": 100,
       "payload_property": "$items",
       "since_property_name": "updated_or_created_since",
       "updated_expression": "{{ updated_at }}",
