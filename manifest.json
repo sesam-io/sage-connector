@@ -4,9 +4,6 @@
   },
   "auth": "oauth2",
   "datatypes": {
-    "contact": {
-      "template": "templates/contact.json"
-    },
     "contactpayments": {
       "parameters": {
         "endpoint": "contact_payments",
