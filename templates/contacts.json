@@ -73,47 +73,6 @@
     },
     "transform": [
       {
-        "rules": {
-          "create-payload": [
-            [
-              "copy",
-              "*",
-              [
-                "list",
-                "_*",
-                "$*",
-                "contact_types"
-              ]
-            ],
-            [
-              "add",
-              "contact_type_ids",
-              "_S.contact_types.id"
-            ]
-          ],
-          "default": [
-            [
-              "copy",
-              "*"
-            ],
-            [
-              "add",
-              "$payload",
-              [
-                "dict",
-                "contact",
-                [
-                  "apply",
-                  "create-payload",
-                  "_S."
-                ]
-              ]
-            ]
-          ]
-        },
-        "type": "dtl"
-      },
-      {
         "properties": {
           "operation_delete": "{{@ endpoint @}}-delete",
           "operation_insert": "{{@ endpoint @}}-insert",
@@ -121,6 +80,78 @@
           "operation_update": "{{@ endpoint @}}-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
+          "rewrite_rules_payload": {
+            "filter_properties": [
+              [
+                "copy",
+                "*",
+                [
+                  "list",
+                  "_*",
+                  "$*",
+                  "contact_types"
+                ]
+              ]
+            ],
+            "find_contact_type_ids": [
+              [
+                "merge",
+                "_S.contact_types.id"
+              ]
+            ],
+            "rewrite_insert_payload": [
+              [
+                "merge",
+                [
+                  "apply",
+                  "filter_properties",
+                  "_S."
+                ]
+              ],
+              [
+                "add",
+                "contact_type_ids",
+                [
+                  "list",
+                  "CUSTOMER"
+                ]
+              ],
+              [
+                "add",
+                "$payload",
+                "_T."
+              ]
+            ],
+            "rewrite_update_payload": [
+              [
+                "merge",
+                [
+                  "apply",
+                  "filter_properties",
+                  "_S.$source"
+                ]
+              ],
+              [
+                "merge",
+                [
+                  "dict",
+                  "contact_type_ids",
+                  [
+                    "list",
+                    [
+                      "first",
+                      "_S.response_body.contact_types.id"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "add",
+                "$payload",
+                "_T."
+              ]
+            ]
+          },
           "share_dataset": "{{@ system @}}-{{@ endpoint @}}-share"
         },
         "template": "transform-share-rest",
