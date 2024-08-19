@@ -110,7 +110,7 @@
               ],
               [
                 "add",
-                "contact_type_ids",
+                "{{@ endpoint @}}_type_ids",
                 [
                   "list",
                   "CUSTOMER"
@@ -135,12 +135,12 @@
                 "merge",
                 [
                   "dict",
-                  "contact_type_ids",
+                  "{{@ endpoint @}}_type_ids",
                   [
                     "list",
                     [
                       "first",
-                      "_S.response_body.contact_types.id"
+                      "_S.response_body.{{@ endpoint @}}_types.id"
                     ]
                   ]
                 ]
