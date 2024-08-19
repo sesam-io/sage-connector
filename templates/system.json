@@ -12,6 +12,35 @@
     "token_url": "{{@ token_url @}}"
   },
   "operations": {
+    "addresses-delete": {
+      "method": "DELETE",
+      "url": "addresses/{{ entity.id }}"
+    },
+    "addresses-insert": {
+      "method": "POST",
+      "url": "/addresses"
+    },
+    "addresses-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "since_property_name": "updated_or_created_since",
+      "updated_expression": "{{ updated_at }}",
+      "url": "/addresses?attributes=all&items_per_page={{ page_size }}"
+    },
+    "addresses-lookup": {
+      "method": "GET",
+      "url": "/addresses/{{ entity.id }}"
+    },
+    "addresses-update": {
+      "method": "PUT",
+      "url": "/addresses/{{ entity.id }}"
+    },
     "contactpersons-delete": {
       "method": "DELETE",
       "url": "contact_persons/{{ entity.id }}"

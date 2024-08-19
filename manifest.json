@@ -4,6 +4,13 @@
   },
   "auth": "oauth2",
   "datatypes": {
+    "addresses": {
+      "label": "addresses",
+      "parameters": {
+        "object_type_name": "address_type"
+      },
+      "template": "templates/addresses.json"
+    },
     "contactpayments": {
       "parameters": {
         "endpoint": "contact_payments",
