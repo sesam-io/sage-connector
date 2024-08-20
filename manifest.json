@@ -4,12 +4,26 @@
   },
   "auth": "oauth2",
   "datatypes": {
+    "addressRegions": {
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
+    },
     "addresses": {
       "label": "addresses",
       "parameters": {
         "object_type_name": "address_type"
       },
       "template": "templates/addresses.json"
+    },
+    "addressregions": {
+      "template": "templates/addressregions.json"
+    },
+    "contactPersons": {
+      "label": "contactPersons",
+      "parameters": {
+        "object_type_name": "contact_person_type"
+      },
+      "template": "templates/contacts.json"
     },
     "contactpayments": {
       "parameters": {
@@ -19,11 +33,7 @@
       "template": "templates/contactpayments.json"
     },
     "contactpersons": {
-      "label": "contactpersons",
-      "parameters": {
-        "object_type_name": "contact_person_type"
-      },
-      "template": "templates/contacts.json"
+      "template": "templates/contactpersons.json"
     },
     "contacts": {
       "label": "contacts",
@@ -31,6 +41,14 @@
         "object_type_name": "contact_type"
       },
       "template": "templates/contacts.json"
+    },
+    "countries": {
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
+    },
+    "currencies": {
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
     },
     "otherpayments": {
       "parameters": {
@@ -69,11 +87,7 @@
       "template": "templates/contactpayments.json"
     },
     "salesinvoices": {
-      "parameters": {
-        "endpoint": "sales_invoices",
-        "payload_name": "sales_invoice"
-      },
-      "template": "templates/contactpayments.json"
+      "template": "templates/salesinvoices.json"
     },
     "salesquotes": {
       "parameters": {

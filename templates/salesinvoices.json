@@ -1,0 +1,194 @@
+[
+  {
+    "_id": "{{@ system @}}-salesInvoices-all",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "salesInvoices-list",
+      "supports_since": true,
+      "system": "{{@ system @}}",
+      "type": "rest"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-salesInvoices-collect",
+    "exclude_completeness": [
+      "{{@ system @}}-salesInvoices-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-salesInvoices-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "primary_key": "id",
+          "share_dataset": "{{@ system @}}-salesInvoices-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      },
+      {
+        "rules": {
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$last-modified",
+              [
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
+                "_S.updated_at"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-salesInvoices-share",
+    "add_namespaces": false,
+    "batch_size": 1,
+    "compaction": {
+      "keep_versions": 100
+    },
+    "exclude_completeness": [
+      "{{@ system @}}-salesInvoices-share"
+    ],
+    "namespaced_identifiers": false,
+    "sink": {
+      "deletion_tracking": false,
+      "set_initial_offset": "onload"
+    },
+    "source": {
+      "dataset": "{{@ system @}}-salesInvoices-transform",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "rules": {
+          "change_based_on": [
+            [
+              "copy",
+              "*",
+              "contact"
+            ]
+          ],
+          "default": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "$based_on_properties",
+                "contact",
+                "$based_on"
+              ]
+            ],
+            [
+              "add",
+              "$based_on",
+              [
+                "apply",
+                "change_based_on",
+                "_S.$based_on"
+              ]
+            ],
+            [
+              "add",
+              "$based_on_properties",
+              [
+                "map",
+                "_.",
+                [
+                  "filter",
+                  [
+                    "neq",
+                    "contact",
+                    "_."
+                  ],
+                  "_S.$based_on_properties"
+                ]
+              ]
+            ],
+            [
+              "add",
+              "contact_id",
+              "_S.contact.id"
+            ],
+            [
+              "add",
+              "$payload",
+              [
+                "dict",
+                "sales_invoice",
+                [
+                  "apply",
+                  "filter_properties",
+                  "_T."
+                ]
+              ]
+            ]
+          ],
+          "filter_properties": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "_*",
+                "$*"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      },
+      {
+        "properties": {
+          "operation_delete": "salesInvoices-delete",
+          "operation_insert": "salesInvoices-insert",
+          "operation_lookup": "salesInvoices-lookup",
+          "operation_update": "salesInvoices-update",
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "rewrite_rules_payload": {
+            "remove-id": [
+              [
+                "copy",
+                "*",
+                "id"
+              ]
+            ],
+            "rewrite_update_payload": [
+              [
+                "add",
+                "$payload",
+                [
+                  "dict",
+                  "sales_invoice",
+                  [
+                    "apply",
+                    "remove-id",
+                    "_S.$source.$payload.sales_invoice"
+                  ]
+                ]
+              ]
+            ]
+          },
+          "share_dataset": "{{@ system @}}-salesInvoices-share"
+        },
+        "template": "transform-share-rest",
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  }
+]

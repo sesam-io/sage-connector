@@ -1,0 +1,169 @@
+[
+  {
+    "_id": "{{@ system @}}-contactPersons-all",
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "contactPersons-list",
+      "supports_since": true,
+      "system": "{{@ system @}}",
+      "type": "rest"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-contactPersons-collect",
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
+    "exclude_completeness": [
+      "{{@ system @}}-contactPersons-share"
+    ],
+    "namespaced_identifiers": false,
+    "source": {
+      "dataset": "{{@ system @}}-contactPersons-all",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "properties": {
+          "primary_key": "id",
+          "share_dataset": "{{@ system @}}-contactPersons-share"
+        },
+        "template": "transform-collect-rest",
+        "type": "template"
+      },
+      {
+        "rules": {
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$last-modified",
+              [
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
+                "_S.updated_at"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      }
+    ],
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-contactPersons-share",
+    "add_namespaces": false,
+    "batch_size": 1,
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
+    "compaction": {
+      "keep_versions": 100
+    },
+    "exclude_completeness": [
+      "{{@ system @}}-contactPersons-share"
+    ],
+    "namespaced_identifiers": false,
+    "sink": {
+      "deletion_tracking": false,
+      "set_initial_offset": "onload"
+    },
+    "source": {
+      "dataset": "{{@ system @}}-contactPersons-transform",
+      "type": "dataset"
+    },
+    "transform": [
+      {
+        "rules": {
+          "change_based_on": [
+            [
+              "copy",
+              "*",
+              "contact_person_types"
+            ]
+          ],
+          "default": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "$based_on_properties",
+                "contact_person_types",
+                "$based_on"
+              ]
+            ],
+            [
+              "add",
+              "$based_on",
+              [
+                "apply",
+                "change_based_on",
+                "_S.$based_on"
+              ]
+            ],
+            [
+              "add",
+              "$based_on_properties",
+              [
+                "map",
+                "_.",
+                [
+                  "filter",
+                  [
+                    "neq",
+                    "contact_person_types",
+                    "_."
+                  ],
+                  "_S.$based_on_properties"
+                ]
+              ]
+            ],
+            [
+              "add",
+              "contact_person_type_ids",
+              "_S.contact_person_types.id"
+            ],
+            [
+              "add",
+              "$payload",
+              [
+                "apply",
+                "filter_properties",
+                "_T."
+              ]
+            ]
+          ],
+          "filter_properties": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "_*",
+                "$*"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
+      },
+      {
+        "properties": {
+          "operation_delete": "contactPersons-delete",
+          "operation_insert": "contactPersons-insert",
+          "operation_lookup": "contactPersons-lookup",
+          "operation_update": "contactPersons-update",
+          "primary_key": "id",
+          "rest_system": "{{@ system @}}",
+          "share_dataset": "{{@ system @}}-contactPersons-share"
+        },
+        "template": "transform-share-rest",
+        "type": "template"
+      }
+    ],
+    "type": "pipe"
+  }
+]

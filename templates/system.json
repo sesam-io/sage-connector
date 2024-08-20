@@ -12,6 +12,17 @@
     "token_url": "{{@ token_url @}}"
   },
   "operations": {
+    "addressRegions-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/address_regions?attributes=all&items_per_page={{ page_size }}"
+    },
     "addresses-delete": {
       "method": "DELETE",
       "url": "addresses/{{ entity.id }}"
@@ -41,15 +52,15 @@
       "method": "PUT",
       "url": "/addresses/{{ entity.id }}"
     },
-    "contactpersons-delete": {
+    "contactPersons-delete": {
       "method": "DELETE",
       "url": "contact_persons/{{ entity.id }}"
     },
-    "contactpersons-insert": {
+    "contactPersons-insert": {
       "method": "POST",
       "url": "/contact_persons"
     },
-    "contactpersons-list": {
+    "contactPersons-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{ body['$next'] }}",
@@ -62,11 +73,11 @@
       "updated_expression": "{{ updated_at }}",
       "url": "/contact_persons?attributes=all&items_per_page={{ page_size }}"
     },
-    "contactpersons-lookup": {
+    "contactPersons-lookup": {
       "method": "GET",
       "url": "/contact_persons/{{ entity.id }}"
     },
-    "contactpersons-update": {
+    "contactPersons-update": {
       "method": "PUT",
       "url": "/contact_persons/{{ entity.id }}"
     },
@@ -99,6 +110,28 @@
       "method": "PUT",
       "url": "/contacts/{{ entity.id }}"
     },
+    "countries-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/countries?attributes=all&items_per_page={{ page_size }}"
+    },
+    "currencies-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/currencies?attributes=all&items_per_page={{ page_size }}"
+    },
     "list": {
       "id_expression": "{{ id }}",
       "method": "GET",
@@ -108,6 +141,35 @@
     "lookup": {
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
+    },
+    "salesInvoices-delete": {
+      "method": "DELETE",
+      "url": "sales_invoices/{{ entity.id }}"
+    },
+    "salesInvoices-insert": {
+      "method": "POST",
+      "url": "/sales_invoices"
+    },
+    "salesInvoices-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "since_property_name": "updated_or_created_since",
+      "updated_expression": "{{ updated_at }}",
+      "url": "/sales_invoices?attributes=all&items_per_page={{ page_size }}"
+    },
+    "salesInvoices-lookup": {
+      "method": "GET",
+      "url": "/sales_invoices/{{ entity.id }}"
+    },
+    "salesInvoices-update": {
+      "method": "PUT",
+      "url": "/sales_invoices/{{ entity.id }}"
     }
   },
   "type": "system:rest",
