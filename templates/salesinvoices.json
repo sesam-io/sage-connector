@@ -1,9 +1,9 @@
 [
   {
-    "_id": "{{@ system @}}-salesInvoices-all",
+    "_id": "{{@ system @}}-{{@ datatype @}}-all",
     "namespaced_identifiers": false,
     "source": {
-      "operation": "salesInvoices-list",
+      "operation": "{{@ datatype @}}-list",
       "supports_since": true,
       "system": "{{@ system @}}",
       "type": "rest"
@@ -11,20 +11,20 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-salesInvoices-collect",
+    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
     "exclude_completeness": [
-      "{{@ system @}}-salesInvoices-share"
+      "{{@ system @}}-{{@ datatype @}}-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-salesInvoices-all",
+      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
       "type": "dataset"
     },
     "transform": [
       {
         "properties": {
           "primary_key": "id",
-          "share_dataset": "{{@ system @}}-salesInvoices-share"
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
@@ -53,14 +53,14 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-salesInvoices-share",
+    "_id": "{{@ system @}}-{{@ datatype @}}-share",
     "add_namespaces": false,
     "batch_size": 1,
     "compaction": {
       "keep_versions": 100
     },
     "exclude_completeness": [
-      "{{@ system @}}-salesInvoices-share"
+      "{{@ system @}}-{{@ datatype @}}-share"
     ],
     "namespaced_identifiers": false,
     "sink": {
@@ -68,7 +68,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-salesInvoices-transform",
+      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
       "type": "dataset"
     },
     "transform": [
@@ -128,7 +128,7 @@
               "$payload",
               [
                 "dict",
-                "sales_invoice",
+                "{{@ payload_object @}}",
                 [
                   "apply",
                   "filter_properties",
@@ -153,10 +153,10 @@
       },
       {
         "properties": {
-          "operation_delete": "salesInvoices-delete",
-          "operation_insert": "salesInvoices-insert",
-          "operation_lookup": "salesInvoices-lookup",
-          "operation_update": "salesInvoices-update",
+          "operation_delete": "{{@ datatype @}}-delete",
+          "operation_insert": "{{@ datatype @}}-insert",
+          "operation_lookup": "{{@ datatype @}}-lookup",
+          "operation_update": "{{@ datatype @}}-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
           "rewrite_rules_payload": {
@@ -173,17 +173,17 @@
                 "$payload",
                 [
                   "dict",
-                  "sales_invoice",
+                  "{{@ payload_object @}}",
                   [
                     "apply",
                     "remove-id",
-                    "_S.$source.$payload.sales_invoice"
+                    "_S.$source.$payload.{{@ payload_object @}}"
                   ]
                 ]
               ]
             ]
           },
-          "share_dataset": "{{@ system @}}-salesInvoices-share"
+          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",
         "type": "template"

@@ -1,10 +1,10 @@
 [
   {
-    "_id": "{{@ system @}}-contactPersons-all",
+    "_id": "{{@ system @}}-contactpersons-all",
     "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "namespaced_identifiers": false,
     "source": {
-      "operation": "contactPersons-list",
+      "operation": "contactpersons-list",
       "supports_since": true,
       "system": "{{@ system @}}",
       "type": "rest"
@@ -12,21 +12,21 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-contactPersons-collect",
+    "_id": "{{@ system @}}-contactpersons-collect",
     "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "exclude_completeness": [
-      "{{@ system @}}-contactPersons-share"
+      "{{@ system @}}-contactpersons-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-contactPersons-all",
+      "dataset": "{{@ system @}}-contactpersons-all",
       "type": "dataset"
     },
     "transform": [
       {
         "properties": {
           "primary_key": "id",
-          "share_dataset": "{{@ system @}}-contactPersons-share"
+          "share_dataset": "{{@ system @}}-contactpersons-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
@@ -55,7 +55,7 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-contactPersons-share",
+    "_id": "{{@ system @}}-contactpersons-share",
     "add_namespaces": false,
     "batch_size": 1,
     "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
@@ -63,7 +63,7 @@
       "keep_versions": 100
     },
     "exclude_completeness": [
-      "{{@ system @}}-contactPersons-share"
+      "{{@ system @}}-contactpersons-share"
     ],
     "namespaced_identifiers": false,
     "sink": {
@@ -71,7 +71,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-contactPersons-transform",
+      "dataset": "{{@ system @}}-contactpersons-transform",
       "type": "dataset"
     },
     "transform": [
@@ -152,13 +152,13 @@
       },
       {
         "properties": {
-          "operation_delete": "contactPersons-delete",
-          "operation_insert": "contactPersons-insert",
-          "operation_lookup": "contactPersons-lookup",
-          "operation_update": "contactPersons-update",
+          "operation_delete": "contactpersons-delete",
+          "operation_insert": "contactpersons-insert",
+          "operation_lookup": "contactpersons-lookup",
+          "operation_update": "contactpersons-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-contactPersons-share"
+          "share_dataset": "{{@ system @}}-contactpersons-share"
         },
         "template": "transform-share-rest",
         "type": "template"

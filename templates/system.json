@@ -52,15 +52,15 @@
       "method": "PUT",
       "url": "/addresses/{{ entity.id }}"
     },
-    "contactPersons-delete": {
+    "contactpersons-delete": {
       "method": "DELETE",
       "url": "contact_persons/{{ entity.id }}"
     },
-    "contactPersons-insert": {
+    "contactpersons-insert": {
       "method": "POST",
       "url": "/contact_persons"
     },
-    "contactPersons-list": {
+    "contactpersons-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{ body['$next'] }}",
@@ -73,11 +73,11 @@
       "updated_expression": "{{ updated_at }}",
       "url": "/contact_persons?attributes=all&items_per_page={{ page_size }}"
     },
-    "contactPersons-lookup": {
+    "contactpersons-lookup": {
       "method": "GET",
       "url": "/contact_persons/{{ entity.id }}"
     },
-    "contactPersons-update": {
+    "contactpersons-update": {
       "method": "PUT",
       "url": "/contact_persons/{{ entity.id }}"
     },
@@ -142,15 +142,15 @@
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
     },
-    "salesInvoices-delete": {
+    "salesinvoices-delete": {
       "method": "DELETE",
       "url": "sales_invoices/{{ entity.id }}"
     },
-    "salesInvoices-insert": {
+    "salesinvoices-insert": {
       "method": "POST",
       "url": "/sales_invoices"
     },
-    "salesInvoices-list": {
+    "salesinvoices-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
       "next_page_link": "{{ body['$next'] }}",
@@ -163,11 +163,11 @@
       "updated_expression": "{{ updated_at }}",
       "url": "/sales_invoices?attributes=all&items_per_page={{ page_size }}"
     },
-    "salesInvoices-lookup": {
+    "salesinvoices-lookup": {
       "method": "GET",
       "url": "/sales_invoices/{{ entity.id }}"
     },
-    "salesInvoices-update": {
+    "salesinvoices-update": {
       "method": "PUT",
       "url": "/sales_invoices/{{ entity.id }}"
     }

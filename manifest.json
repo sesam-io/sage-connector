@@ -4,10 +4,6 @@
   },
   "auth": "oauth2",
   "datatypes": {
-    "addressRegions": {
-      "sync_frequency": "weekly",
-      "template": "templates/countries.json"
-    },
     "addresses": {
       "label": "addresses",
       "parameters": {
@@ -16,24 +12,16 @@
       "template": "templates/addresses.json"
     },
     "addressregions": {
-      "template": "templates/addressregions.json"
+      "label": "addressRegions",
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
     },
-    "contactPersons": {
-      "label": "contactPersons",
+    "contactpersons": {
+      "label": "contactpersons",
       "parameters": {
         "object_type_name": "contact_person_type"
       },
       "template": "templates/contacts.json"
-    },
-    "contactpayments": {
-      "parameters": {
-        "endpoint": "contact_payments",
-        "payload_name": "contact_payment"
-      },
-      "template": "templates/contactpayments.json"
-    },
-    "contactpersons": {
-      "template": "templates/contactpersons.json"
     },
     "contacts": {
       "label": "contacts",
@@ -50,57 +38,25 @@
       "sync_frequency": "weekly",
       "template": "templates/countries.json"
     },
-    "otherpayments": {
-      "parameters": {
-        "endpoint": "contact_payments",
-        "payload_name": "other_payment"
-      },
-      "template": "templates/contactpayments.json"
-    },
-    "paymentmethods": {
-      "parameters": {
-        "endpoint": "payment_methods"
-      },
-      "template": "templates/paymentmethods.json"
-    },
     "products": {
       "parameters": {
         "payload_name": "product"
       },
       "template": "templates/products.json"
     },
-    "purchaseinvoices": {
-      "template": "templates/purchaseinvoices.json"
-    },
-    "salescreditnotes": {
-      "parameters": {
-        "endpoint": "sales_credit_notes",
-        "payload_name": "sales_credit_note"
-      },
-      "template": "templates/contactpayments.json"
-    },
-    "salesestimates": {
-      "parameters": {
-        "endpoint": "sales_estimates",
-        "payload_name": "sales_estimate"
-      },
-      "template": "templates/contactpayments.json"
-    },
     "salesinvoices": {
+      "label": "salesinvoices",
+      "parameters": {
+        "payload_object": "sales_invoice"
+      },
       "template": "templates/salesinvoices.json"
     },
     "salesquotes": {
+      "label": "salesquotes",
       "parameters": {
-        "endpoint": "sales_quotes",
-        "payload_name": "sales_quote"
+        "payload_object": "sales_quote"
       },
-      "template": "templates/contactpayments.json"
-    },
-    "services": {
-      "parameters": {
-        "payload_name": "service"
-      },
-      "template": "templates/services.json"
+      "template": "templates/salesinvoices.json"
     }
   },
   "oauth2": {
