@@ -228,6 +228,35 @@
       "method": "PUT",
       "url": "/sales_invoices/{{ entity.id }}"
     },
+    "services-delete": {
+      "method": "DELETE",
+      "url": "services/{{ entity.id }}"
+    },
+    "services-insert": {
+      "method": "POST",
+      "url": "/services"
+    },
+    "services-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "since_property_name": "updated_or_created_since",
+      "updated_expression": "{{ updated_at }}",
+      "url": "/services?attributes=all&items_per_page={{ page_size }}"
+    },
+    "services-lookup": {
+      "method": "GET",
+      "url": "/services/{{ entity.id }}"
+    },
+    "services-update": {
+      "method": "PUT",
+      "url": "/services/{{ entity.id }}"
+    },
     "taxrates-list": {
       "id_expression": "{{ id }}",
       "method": "GET",
