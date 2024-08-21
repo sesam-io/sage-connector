@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "{{@ system @}}-addressRegions-all",
+    "comment": "WARNING! This pipe is generated from the template of the 'countries' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
+    "namespaced_identifiers": false,
+    "source": {
+      "operation": "addressRegions-list",
+      "system": "{{@ system @}}",
+      "type": "rest"
+    },
+    "type": "pipe"
+  },
+  {
+    "_id": "{{@ system @}}-addressRegions-collect",
+    "comment": "WARNING! This pipe is generated from the template of the 'countries' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
+    "source": {
+      "dataset": "{{@ system @}}-addressRegions-all",
+      "type": "dataset"
+    },
+    "type": "pipe"
+  }
+]

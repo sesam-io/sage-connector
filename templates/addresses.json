@@ -78,7 +78,7 @@
             [
               "copy",
               "*",
-              "{{@ object_type_name @}}s"
+              "{{@ object_type_name @}}"
             ]
           ],
           "default": [
@@ -88,7 +88,7 @@
               [
                 "list",
                 "$based_on_properties",
-                "{{@ object_type_name @}}s",
+                "{{@ object_type_name @}}",
                 "$based_on"
               ]
             ],
@@ -111,7 +111,7 @@
                   "filter",
                   [
                     "neq",
-                    "{{@ object_type_name @}}s",
+                    "{{@ object_type_name @}}",
                     "_."
                   ],
                   "_S.$based_on_properties"
@@ -120,8 +120,8 @@
             ],
             [
               "add",
-              "{{@ object_type_name @}}_ids",
-              "_S.{{@ object_type_name @}}s.id"
+              "{{@ object_type_name @}}_id",
+              "_S.{{@ object_type_name @}}.id"
             ],
             [
               "add",

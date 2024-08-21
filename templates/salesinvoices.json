@@ -78,7 +78,7 @@
             [
               "copy",
               "*",
-              "{{@ object_type_name @}}s"
+              "contact"
             ]
           ],
           "default": [
@@ -88,7 +88,7 @@
               [
                 "list",
                 "$based_on_properties",
-                "{{@ object_type_name @}}s",
+                "contact",
                 "$based_on"
               ]
             ],
@@ -111,7 +111,7 @@
                   "filter",
                   [
                     "neq",
-                    "{{@ object_type_name @}}s",
+                    "contact",
                     "_."
                   ],
                   "_S.$based_on_properties"
@@ -120,16 +120,20 @@
             ],
             [
               "add",
-              "{{@ object_type_name @}}_ids",
-              "_S.{{@ object_type_name @}}s.id"
+              "contact_id",
+              "_S.contact.id"
             ],
             [
               "add",
               "$payload",
               [
-                "apply",
-                "filter_properties",
-                "_T."
+                "dict",
+                "{{@ payload_object @}}",
+                [
+                  "apply",
+                  "filter_properties",
+                  "_T."
+                ]
               ]
             ]
           ],
@@ -155,6 +159,30 @@
           "operation_update": "{{@ datatype @}}-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
+          "rewrite_rules_payload": {
+            "remove-id": [
+              [
+                "copy",
+                "*",
+                "id"
+              ]
+            ],
+            "rewrite_update_payload": [
+              [
+                "add",
+                "$payload",
+                [
+                  "dict",
+                  "{{@ payload_object @}}",
+                  [
+                    "apply",
+                    "remove-id",
+                    "_S.$source.$payload.{{@ payload_object @}}"
+                  ]
+                ]
+              ]
+            ]
+          },
           "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
         },
         "template": "transform-share-rest",

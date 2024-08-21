@@ -1,11 +1,11 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "_id": "{{@ system @}}-{{@ payload_name @}}s-all",
     "namespaced_identifiers": false,
     "source": {
       "operation": "list",
       "properties": {
-        "endpoint": "{{@ datatype @}}"
+        "endpoint": "{{@ payload_name @}}s"
       },
       "system": "{{@ system @}}",
       "type": "rest"
@@ -13,13 +13,13 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-{{@ payload_name @}}s-collect",
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-{{@ payload_name @}}s-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "dataset": "{{@ system @}}-{{@ payload_name @}}s-all",
       "type": "dataset"
     },
     "transform": [
@@ -27,11 +27,11 @@
         "properties": {
           "operation_lookup": "lookup",
           "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ payload_name @}}s"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-{{@ payload_name @}}s-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
@@ -40,14 +40,14 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-share",
+    "_id": "{{@ system @}}-{{@ payload_name @}}s-share",
     "add_namespaces": false,
     "batch_size": 1,
     "compaction": {
       "keep_versions": 100
     },
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-{{@ payload_name @}}s-share"
     ],
     "namespaced_identifiers": false,
     "sink": {
@@ -55,7 +55,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
+      "dataset": "{{@ system @}}-{{@ payload_name @}}s-transform",
       "type": "dataset"
     },
     "transform": [
@@ -108,20 +108,20 @@
         "properties": {
           "client_side_patching": true,
           "operation_delete_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ payload_name @}}s"
           },
           "operation_insert_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ payload_name @}}s"
           },
           "operation_lookup_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ payload_name @}}s"
           },
           "operation_update_properties": {
-            "endpoint": "{{@ datatype @}}"
+            "endpoint": "{{@ payload_name @}}s"
           },
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-{{@ payload_name @}}s-share"
         },
         "template": "transform-share-rest",
         "type": "template"

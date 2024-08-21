@@ -1,0 +1,11 @@
+{
+  "_id": "{{@ system @}}-{{@ datatype @}}-all",
+  "namespaced_identifiers": false,
+  "source": {
+    "operation": "{{@ datatype @}}s-list",
+    "supports_since": true,
+    "system": "{{@ system @}}",
+    "type": "rest"
+  },
+  "type": "pipe"
+}

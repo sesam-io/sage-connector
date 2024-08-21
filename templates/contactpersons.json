@@ -1,9 +1,10 @@
 [
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-all",
+    "_id": "{{@ system @}}-contactpersons-all",
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "namespaced_identifiers": false,
     "source": {
-      "operation": "{{@ datatype @}}-list",
+      "operation": "contactpersons-list",
       "supports_since": true,
       "system": "{{@ system @}}",
       "type": "rest"
@@ -11,20 +12,21 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-collect",
+    "_id": "{{@ system @}}-contactpersons-collect",
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-contactpersons-share"
     ],
     "namespaced_identifiers": false,
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-all",
+      "dataset": "{{@ system @}}-contactpersons-all",
       "type": "dataset"
     },
     "transform": [
       {
         "properties": {
           "primary_key": "id",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-contactpersons-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
@@ -53,14 +55,15 @@
     "type": "pipe"
   },
   {
-    "_id": "{{@ system @}}-{{@ datatype @}}-share",
+    "_id": "{{@ system @}}-contactpersons-share",
     "add_namespaces": false,
     "batch_size": 1,
+    "comment": "WARNING! This pipe is generated from the template of the 'contacts' datatype and changes will be silently ignored during collapse. For more information see the connectorpy README.",
     "compaction": {
       "keep_versions": 100
     },
     "exclude_completeness": [
-      "{{@ system @}}-{{@ datatype @}}-share"
+      "{{@ system @}}-contactpersons-share"
     ],
     "namespaced_identifiers": false,
     "sink": {
@@ -68,7 +71,7 @@
       "set_initial_offset": "onload"
     },
     "source": {
-      "dataset": "{{@ system @}}-{{@ datatype @}}-transform",
+      "dataset": "{{@ system @}}-contactpersons-transform",
       "type": "dataset"
     },
     "transform": [
@@ -78,7 +81,7 @@
             [
               "copy",
               "*",
-              "{{@ object_type_name @}}s"
+              "contact_person_types"
             ]
           ],
           "default": [
@@ -88,7 +91,7 @@
               [
                 "list",
                 "$based_on_properties",
-                "{{@ object_type_name @}}s",
+                "contact_person_types",
                 "$based_on"
               ]
             ],
@@ -111,7 +114,7 @@
                   "filter",
                   [
                     "neq",
-                    "{{@ object_type_name @}}s",
+                    "contact_person_types",
                     "_."
                   ],
                   "_S.$based_on_properties"
@@ -120,8 +123,8 @@
             ],
             [
               "add",
-              "{{@ object_type_name @}}_ids",
-              "_S.{{@ object_type_name @}}s.id"
+              "contact_person_type_ids",
+              "_S.contact_person_types.id"
             ],
             [
               "add",
@@ -149,13 +152,13 @@
       },
       {
         "properties": {
-          "operation_delete": "{{@ datatype @}}-delete",
-          "operation_insert": "{{@ datatype @}}-insert",
-          "operation_lookup": "{{@ datatype @}}-lookup",
-          "operation_update": "{{@ datatype @}}-update",
+          "operation_delete": "contactpersons-delete",
+          "operation_insert": "contactpersons-insert",
+          "operation_lookup": "contactpersons-lookup",
+          "operation_update": "contactpersons-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
-          "share_dataset": "{{@ system @}}-{{@ datatype @}}-share"
+          "share_dataset": "{{@ system @}}-contactpersons-share"
         },
         "template": "transform-share-rest",
         "type": "template"
