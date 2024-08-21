@@ -52,6 +52,12 @@
       "method": "PUT",
       "url": "/addresses/{{ entity.id }}"
     },
+    "businesses-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "payload_property": "$items",
+      "url": "/businesses"
+    },
     "contactpersons-delete": {
       "method": "DELETE",
       "url": "contact_persons/{{ entity.id }}"
@@ -81,6 +87,17 @@
       "method": "PUT",
       "url": "/contact_persons/{{ entity.id }}"
     },
+    "contactpersontypes-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/contact_person_types?attributes=all&items_per_page={{ page_size }}"
+    },
     "contacts-delete": {
       "method": "DELETE",
       "url": "contacts/{{ entity.id }}"
@@ -109,6 +126,17 @@
     "contacts-update": {
       "method": "PUT",
       "url": "/contacts/{{ entity.id }}"
+    },
+    "contacttypes-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/contact_types?attributes=all&items_per_page={{ page_size }}"
     },
     "countries-list": {
       "id_expression": "{{ id }}",
@@ -141,6 +169,35 @@
     "lookup": {
       "method": "GET",
       "url": "{{ properties.endpoint }}/{{ entity.id }}"
+    },
+    "products-delete": {
+      "method": "DELETE",
+      "url": "products/{{ entity.id }}"
+    },
+    "products-insert": {
+      "method": "POST",
+      "url": "/products"
+    },
+    "products-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "since_property_name": "updated_or_created_since",
+      "updated_expression": "{{ updated_at }}",
+      "url": "/products?attributes=all&items_per_page={{ page_size }}"
+    },
+    "products-lookup": {
+      "method": "GET",
+      "url": "/products/{{ entity.id }}"
+    },
+    "products-update": {
+      "method": "PUT",
+      "url": "/products/{{ entity.id }}"
     },
     "salesinvoices-delete": {
       "method": "DELETE",
@@ -181,6 +238,11 @@
       "page_size": 100,
       "payload_property": "$items",
       "url": "/tax_rates?attributes=all&items_per_page={{ page_size }}"
+    },
+    "users-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "url": "/user"
     }
   },
   "type": "system:rest",

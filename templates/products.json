@@ -3,10 +3,8 @@
     "_id": "{{@ system @}}-{{@ payload_name @}}s-all",
     "namespaced_identifiers": false,
     "source": {
-      "operation": "list",
-      "properties": {
-        "endpoint": "{{@ payload_name @}}s"
-      },
+      "operation": "{{@ payload_name @}}s-list",
+      "supports_since": true,
       "system": "{{@ system @}}",
       "type": "rest"
     },
@@ -25,16 +23,31 @@
     "transform": [
       {
         "properties": {
-          "operation_lookup": "lookup",
-          "operation_lookup_properties": {
-            "endpoint": "{{@ payload_name @}}s"
-          },
           "primary_key": "id",
-          "rest_system": "{{@ system @}}",
           "share_dataset": "{{@ system @}}-{{@ payload_name @}}s-share"
         },
         "template": "transform-collect-rest",
         "type": "template"
+      },
+      {
+        "rules": {
+          "default": [
+            [
+              "copy",
+              "*"
+            ],
+            [
+              "add",
+              "$last-modified",
+              [
+                "datetime-parse",
+                "%Y-%m-%dT%H:%M:%SZ",
+                "_S.updated_at"
+              ]
+            ]
+          ]
+        },
+        "type": "dtl"
       }
     ],
     "type": "pipe"
@@ -61,14 +74,27 @@
     "transform": [
       {
         "rules": {
-          "create-payload": [
+          "change_based_on": [
             [
               "copy",
               "*",
               [
                 "list",
-                "_*",
-                "$*"
+                "purchase_ledger_account",
+                "sales_ledger_account"
+              ]
+            ]
+          ],
+          "default": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "$based_on_properties",
+                "$based_on",
+                "sales_ledger_account",
+                "purchase_ledger_account"
               ]
             ],
             [
@@ -80,12 +106,6 @@
               "add",
               "purchase_ledger_account_id",
               "_S.purchase_ledger_account.id"
-            ]
-          ],
-          "default": [
-            [
-              "copy",
-              "*"
             ],
             [
               "add",
@@ -95,9 +115,54 @@
                 "{{@ payload_name @}}",
                 [
                   "apply",
-                  "create-payload",
-                  "_S."
+                  "filter_properties",
+                  "_T."
                 ]
+              ]
+            ],
+            [
+              "add",
+              "$based_on",
+              [
+                "apply",
+                "change_based_on",
+                "_S.$based_on"
+              ]
+            ],
+            [
+              "add",
+              "$based_on_properties",
+              [
+                "map",
+                "_.",
+                [
+                  "filter",
+                  [
+                    "and",
+                    [
+                      "neq",
+                      "sales_ledger_account.id",
+                      "_."
+                    ],
+                    [
+                      "neq",
+                      "purchase_ledger_account.id",
+                      "_."
+                    ]
+                  ],
+                  "_S.$based_on_properties"
+                ]
+              ]
+            ]
+          ],
+          "filter_properties": [
+            [
+              "copy",
+              "*",
+              [
+                "list",
+                "_*",
+                "$*"
               ]
             ]
           ]
@@ -106,19 +171,10 @@
       },
       {
         "properties": {
-          "client_side_patching": true,
-          "operation_delete_properties": {
-            "endpoint": "{{@ payload_name @}}s"
-          },
-          "operation_insert_properties": {
-            "endpoint": "{{@ payload_name @}}s"
-          },
-          "operation_lookup_properties": {
-            "endpoint": "{{@ payload_name @}}s"
-          },
-          "operation_update_properties": {
-            "endpoint": "{{@ payload_name @}}s"
-          },
+          "operation_delete": "{{@ payload_name @}}s-delete",
+          "operation_insert": "{{@ payload_name @}}s-insert",
+          "operation_lookup": "{{@ payload_name @}}s-lookup",
+          "operation_update": "{{@ payload_name @}}s-update",
           "primary_key": "id",
           "rest_system": "{{@ system @}}",
           "share_dataset": "{{@ system @}}-{{@ payload_name @}}s-share"
