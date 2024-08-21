@@ -170,6 +170,17 @@
     "salesinvoices-update": {
       "method": "PUT",
       "url": "/sales_invoices/{{ entity.id }}"
+    },
+    "taxrates-list": {
+      "id_expression": "{{ id }}",
+      "method": "GET",
+      "next_page_link": "{{ body['$next'] }}",
+      "next_page_termination_strategy": [
+        "next-page-link-empty"
+      ],
+      "page_size": 100,
+      "payload_property": "$items",
+      "url": "/tax_rates?attributes=all&items_per_page={{ page_size }}"
     }
   },
   "type": "system:rest",

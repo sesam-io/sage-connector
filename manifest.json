@@ -57,6 +57,9 @@
         "payload_object": "sales_quote"
       },
       "template": "templates/salesinvoices.json"
+    },
+    "taxrates": {
+      "template": "templates/taxrates.json"
     }
   },
   "oauth2": {
