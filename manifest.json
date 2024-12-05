@@ -16,6 +16,9 @@
       "sync_frequency": "weekly",
       "template": "templates/countries.json"
     },
+    "businesses": {
+      "template": "templates/countries.json"
+    },
     "contactpersons": {
       "label": "contactpersons",
       "parameters": {
@@ -23,12 +26,20 @@
       },
       "template": "templates/contacts.json"
     },
+    "contactpersontypes": {
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
+    },
     "contacts": {
       "label": "contacts",
       "parameters": {
         "object_type_name": "contact_type"
       },
       "template": "templates/contacts.json"
+    },
+    "contacttypes": {
+      "sync_frequency": "weekly",
+      "template": "templates/countries.json"
     },
     "countries": {
       "sync_frequency": "weekly",
@@ -57,6 +68,18 @@
         "payload_object": "sales_quote"
       },
       "template": "templates/salesinvoices.json"
+    },
+    "services": {
+      "parameters": {
+        "payload_name": "service"
+      },
+      "template": "templates/products.json"
+    },
+    "taxrates": {
+      "template": "templates/countries.json"
+    },
+    "users": {
+      "template": "templates/countries.json"
     }
   },
   "oauth2": {
